@@ -6,7 +6,6 @@
 package userData;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  *
@@ -20,9 +19,9 @@ public class Message implements Serializable, Comparable<Message> {
 	private String ticket;
 	private String author;
 	private String body;
-	private Date create;
+	private String create;
 
-	public Message(Integer id, String group, String ticket, String author, String body, Date create) {
+	public Message(Integer id, String body, String create,  String author, String ticket, String group) {
 		this.id = id;
 		this.group = group;
 		this.ticket = ticket;
@@ -44,6 +43,10 @@ public class Message implements Serializable, Comparable<Message> {
 
 	public String getGroup() {
 		return group;
+	}
+
+	public String getTicket() {
+		return ticket;
 	}
 	
 	

@@ -54,28 +54,33 @@ public class Server {
 	}
 	
 	void waitClient() {
-		Socket clientSocket;
-		Thread thread;
-
-		try {
-			// close first client, not a really client
-			clientSocket = serverSocket.accept();
-			clientSocket.close();
-
-			while (true) {
-				clientSocket = serverSocket.accept();
-
-				thread = new Thread(new ThreadServer(this, clientSocket));
-				System.out.println("[Server]" +tag +"new thread client : "+ clientSocket);
-				thread.start();
-				nbThread++;
+		Server server =this;
+		new Thread() {
+			@Override			
+			public void run() {
+				try {
+					Socket clientSocket;
+					Thread thread;
+					// close first client, not a really client
+					clientSocket = serverSocket.accept();
+					clientSocket.close();
+					
+					while (true) {
+						clientSocket = serverSocket.accept();
+						
+						thread = new Thread(new ThreadServer(server, clientSocket));
+						System.out.println("[Server]" +tag +"new thread client : "+ clientSocket);
+						thread.start();
+						nbThread++;
 //				thread.run();
+					}
+				} catch (IOException ex) {
+					System.out.print("[Server] "+ tag +"waitClient failed");
+					Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+					System.exit(1);
+				}
 			}
-		} catch (IOException ex) {
-			System.out.print("[Server] "+ tag +"waitClient failed");
-			Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
-			System.exit(1);
-		}
+		}.start();
 	}
 
 	public Bdd getBdd() {

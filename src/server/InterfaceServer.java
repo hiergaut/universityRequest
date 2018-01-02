@@ -57,6 +57,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 				serverConnect();
 			}
 		}.start();
+
 //
 //		try {
 //			Thread.sleep(1000);
@@ -127,14 +128,15 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 home = new javax.swing.JPanel();
                 home_menu = new javax.swing.JPanel();
+                menu_init = new javax.swing.JPanel();
                 jLabel14 = new javax.swing.JLabel();
+                init_bdd = new javax.swing.JButton();
+                init_server = new javax.swing.JButton();
                 jPanel11 = new javax.swing.JPanel();
-                jPanel15 = new javax.swing.JPanel();
-                menu_bdd = new javax.swing.JButton();
-                menu_server = new javax.swing.JButton();
-                jPanel1 = new javax.swing.JPanel();
-                jPanel10 = new javax.swing.JPanel();
-                menu_group = new javax.swing.JButton();
+                menu_service = new javax.swing.JPanel();
+                jLabel15 = new javax.swing.JLabel();
+                service_group = new javax.swing.JButton();
+                jPanel5 = new javax.swing.JPanel();
                 home_view = new javax.swing.JPanel();
                 view_bdd = new javax.swing.JPanel();
                 jLabel8 = new javax.swing.JLabel();
@@ -150,7 +152,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_user = new javax.swing.JTextField();
                 bdd_port = new javax.swing.JTextField();
                 bdd_ip = new javax.swing.JTextField();
-                jButton1 = new javax.swing.JButton();
+                bdd_connect = new javax.swing.JButton();
                 bdd_console = new javax.swing.JTextPane();
                 view_server = new javax.swing.JPanel();
                 jLabel3 = new javax.swing.JLabel();
@@ -162,8 +164,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_maxLog = new javax.swing.JTextField();
                 server_connect = new javax.swing.JButton();
                 server_console = new javax.swing.JTextPane();
-                view_welcome = new javax.swing.JPanel();
-                jLabel7 = new javax.swing.JLabel();
+                view_welcome = new javax.swing.JLabel();
                 view_group = new javax.swing.JPanel();
                 jScrollPane3 = new javax.swing.JScrollPane();
                 home_view_group_table = new javax.swing.JTable();
@@ -188,12 +189,30 @@ public class InterfaceServer extends javax.swing.JFrame {
                 home_menu.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
                 home_menu.setMinimumSize(new java.awt.Dimension(0, 0));
                 home_menu.setPreferredSize(new java.awt.Dimension(300, 900));
-                home_menu.setLayout(new java.awt.GridLayout(15, 1));
+                home_menu.setLayout(new java.awt.GridLayout(3, 1));
+
+                menu_init.setLayout(new java.awt.GridLayout(5, 1));
 
                 jLabel14.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
                 jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel14.setText("service");
-                home_menu.add(jLabel14);
+                jLabel14.setText("init");
+                menu_init.add(jLabel14);
+
+                init_bdd.setText("bdd");
+                init_bdd.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                init_bddActionPerformed(evt);
+                        }
+                });
+                menu_init.add(init_bdd);
+
+                init_server.setText(" server");
+                init_server.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                init_serverActionPerformed(evt);
+                        }
+                });
+                menu_init.add(init_server);
 
                 javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
                 jPanel11.setLayout(jPanel11Layout);
@@ -203,73 +222,43 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel11Layout.setVerticalGroup(
                         jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 35, Short.MAX_VALUE)
+                        .addGap(0, 59, Short.MAX_VALUE)
                 );
 
-                home_menu.add(jPanel11);
+                menu_init.add(jPanel11);
 
-                javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-                jPanel15.setLayout(jPanel15Layout);
-                jPanel15Layout.setHorizontalGroup(
-                        jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 294, Short.MAX_VALUE)
-                );
-                jPanel15Layout.setVerticalGroup(
-                        jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 35, Short.MAX_VALUE)
-                );
+                home_menu.add(menu_init);
 
-                home_menu.add(jPanel15);
+                menu_service.setLayout(new java.awt.GridLayout(5, 1));
 
-                menu_bdd.setText("bdd");
-                menu_bdd.addActionListener(new java.awt.event.ActionListener() {
+                jLabel15.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+                jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel15.setText("service");
+                menu_service.add(jLabel15);
+
+                service_group.setText("group");
+                service_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                menu_bddActionPerformed(evt);
+                                service_groupActionPerformed(evt);
                         }
                 });
-                home_menu.add(menu_bdd);
+                menu_service.add(service_group);
 
-                menu_server.setText(" server");
-                menu_server.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                menu_serverActionPerformed(evt);
-                        }
-                });
-                home_menu.add(menu_server);
-
-                javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-                jPanel1.setLayout(jPanel1Layout);
-                jPanel1Layout.setHorizontalGroup(
-                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+                jPanel5.setLayout(jPanel5Layout);
+                jPanel5Layout.setHorizontalGroup(
+                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGap(0, 294, Short.MAX_VALUE)
                 );
-                jPanel1Layout.setVerticalGroup(
-                        jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 35, Short.MAX_VALUE)
+                jPanel5Layout.setVerticalGroup(
+                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 59, Short.MAX_VALUE)
                 );
 
-                home_menu.add(jPanel1);
+                menu_service.add(jPanel5);
 
-                javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-                jPanel10.setLayout(jPanel10Layout);
-                jPanel10Layout.setHorizontalGroup(
-                        jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 294, Short.MAX_VALUE)
-                );
-                jPanel10Layout.setVerticalGroup(
-                        jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 35, Short.MAX_VALUE)
-                );
-
-                home_menu.add(jPanel10);
-
-                menu_group.setText("group");
-                menu_group.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                menu_groupActionPerformed(evt);
-                        }
-                });
-                home_menu.add(menu_group);
+                home_menu.add(menu_service);
+                menu_service.setVisible(false);
 
                 home.add(home_menu, java.awt.BorderLayout.WEST);
 
@@ -298,10 +287,10 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 jLabel17.setText("password");
 
-                jButton1.setText("connect");
-                jButton1.addActionListener(new java.awt.event.ActionListener() {
+                bdd_connect.setText("connect");
+                bdd_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton1ActionPerformed(evt);
+                                bdd_connectActionPerformed(evt);
                         }
                 });
 
@@ -330,8 +319,8 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addGap(45, 45, 45)
                                                 .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                                                .addComponent(jButton1)))
-                                .addContainerGap(445, Short.MAX_VALUE))
+                                                .addComponent(bdd_connect)))
+                                .addContainerGap(563, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +332,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addGap(18, 18, 18))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(jButton1)
+                                                .addComponent(bdd_connect)
                                                 .addGap(49, 49, 49)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel13)
@@ -443,10 +432,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel20)
                                         .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(376, Short.MAX_VALUE))
                 );
 
-                server_port.setText("5432");
+                server_port.setText("5000");
+                //server_port.setText("5432");
                 server_maxLog.setText("100");
 
                 view_server.add(jPanel2, java.awt.BorderLayout.LINE_START);
@@ -456,26 +446,9 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 home_view.add(view_server, "server");
 
-                jLabel7.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-                jLabel7.setText("welcome in user interface");
-
-                javax.swing.GroupLayout view_welcomeLayout = new javax.swing.GroupLayout(view_welcome);
-                view_welcome.setLayout(view_welcomeLayout);
-                view_welcomeLayout.setHorizontalGroup(
-                        view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(view_welcomeLayout.createSequentialGroup()
-                                .addGap(164, 164, 164)
-                                .addComponent(jLabel7)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
-                view_welcomeLayout.setVerticalGroup(
-                        view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(view_welcomeLayout.createSequentialGroup()
-                                .addGap(279, 279, 279)
-                                .addComponent(jLabel7)
-                                .addContainerGap(207, Short.MAX_VALUE))
-                );
-
+                view_welcome.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
+                view_welcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                view_welcome.setText("welcome in user interface");
                 home_view.add(view_welcome, "welcome");
 
                 home_view_group_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -520,17 +493,17 @@ public class InterfaceServer extends javax.swing.JFrame {
                         .addGroup(view_groupLayout.createSequentialGroup()
                                 .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(view_groupLayout.createSequentialGroup()
-                                                .addGap(197, 197, 197)
+                                                .addGap(135, 135, 135)
                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(view_groupLayout.createSequentialGroup()
-                                                                .addGap(72, 72, 72)
+                                                                .addGap(134, 134, 134)
                                                                 .addComponent(home_group_inputNewGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(view_groupLayout.createSequentialGroup()
-                                                                .addGap(130, 130, 130)
+                                                                .addGap(192, 192, 192)
                                                                 .addComponent(jButton2))))
                                         .addGroup(view_groupLayout.createSequentialGroup()
-                                                .addGap(310, 310, 310)
+                                                .addGap(249, 249, 249)
                                                 .addComponent(jButton3)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
@@ -539,16 +512,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                         .addGroup(view_groupLayout.createSequentialGroup()
                                 .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(view_groupLayout.createSequentialGroup()
-                                                .addGap(89, 89, 89)
+                                                .addGap(117, 117, 117)
                                                 .addComponent(jButton3)
-                                                .addGap(46, 46, 46)
+                                                .addGap(29, 29, 29)
                                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(view_groupLayout.createSequentialGroup()
                                                 .addGap(258, 258, 258)
                                                 .addComponent(jButton2)
                                                 .addGap(40, 40, 40)
                                                 .addComponent(home_group_inputNewGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(307, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_group, "group");
@@ -576,7 +549,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel6))
-                                .addContainerGap(309, Short.MAX_VALUE))
+                                .addContainerGap(427, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -591,7 +564,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(234, Short.MAX_VALUE))
+                                .addContainerGap(591, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_about, "about");
@@ -612,12 +585,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
-        private void menu_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_groupActionPerformed
+        private void service_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_groupActionPerformed
                 // TODO add your handling code here:
-		view_group.setVisible(true);
-		view_welcome.setVisible(false);
+//		view_group.setVisible(true);
+//		view_welcome.setVisible(false);
+		show("group");
 		majGroupTable();
-        }//GEN-LAST:event_menu_groupActionPerformed
+        }//GEN-LAST:event_service_groupActionPerformed
 
         private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 		bdd.addGroup(home_group_inputNewGroup.getText());
@@ -630,21 +604,21 @@ public class InterfaceServer extends javax.swing.JFrame {
 		majGroupTable();
         }//GEN-LAST:event_jButton3ActionPerformed
 
-        private void menu_bddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_bddActionPerformed
+        private void init_bddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_bddActionPerformed
 		show("bdd");
-        }//GEN-LAST:event_menu_bddActionPerformed
+        }//GEN-LAST:event_init_bddActionPerformed
 
-        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        private void bdd_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_connectActionPerformed
 		bddConnect();
-        }//GEN-LAST:event_jButton1ActionPerformed
+        }//GEN-LAST:event_bdd_connectActionPerformed
 
 	public void show(String tag) {
 		view.show(home_view, tag);
 	}
 
-        private void menu_serverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_serverActionPerformed
+        private void init_serverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_serverActionPerformed
 		show("server");
-        }//GEN-LAST:event_menu_serverActionPerformed
+        }//GEN-LAST:event_init_serverActionPerformed
 
         private void server_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_connectActionPerformed
                 // TODO add your handling code here:
@@ -667,10 +641,10 @@ public class InterfaceServer extends javax.swing.JFrame {
 	}
 
 	public void serverConnect() {
-		if (menu_bdd.getBackground() == Color.green) {
+		if (init_bdd.getBackground() == Color.green) {
 			InterfaceServer ihm =this;
 			show("wait");
-			menu_server.setBackground(Color.blue);
+			init_server.setBackground(Color.blue);
 			
 			new Thread() {
 				public void run() {
@@ -680,29 +654,37 @@ public class InterfaceServer extends javax.swing.JFrame {
 					try {
 						server = new Server(port, maxLog, bdd, ihm);
 						String output = executeShellCommand("nmap localhost");
-						server_console.setText(output);
-						
-						menu_server.setBackground(Color.green);
+						if (! output.equals(""))
+							server_console.setText(output);
+						bdd_connect.setVisible(false);
+						server_connect.setVisible(false);
+						menu_service.setVisible(true);
+
+						server.waitClient();
+
+						init_server.setBackground(Color.green);
+						show("welcome");
+
 					} catch (IOException ex) {
 						Logger.getLogger(InterfaceServer.class.getName()).log(Level.SEVERE, null, ex);
-						menu_server.setBackground(Color.red);
+						init_server.setBackground(Color.red);
 						server_console.setText(ex.getMessage());
+
+						show("server");
 					}
 					
-					
-					show("server");
 				}
 			}.start();
 		}
 		else {
-			menu_server.setBackground(Color.darkGray);
+			init_server.setBackground(Color.darkGray);
 		}
 	}
 	
 	public void bddConnect() {
 		show("wait");
 		bdd_console.setText("");
-		menu_bdd.setBackground(Color.blue);
+		init_bdd.setBackground(Color.blue);
 		
 		new Thread() {
 			public void run() {
@@ -717,11 +699,11 @@ public class InterfaceServer extends javax.swing.JFrame {
 					bdd = new Bdd(baseName, ip, port, user, passwd);
 
 					bdd_console.setText(bdd.uniq("select version()"));
-					menu_bdd.setBackground(Color.green);
+					init_bdd.setBackground(Color.green);
 
 				} catch (ClassNotFoundException | SQLException ex) {
 					Logger.getLogger(InterfaceServer.class.getName()).log(Level.SEVERE, null, ex);
-					menu_bdd.setBackground(Color.red);
+					init_bdd.setBackground(Color.red);
 					bdd_console.setText(ex.getMessage());
 				}
 				
@@ -773,6 +755,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JTextField bdd_baseName;
+        private javax.swing.JButton bdd_connect;
         private javax.swing.JTextPane bdd_console;
         private javax.swing.JTextField bdd_ip;
         private javax.swing.JPasswordField bdd_password;
@@ -783,7 +766,8 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JPanel home_menu;
         private javax.swing.JPanel home_view;
         private javax.swing.JTable home_view_group_table;
-        private javax.swing.JButton jButton1;
+        private javax.swing.JButton init_bdd;
+        private javax.swing.JButton init_server;
         private javax.swing.JButton jButton2;
         private javax.swing.JButton jButton3;
         private javax.swing.JLabel jLabel1;
@@ -792,6 +776,7 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JLabel jLabel12;
         private javax.swing.JLabel jLabel13;
         private javax.swing.JLabel jLabel14;
+        private javax.swing.JLabel jLabel15;
         private javax.swing.JLabel jLabel16;
         private javax.swing.JLabel jLabel17;
         private javax.swing.JLabel jLabel18;
@@ -802,29 +787,26 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JLabel jLabel4;
         private javax.swing.JLabel jLabel5;
         private javax.swing.JLabel jLabel6;
-        private javax.swing.JLabel jLabel7;
         private javax.swing.JLabel jLabel8;
         private javax.swing.JLabel jLabel9;
-        private javax.swing.JPanel jPanel1;
-        private javax.swing.JPanel jPanel10;
         private javax.swing.JPanel jPanel11;
-        private javax.swing.JPanel jPanel15;
         private javax.swing.JPanel jPanel2;
         private javax.swing.JPanel jPanel3;
+        private javax.swing.JPanel jPanel5;
         private javax.swing.JScrollPane jScrollPane3;
-        private javax.swing.JButton menu_bdd;
-        private javax.swing.JButton menu_group;
-        private javax.swing.JButton menu_server;
+        private javax.swing.JPanel menu_init;
+        private javax.swing.JPanel menu_service;
         private javax.swing.JButton server_connect;
         private javax.swing.JTextPane server_console;
         private javax.swing.JTextField server_maxLog;
         private javax.swing.JTextField server_port;
+        private javax.swing.JButton service_group;
         private javax.swing.JPanel view_about;
         private javax.swing.JPanel view_bdd;
         private javax.swing.JPanel view_group;
         private javax.swing.JPanel view_server;
         private javax.swing.JPanel view_wait;
-        private javax.swing.JPanel view_welcome;
+        private javax.swing.JLabel view_welcome;
         // End of variables declaration//GEN-END:variables
 
 
@@ -844,6 +826,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			server_console.setText(e.getMessage());
 		}
 		
 		return output.toString();

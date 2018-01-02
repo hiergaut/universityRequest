@@ -13,7 +13,6 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -100,11 +99,17 @@ public class Bdd {
 			while(result.next()){
 				List<String> l =new ArrayList<>();
 
-				for(int i = 1; i <= resultMeta.getColumnCount(); i++)
-					if (result.getObject(i) == null)
+				for(int i = 1; i <= resultMeta.getColumnCount(); i++) {
+					if (result.getObject(i) == null) {
 						l.add("null");
-					else
+						System.out.print("null\t");
+					}
+					else {
 						l.add(result.getObject(i).toString());
+						System.out.print(result.getObject(i).toString() +"\t");
+					}
+				}
+				System.out.println("");
 				
 				m.add(l);
 			}
@@ -211,7 +216,7 @@ public class Bdd {
 	}
 
 	boolean identification(String login, String passwd) {
-		return oneRow("select login, password from users where login = '" +login +"' and password = '" +passwd +"'");
+		return oneRow("select u_login, u_password from users where u_login = '" +login +"' and u_password = '" +passwd +"'");
 	}
 
 	public static void main(String[] args) {
@@ -234,14 +239,29 @@ public class Bdd {
 
 	Object[] getMessages(String name) {
 		List<Message> l = new ArrayList<>();
-		l.add(new Message(1, "fuckGroup", "ticketBitch", "gauthier", "suck", new Date(1993, 6, 12)));
+//		l.add(new Message(1, "fuckGroup", "ticketBitch", "name", "suck", new Date(1993, 6, 12)));
+		String[][] m =select("select distinct m_idmessage, m_data, m_created, m_fk_users, t_title, g_name from messages,tickets,groups,belong where b_fk_users='" +name +"' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket or t_fk_users='"+ name +"' and t_idticket=m_fk_tickets and t_fk_groups=g_name");
+		for (int i =0; i <m.length; i++) {
+			l.add(new Message(Integer.parseInt(m[i][0]), m[i][1], m[i][2], m[i][3], m[i][4], m[i][5]));
+		}
+		return l.toArray();
+	}
+
+	Object[] allGroups(String name) {
+//		request("select * from groups");
+		List<String> l = new ArrayList<>();
+		l = firstColumn(select("select * from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups"));
+		Integer size =l.size();
+		l.add(0, size.toString());
+		l.addAll(firstColumn(select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups")));
+
 		return l.toArray();
 	}
 
 	Object[] allGroups() {
-		request("select * from groups");
 		List<String> l = new ArrayList<>();
-		l =firstColumn(select("select * from groups"));
+		l = firstColumn(select("select * from groups"));
+
 		return l.toArray();
 	}
 
@@ -259,7 +279,7 @@ public class Bdd {
 	}
 
 	void removeGroup(String nameGroup) {
-		execute("delete from groups where name ='"+ nameGroup +"'");
+		execute("delete from groups where g_name ='"+ nameGroup +"'");
 	}
 
 }

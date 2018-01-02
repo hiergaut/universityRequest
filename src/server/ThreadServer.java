@@ -74,7 +74,7 @@ public class ThreadServer implements Runnable {
 						break;
 
 					case ALL_GROUP:
-						sendRequest(RequestName.ALL_GROUP_RESPONSE, bdd.allGroups());
+						sendRequest(RequestName.ALL_GROUP_RESPONSE, bdd.allGroups((String)params.get(0)));
 						break;
 				}
 			}

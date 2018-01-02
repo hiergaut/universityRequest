@@ -62,15 +62,21 @@ public class ThreadClient implements Runnable {
 							allGroup.add((String)o);
 						}
 
-						Set<String> myGroup =client.getGroups();
+						int lenMyGroup =Integer.parseInt(allGroup.remove(0));
+						Set<String> myGroup =new TreeSet<>();
+						for (int i =0; i <lenMyGroup; i++) {
+							myGroup.add(allGroup.remove(0));
+						}
 
 						Set<String> other =new TreeSet<>();
 						other.addAll(allGroup);
-						other.removeAll(myGroup);
 
 						System.out.println(myGroup);
 						System.out.println(other);
-						ihm.majGroupTable(myGroup, other);
+
+						ihm.majTableOneColumn(myGroup, "own groups", ihm.getGroup_own(), ihm.getGroup_sown());
+						ihm.majTableOneColumn(other, "other groups", ihm.getGroup_other(), ihm.getGroup_sother());
+//						ihm.majGroupTable(myGroup, other);
 						break;
 				}
 			}
