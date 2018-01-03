@@ -82,5 +82,15 @@ public class Client {
 		}
 		return set;
 	}
+
+	Set<Message> getTicketMessages(String ticket) {
+		NavigableSet<Message> set =new TreeSet<>();
+		for (Message m : messages) {
+			if (m.getTicket().equals(ticket)) {
+				set.add(m);
+			}
+		}
+		return set;
+	}
 	
 }

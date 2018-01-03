@@ -222,7 +222,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel11Layout.setVerticalGroup(
                         jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addGap(0, 31, Short.MAX_VALUE)
                 );
 
                 menu_init.add(jPanel11);
@@ -252,7 +252,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addGap(0, 31, Short.MAX_VALUE)
                 );
 
                 menu_service.add(jPanel5);
@@ -320,7 +320,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                                                 .addComponent(bdd_connect)))
-                                .addContainerGap(563, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +432,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel20)
                                         .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(376, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 server_port.setText("5000");
@@ -521,7 +521,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jButton2)
                                                 .addGap(40, 40, 40)
                                                 .addComponent(home_group_inputNewGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(307, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_group, "group");
@@ -549,7 +549,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel6))
-                                .addContainerGap(427, Short.MAX_VALUE))
+                                .addContainerGap(363, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,7 +564,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(591, Short.MAX_VALUE))
+                                .addContainerGap(168, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_about, "about");

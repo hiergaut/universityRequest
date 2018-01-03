@@ -48,6 +48,20 @@ public class Message implements Serializable, Comparable<Message> {
 	public String getTicket() {
 		return ticket;
 	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public String getCreate() {
+		return create;
+	}
+	
+	
 	
 	
 }

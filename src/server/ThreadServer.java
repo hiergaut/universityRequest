@@ -76,6 +76,15 @@ public class ThreadServer implements Runnable {
 					case ALL_GROUP:
 						sendRequest(RequestName.ALL_GROUP_RESPONSE, bdd.allGroups((String)params.get(0)));
 						break;
+
+					case NEW_MESSAGE:
+						String author =(String)params.get(0);
+						String date =(String)params.get(1);
+						String body =(String)params.get(2);
+						String ticket =(String)params.get(3);
+						bdd.newMessage(author, date, body, ticket);
+
+						break;
 				}
 			}
 			else {

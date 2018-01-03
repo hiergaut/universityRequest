@@ -174,6 +174,7 @@ public class Bdd {
 	}
 
 	public void execute(String req) {
+		System.out.println("[Bdd] execute(" +req +");");
 		try {
 //			Class.forName("org.postgresql.Driver");
 //			String url = "jdbc:postgresql://localhost:5432/Ecole";
@@ -219,18 +220,18 @@ public class Bdd {
 		return oneRow("select u_login, u_password from users where u_login = '" +login +"' and u_password = '" +passwd +"'");
 	}
 
-	public static void main(String[] args) {
-		Bdd bdd =null;
-		try {
-			bdd = new Bdd("universityRequest", "127.0.0.1", "5432", "postgres", "postgres");
-		} catch (ClassNotFoundException ex) {
-			Logger.getLogger(Bdd.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (SQLException ex) {
-			Logger.getLogger(Bdd.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		bdd.request("select * from pg_tables where schemaname='public'");
-
-	}
+//	public static void main(String[] args) {
+//		Bdd bdd =null;
+//		try {
+//			bdd = new Bdd("universityRequest", "127.0.0.1", "5432", "postgres", "postgres");
+//		} catch (ClassNotFoundException ex) {
+//			Logger.getLogger(Bdd.class.getName()).log(Level.SEVERE, null, ex);
+//		} catch (SQLException ex) {
+//			Logger.getLogger(Bdd.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+//		bdd.request("select * from pg_tables where schemaname='public'");
+//
+//	}
 
 	void newUser(String login, String passwd, String firstName, String name, String status) {
 		System.out.println("insert into users values ('"+ login +"', '" +passwd +"', '" +firstName +"', '" +name +"', '" +status +"')");
@@ -280,6 +281,12 @@ public class Bdd {
 
 	void removeGroup(String nameGroup) {
 		execute("delete from groups where g_name ='"+ nameGroup +"'");
+	}
+
+	void newMessage(String author, String date, String body, String ticket) {
+		int idMessage =nbLine("select * from messages") +1;
+		int idTicket =Integer.parseInt(select("select t_idticket from tickets where t_title='" +ticket +"'")[0][0]);
+		execute("insert into messages values (" +idMessage +", '" +body +"', '" +date +"', '" +author +"', " +idTicket +")");
 	}
 
 }

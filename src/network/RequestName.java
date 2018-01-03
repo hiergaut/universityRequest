@@ -15,6 +15,7 @@ public enum RequestName {
 	NEW_USER,
 	ALL_GROUP,
 	OWN_GROUP,
+	NEW_MESSAGE,
 	// server request
 	INIT_HOME, 
 	IDENTIFICATION_OK, 
