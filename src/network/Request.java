@@ -20,16 +20,14 @@ import java.util.logging.Logger;
  *
  * @author gauthier
  */
-public class Request implements Serializable {
+public class Request<Enum> implements Serializable {
 	private static final long serialVersionUID =1L;
-
-
-	private RequestName requestName;
-	private ArrayList<Object> params;
-
 	private static String tag = Function.color(Request.class);
 
-	public Request(RequestName requestName, Object... params) {
+	private Enum requestName;
+	private ArrayList<Object> params;
+
+	public Request(Enum requestName, Object... params) {
 		this.requestName =requestName;
 		this.params =new ArrayList<>();
 
@@ -38,12 +36,22 @@ public class Request implements Serializable {
 		}
 	}
 
+	public Request(Socket s) {
+		Request<Enum> request = recv(s);
+		if (request != null) {
+			this.requestName =request.getRequestName();
+			this.params =request.getParams();
+		}
+
+		System.out.println("[Request]" +tag +"receive :" +request);
+	}
+
 	@Override
 	public String toString() {
 		return "requestName =" +requestName +", params =" +params.toString();
 	}
 
-	public RequestName getRequestName() {
+	public Enum getRequestName() {
 		return requestName;
 	}
 
@@ -51,21 +59,23 @@ public class Request implements Serializable {
 		return params;
 	}
 
-	public static void sendRequest(Socket s, RequestName requestName, Object... params) {
+	public void sendRequest(Socket s) {
 //		socket = new Socket(ipServer, portServer);
-		Request request = new Request(requestName, params);
-		System.out.println("[Request]" +tag +"send : "+ request);
+//		Request request = new Request(requestName, params);
+		System.out.println("[Request]" +tag +"send : "+ this);
 //		String request = "fuck";
-		send(s, request);
+		send(s, this);
 	}
 
-	public static Request recvRequest(Socket s) {
-		Request request = recv(s);
-		System.out.println("[Request]" +tag +"receive :" +request);
-		return request;
-	}
+//	public void sendRequest(Socket s, ServerRequest requestName, Object... params) {
+////		socket = new Socket(ipServer, portServer);
+//		Request request = new Request(requestName, params);
+//		System.out.println("[Request]" +tag +"send : "+ request);
+////		String request = "fuck";
+//		send(s, request);
+//	}
 
-	private static void send(Socket s, Request r) {
+	private void send(Socket s, Request<Enum> r) {
 		try {
 			ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
 			out.writeObject(r);
@@ -77,7 +87,7 @@ public class Request implements Serializable {
 		}
 	}
 
-	private static Request recv(Socket s) {
+	private Request<Enum> recv(Socket s) {
 
 		ObjectInputStream in = null;
 		Request r =null;

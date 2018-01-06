@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import network.Request;
+import network.ServerRequest;
+import userData.Message;
 
 /**
  *
@@ -32,24 +34,26 @@ public class ThreadClient implements Runnable {
 		InterfaceClient ihm =client.getIhm();
 		
 		while (true) {
-			Request request = Request.recvRequest(client.getSocket());
-			System.out.println("[ThreadClient]" +tag +"request :" +request);
+			Request<ServerRequest> serverRequest = new Request<>(client.getSocket());
+			System.out.println("[ThreadClient]" +tag +"serverRequest :" +serverRequest);
 			
-			if (request != null) {
-				ArrayList<Object> params = request.getParams();
-				switch (request.getRequestName()) {
+			if (serverRequest != null) {
+				ArrayList<Object> params = serverRequest.getParams();
+				switch (serverRequest.getRequestName()) {
 					case INIT_HOME:
 						client.setMessages(params);
 						ihm.majTree();
+						ihm.show("home");
 						break;
 
 					case IDENTIFICATION_OK:
 						String name =(String)params.get(0);
 						ihm.getHome_userName().setText(name);
+						ihm.setActualUser(name);
 
 //						ihm.display(ihm.getHome());
-						ihm.getHome().setVisible(true);
-						ihm.getIdentification().setVisible(false);
+//						ihm.getHome().setVisible(true);
+//						ihm.getIdentification().setVisible(false);
 						break;
 
 					case IDENTIFICATION_FAILED:
@@ -77,6 +81,12 @@ public class ThreadClient implements Runnable {
 						ihm.majTableOneColumn(myGroup, "own groups", ihm.getGroup_own(), ihm.getGroup_sown());
 						ihm.majTableOneColumn(other, "other groups", ihm.getGroup_other(), ihm.getGroup_sother());
 //						ihm.majGroupTable(myGroup, other);
+						break;
+
+					case MAJ_MESSAGES:
+						List<Message> lm =(List<Message>)params.get(0);
+						client.addMessages(lm);
+						ihm.receiveMessagesFromServer(lm);
 						break;
 				}
 			}

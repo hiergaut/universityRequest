@@ -10,30 +10,36 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import network.Request;
-import static network.Request.recvRequest;
-import network.RequestName;
+//import static network.Request.recvRequest;
+import network.ClientRequest;
+import network.ServerRequest;
+import userData.Message;
+import userData.StatusMessage;
 
 /**
  *
  * @author gauthier
  */
 public class ThreadServer implements Runnable {
+	private String tag =Function.color(this);
+
 	private Server server;
 	private Socket socket;
+	private String actualConnectUser ="";
 
-	private String tag =Function.color(this);
-	
 	public ThreadServer(Server server, Socket socket) {
 		this.server =server;
 		this.socket =socket;
 	}
 
-	public void sendRequest(RequestName requestName, Object... params) {
-		Request.sendRequest(socket, requestName, params);
+	public void sendRequest(ServerRequest requestName, Object... params) {
+		new Request<>(requestName, params).sendRequest(socket);
 	}
 	
 	@Override
@@ -43,22 +49,25 @@ public class ThreadServer implements Runnable {
 		boolean stay =true;
 		while (stay) {
 //			Request request = Request.recv(socket);
-			Request request = recvRequest(socket);
-			System.out.println("[ThreadServer]" +tag +"Request :" +request);
+//			Request<ClientRequest> request = recvRequest(socket);
+			Request<ClientRequest> clientRequest =new Request<>(socket);
+//			clientRequest.recvRequest(socket);
+			System.out.println("[ThreadServer]" +tag +"Request :" +clientRequest);
 			
-			if (request != null) {
-				ArrayList<Object> params = request.getParams();
-				switch (request.getRequestName()) {
+			if (clientRequest != null) {
+				ArrayList<Object> params = clientRequest.getParams();
+				switch (clientRequest.getRequestName()) {
 					case IDENTIFICATION:
 						String login =(String)params.get(0);
 						String passwd =(String)params.get(1);
 
 						if (bdd.identification(login, passwd)) {
-							sendRequest(RequestName.IDENTIFICATION_OK, login);
-							sendRequest(RequestName.INIT_HOME, bdd.getMessages(login));
+							sendRequest(ServerRequest.IDENTIFICATION_OK, login);
+							sendRequest(ServerRequest.INIT_HOME, bdd.getMessages(login));
+							actualConnectUser =login;
 						}
 						else {
-							sendRequest(RequestName.IDENTIFICATION_FAILED, login);
+							sendRequest(ServerRequest.IDENTIFICATION_FAILED, login);
 						}
 						break;
 						
@@ -74,25 +83,42 @@ public class ThreadServer implements Runnable {
 						break;
 
 					case ALL_GROUP:
-						sendRequest(RequestName.ALL_GROUP_RESPONSE, bdd.allGroups((String)params.get(0)));
+						sendRequest(ServerRequest.ALL_GROUP_RESPONSE, bdd.allGroups((String)params.get(0)));
 						break;
 
 					case NEW_MESSAGE:
-						String author =(String)params.get(0);
-						String date =(String)params.get(1);
-						String body =(String)params.get(2);
-						String ticket =(String)params.get(3);
-						bdd.newMessage(author, date, body, ticket);
+						Message m =bdd.newMessage((Message)params.get(0));
+						server.broadcast(m);
+						break;
 
+					case READ_MESSAGES:
+						String user =(String)params.get(0);
+						List<Integer> idMessages =(List)params.get(1);
+
+						for (Integer idMessage : idMessages) {
+							bdd.userReadMessage(user, idMessage);
+						}
+
+						List<Message> lm =new ArrayList<>();
+						for (Integer idMessage : idMessages) {
+							lm.add(bdd.getMessage(idMessage));
+						}
+						server.broadcast(lm);
 						break;
 				}
 			}
 			else {
 //				System.out.println("[ThreadServer] null request");
 				stay =false;
+				server.loseClient(this);
 			}
 		}
 
 //		System.out.println("[ThreadServer] end of thread");
 	}
+
+	public Socket getSocket() {
+		return socket;
+	}
+	
 }

@@ -7,17 +7,24 @@ package client;
 
 import function.Function;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Window;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,12 +33,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
+import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import network.Request;
-import network.RequestName;
+import network.ClientRequest;
 import userData.Message;
+import userData.StatusMessage;
 
 /**
  *
@@ -42,6 +51,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 	private Client client;
 	private boolean retry;
 	private CardLayout cview;
+	// login user actually connected
+	private String actualUser;
 
 	private String tag =Function.color(this);
 
@@ -195,6 +206,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 box1_date = new javax.swing.JLabel();
                 box1_scroll_body = new javax.swing.JScrollPane();
                 box1_body = new javax.swing.JTextPane();
+                box1_hour = new javax.swing.JLabel();
+                messageUsersStatus = new javax.swing.JScrollPane();
+                messageUsersStatusTable = new javax.swing.JTable();
                 right_newMessage = new javax.swing.JPanel();
                 jScrollPane2 = new javax.swing.JScrollPane();
                 newMessage_input = new javax.swing.JTextArea();
@@ -506,9 +520,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addComponent(home_userName)
-                                .addGap(44, 44, 44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(home_group)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 447, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 473, Short.MAX_VALUE)
                                 .addComponent(home_leave)
                                 .addContainerGap())
                 );
@@ -531,6 +545,11 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 messages_box1.setBackground(new java.awt.Color(204, 255, 204));
                 messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
+                messages_box1.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                messages_box1MouseClicked(evt);
+                        }
+                });
 
                 box1_autor.setText("gauthier");
 
@@ -538,6 +557,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 box1_scroll_body.setBorder(null);
                 box1_scroll_body.setViewportView(box1_body);
+
+                box1_hour.setText("hour");
 
                 javax.swing.GroupLayout messages_box1Layout = new javax.swing.GroupLayout(messages_box1);
                 messages_box1.setLayout(messages_box1Layout);
@@ -548,19 +569,24 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(box1_autor)
                                 .addGap(41, 41, 41)
                                 .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(box1_date)
-                                .addContainerGap(59, Short.MAX_VALUE))
+                                .addGap(49, 49, 49)
+                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(box1_date)
+                                        .addComponent(box1_hour))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 messages_box1Layout.setVerticalGroup(
                         messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messages_box1Layout.createSequentialGroup()
                                 .addGap(0, 21, Short.MAX_VALUE)
-                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(box1_date)
-                                        .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(box1_autor)))
+                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(box1_autor)
+                                        .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(messages_box1Layout.createSequentialGroup()
+                                                        .addComponent(box1_date)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(box1_hour))
+                                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18))
                 );
 
@@ -570,11 +596,33 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 home_right.add(right_messagesScroll, java.awt.BorderLayout.CENTER);
 
+                messageUsersStatus.setPreferredSize(new java.awt.Dimension(300, 0));
+
+                messageUsersStatusTable.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object [][] {
+                                {null, null},
+                                {null, null},
+                                {null, null},
+                                {null, null}
+                        },
+                        new String [] {
+                                "user", "status"
+                        }
+                ));
+                messageUsersStatus.setViewportView(messageUsersStatusTable);
+
+                home_right.add(messageUsersStatus, java.awt.BorderLayout.LINE_END);
+
                 right_newMessage.setBorder(javax.swing.BorderFactory.createEtchedBorder());
                 right_newMessage.setPreferredSize(new java.awt.Dimension(0, 200));
 
                 newMessage_input.setColumns(20);
                 newMessage_input.setRows(5);
+                newMessage_input.addKeyListener(new java.awt.event.KeyAdapter() {
+                        public void keyPressed(java.awt.event.KeyEvent evt) {
+                                newMessage_inputKeyPressed(evt);
+                        }
+                });
                 jScrollPane2.setViewportView(newMessage_input);
 
                 jLabel10.setText("new message");
@@ -591,17 +639,15 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_newMessageLayout.setHorizontalGroup(
                         right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(right_newMessageLayout.createSequentialGroup()
-                                .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, right_newMessageLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(newMessage_send))
+                                .addContainerGap()
+                                .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, right_newMessageLayout.createSequentialGroup()
+                                                .addComponent(jLabel10)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
                                         .addGroup(right_newMessageLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(right_newMessageLayout.createSequentialGroup()
-                                                                .addComponent(jLabel10)
-                                                                .addGap(0, 0, Short.MAX_VALUE))
-                                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE))))
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addComponent(newMessage_send)))
                                 .addContainerGap())
                 );
                 right_newMessageLayout.setVerticalGroup(
@@ -611,7 +657,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addGap(26, 26, 26)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 28, Short.MAX_VALUE)
                                 .addComponent(newMessage_send)
                                 .addContainerGap())
                 );
@@ -748,7 +794,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 			passwd +=c;
 		}
 
-		client.sendRequest(RequestName.IDENTIFICATION, login, passwd);
+		client.sendRequest(ClientRequest.IDENTIFICATION, login, passwd);
         }//GEN-LAST:event_identification_connectionActionPerformed
 
         private void identification_newUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identification_newUserActionPerformed
@@ -767,7 +813,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 		String firstName = newUser_firstName.getText();
 		String name =newUser_name.getText();
 		String status = inputStatus.getSelectedItem().toString();
-		client.sendRequest(RequestName.NEW_USER, login, passwd, firstName, name, status);
+		client.sendRequest(ClientRequest.NEW_USER, login, passwd, firstName, name, status);
 
         }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -779,7 +825,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private void home_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_groupActionPerformed
 		show("group");
 
-		client.sendRequest(RequestName.ALL_GROUP, identification_login.getText());
+		client.sendRequest(ClientRequest.ALL_GROUP, identification_login.getText());
         }//GEN-LAST:event_home_groupActionPerformed
 
         private void group_swapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_swapActionPerformed
@@ -797,14 +843,50 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_home_leaveActionPerformed
 
         private void newMessage_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMessage_sendActionPerformed
-		String author =identification_login.getText();
-		Date sqlDate =new Date(Calendar.getInstance().getTimeInMillis());
-		String date =sqlDate.toString();
-		String body =newMessage_input.getText();
-		String ticket =(String)tree.getLastSelectedPathComponent().toString();
-
-		client.sendRequest(RequestName.NEW_MESSAGE, author, date, body, ticket);
+		newMessage_input_sendMessage();
         }//GEN-LAST:event_newMessage_sendActionPerformed
+
+        private void newMessage_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newMessage_inputKeyPressed
+		// send message with tab input
+		if (evt.getKeyCode() == 9) {
+			newMessage_input_sendMessage();
+		}
+        }//GEN-LAST:event_newMessage_inputKeyPressed
+
+        private void messages_box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messages_box1MouseClicked
+                // TODO add your handling code here:
+		System.out.println("fuck");
+        }//GEN-LAST:event_messages_box1MouseClicked
+
+	public void newMessage_input_sendMessage() {
+		int id =-1;
+		String body =newMessage_input.getText();
+		Timestamp create =new Timestamp(System.currentTimeMillis());
+		String author =identification_login.getText();
+//		String ticket =(String)tree.getLastSelectedPathComponent().toString();
+		String ticket =actualTicket();
+		String group ="";
+		String firstname ="";
+		String name ="";
+
+		Message m =new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage. SERVER_NOT_RECEIVE, null);
+
+		client.addMessage(m);
+		buildMessagesPane(ticket);
+		client.delMessage(m);
+
+		new Thread() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException ex) {
+					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+				}
+				client.sendRequest(ClientRequest.NEW_MESSAGE, m);
+			}
+		}.start();
+	}
 
 	/**
 	 * @param args the command line arguments
@@ -848,6 +930,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JLabel box1_autor;
         private javax.swing.JTextPane box1_body;
         private javax.swing.JLabel box1_date;
+        private javax.swing.JLabel box1_hour;
         private javax.swing.JScrollPane box1_scroll_body;
         private javax.swing.JButton group_back;
         private javax.swing.JTable group_other;
@@ -885,6 +968,8 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JPanel jPanel2;
         private javax.swing.JScrollPane jScrollPane1;
         private javax.swing.JScrollPane jScrollPane2;
+        private javax.swing.JScrollPane messageUsersStatus;
+        private javax.swing.JTable messageUsersStatusTable;
         private javax.swing.JPanel messages_box1;
         private javax.swing.JTextArea newMessage_input;
         private javax.swing.JButton newMessage_send;
@@ -926,14 +1011,25 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	void majTree() {
+		// already click
+		String ticketAlreadyClicked =actualTicket();
+		int indexOfAlreadyClicked =0;
+
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("posts");
+		int cpt =2;
 		for (String g : client.getGroups()) {
 			DefaultMutableTreeNode group = new DefaultMutableTreeNode(g);
 			for (String t : client.getTicket(g)) {
 				DefaultMutableTreeNode ticket =new DefaultMutableTreeNode(t);
 				group.add(ticket);
+
+				if (t.equals(ticketAlreadyClicked))
+					indexOfAlreadyClicked =cpt;
+
+				cpt++;
 			}
 			root.add(group);
+			cpt++;
 		}
 
 		tree = new JTree(root);
@@ -941,28 +1037,18 @@ public class InterfaceClient extends javax.swing.JFrame {
 			public void mouseClicked(MouseEvent me) {
 //				TreePath tp =tree.getPathForLocation(me.getX(), me.getY());
 //				System.out.println(tp);
-				String ticket =(String)tree.getLastSelectedPathComponent().toString();
+//				String ticket =(String)tree.getLastSelectedPathComponent().toString();
+				String ticket =actualTicket();
 				System.out.println(ticket);
 
 //				right_messages =new JPanel();
 //				right_messages.setLayout(null);
 				
-				int nbTickets =client.getTicketMessages(ticket).size();
-				if (nbTickets < 5)
-					nbTickets =5;
-				right_messages.setLayout(new java.awt.GridLayout(nbTickets, 1, 0, 20));
-//				JLabel jp = new JLabel();
-				right_messages.removeAll();
-				for (Message m : client.getTicketMessages(ticket)) {
-					right_messages.add(createBoxMessage(m));
-				}
+//				buildMessagesPane(ticket);
 
-				right_messagesScroll.setViewportView(right_messages);
-				JScrollBar vertical =right_messagesScroll.getVerticalScrollBar();
-				vertical.setValue(vertical.getMaximum());
-
-				right_newMessage.setVisible(true);
+				readMessagesOfTicket(ticket);
 			}
+
 		});
 		expandAll(tree);
 
@@ -971,29 +1057,97 @@ public class InterfaceClient extends javax.swing.JFrame {
 		right_newMessage.setVisible(false);
 
                 home_tickets.setViewportView(tree);
+
+
+		if (ticketAlreadyClicked != "") {
+			buildMessagesPane(ticketAlreadyClicked);
+//			System.out.println(indexOfAlreadyClicked);
+			tree.setSelectionRow(indexOfAlreadyClicked);
+		}
+
+//		messageUsersStatus.setVisible(false);
+
+
 //		jScrollPane1.removeAll();
 //		jScrollPane1.add(tree)
 //		jScrollPane1.revalidate();
 	}
 
+	private void readMessagesOfTicket(String ticket) {
+		List<Integer> idMessages =new ArrayList<>();
+
+		for (Message m : client.getTicketMessages(ticket)) {
+			if (! m.isAlreadyReadBy(actualUser)) {
+				idMessages.add(m.getId());
+			}
+		}
+
+		client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, idMessages);
+	}
+	
+	
+	public void buildMessagesPane(String ticket) {
+		int nbTickets =client.getTicketMessages(ticket).size();
+		if (nbTickets < 5)
+			nbTickets =5;
+		right_messages.setLayout(new java.awt.GridLayout(nbTickets, 1, 0, 20));
+
+		right_messages.removeAll();
+		for (Message m : client.getTicketMessages(ticket)) {
+			right_messages.add(createBoxMessage(m));
+		}
+		
+		
+		right_newMessage.setVisible(true);
+		right_messagesScroll.setViewportView(right_messages);
+
+		newMessage_input.setText("");
+		newMessage_input.requestFocus();
+
+		JScrollBar vertical =right_messagesScroll.getVerticalScrollBar();
+		vertical.setValue(vertical.getMaximum());
+
+
+		new Thread() {
+			@Override
+			public void run() {
+				try {
+					sleep(10);
+				} catch (InterruptedException ex) {
+					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+				}
+				JScrollBar vertical =right_messagesScroll.getVerticalScrollBar();
+				vertical.setValue(vertical.getMaximum());
+			}
+		}.start();
+	}
+	
 	public JPanel createBoxMessage(Message m) {
 		JPanel messages_box1 =new JPanel();
 		JLabel box1_autor =new JLabel();
 		JLabel box1_date =new JLabel();
+		JLabel box1_hour =new JLabel();
 		JTextArea box1_body =new JTextArea();
 		JScrollPane box1_scroll_body =new JScrollPane();
 
 
-                messages_box1.setBackground(new java.awt.Color(204, 255, 204));
-                messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
-
                 box1_autor.setText(m.getAuthor());
-
-                box1_date.setText(m.getCreate());
 		box1_body.setText(m.getBody());
+                box1_date.setText(m.getCreate().toString().substring(0, 10));
+		box1_hour.setText(m.getCreate().toString().substring(11, 19));
+                messages_box1.setBackground(m.stateColor());
 
+
+                messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
+                messages_box1.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+				System.out.println(m.getId());
+				majTableMessageUsersStatus(m);
+                        }
+                });
                 box1_scroll_body.setBorder(null);
                 box1_scroll_body.setViewportView(box1_body);
+
 
                 javax.swing.GroupLayout messages_box1Layout = new javax.swing.GroupLayout(messages_box1);
                 messages_box1.setLayout(messages_box1Layout);
@@ -1004,22 +1158,26 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(box1_autor)
                                 .addGap(41, 41, 41)
                                 .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(42, 42, 42)
-                                .addComponent(box1_date)
-                                .addContainerGap(240, Short.MAX_VALUE))
+                                .addGap(49, 49, 49)
+                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(box1_date)
+                                        .addComponent(box1_hour))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 messages_box1Layout.setVerticalGroup(
                         messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messages_box1Layout.createSequentialGroup()
                                 .addGap(0, 21, Short.MAX_VALUE)
-                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(box1_date)
-                                        .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(box1_autor)))
+                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(box1_autor)
+                                        .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(messages_box1Layout.createSequentialGroup()
+                                                        .addComponent(box1_date)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(box1_hour))
+                                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18))
                 );
-
 
 
 		return messages_box1;
@@ -1058,6 +1216,14 @@ public class InterfaceClient extends javax.swing.JFrame {
 //		jScrollPane2.setViewportView(table);
 	}
 
+	void majTableMessageUsersStatus(Message m) {
+		Object data[][] =m.getUsersStatus();
+		String title[] = {"user", "status"};
+
+		messageUsersStatusTable =new JTable(data, title);
+		messageUsersStatus.setViewportView(messageUsersStatusTable);
+	}
+
 //	void majGroupTable(Set<String> myGroup, Set<String> other) {
 //		Object data[][] =new Object[myGroup.size()][1];
 //		int i =0;
@@ -1081,9 +1247,34 @@ public class InterfaceClient extends javax.swing.JFrame {
 	public JScrollPane getGroup_sother() {
 		return group_sother;
 	}
-	
 
-	
-	
+	public String actualTicket() {
+		String ticket ="";
+		if (tree.getLastSelectedPathComponent() != null) {
+			ticket =(String)tree.getLastSelectedPathComponent().toString();
+		}
+		return ticket;
+	}
+
+	void receiveMessagesFromServer(List<Message> lm) {
+		if (lm.size() == 1) {
+			Message m =lm.get(0);
+			String ticket =m.getTicket();
+			
+			if (ticket.equals(actualTicket())) {
+				buildMessagesPane(ticket);
+			}
+			else {
+				majTree();
+			}
+		}
+		else {
+			majTree();
+		}
+	}
+
+	public void setActualUser(String actualUser) {
+		this.actualUser = actualUser;
+	}
 	
 }

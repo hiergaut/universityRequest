@@ -17,11 +17,16 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
 import network.Request;
+import network.ClientRequest;
+import network.ServerRequest;
+import userData.Message;
 
 /**
  *
@@ -29,21 +34,27 @@ import network.Request;
  */
 public class Server {
 	private static final long serialVersionUID =1L;
+	private String tag =Function.color(this);
+
 	private int listenPort;
 	private int maxLog;
 	private ServerSocket serverSocket;
-	private int nbThread;
+//	private int nbThread;
 	private Bdd bdd;
 	private InterfaceServer ihm;
-
-	private String tag =Function.color(this);
+	private List<ThreadServer> threads;
+//	private List<Socket> allSocketClient;
 
 	public Server(int listenPort, int maxLog, Bdd bdd, InterfaceServer ihm) throws IOException {
 		this.listenPort = listenPort;
 		this.maxLog = maxLog;
-		this.nbThread =0;
+//		this.nbThread =0;
 		this.bdd = bdd;
 		this.ihm = ihm;
+
+		this.threads =new ArrayList<>();
+
+//		allSocketClient =new ArrayList<>();
 
 		openingCommunication();
 	}
@@ -66,12 +77,17 @@ public class Server {
 					clientSocket.close();
 					
 					while (true) {
+						// new client
 						clientSocket = serverSocket.accept();
+//						allSocketClient.add(clientSocket);
 						
-						thread = new Thread(new ThreadServer(server, clientSocket));
+						ThreadServer ts =new ThreadServer(server, clientSocket);
+						thread = new Thread(ts);
 						System.out.println("[Server]" +tag +"new thread client : "+ clientSocket);
 						thread.start();
-						nbThread++;
+
+						threads.add(ts);
+//						nbThread++;
 //				thread.run();
 					}
 				} catch (IOException ex) {
@@ -85,5 +101,29 @@ public class Server {
 
 	public Bdd getBdd() {
 		return bdd;
+	}
+
+	void broadcast(List<Message> lm) {
+		for (ThreadServer ts : threads) {
+//			sendRequest(ts.getSocket(), ServerRequest.MAJ_MESSAGES, lm);
+			ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm);
+		}
+	}
+
+	void broadcast(Message m) {
+		List<Message> lm =new ArrayList<>();
+		lm.add(m);
+		for (ThreadServer ts : threads) {
+//			sendRequest(ts.getSocket(), ServerRequest.MAJ_MESSAGES, lm);
+			ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm);
+		}
+	}
+
+
+	void loseClient(ThreadServer ts) {
+		System.out.println("[Server] client " +ts.getSocket() +" definitely lost");
+		threads.remove(ts);
+//		allSocketClient.remove(socket);
+//		thr
 	}
 }

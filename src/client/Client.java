@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NavigableSet;
 import java.util.Set;
@@ -17,7 +18,7 @@ import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import network.Request;
-import network.RequestName;
+import network.ClientRequest;
 import userData.Message;
 
 /**
@@ -46,8 +47,9 @@ public class Client {
 		thread.start();
 	}
 
-	public void sendRequest(RequestName requestName, Object... params) {
-		Request.sendRequest(socket, requestName, params);
+	public void sendRequest(ClientRequest requestName, Object... params) {
+//		Request.sendRequest(socket, requestName, params);
+		new Request<>(requestName, params).sendRequest(socket);
 	}
 
 	public Socket getSocket() {
@@ -73,24 +75,60 @@ public class Client {
 		return set;
 	}
 
-	Set<String> getTicket(String g) {
-		NavigableSet<String> set =new TreeSet<>();
+	List<String> getTicket(String g) {
+		System.out.println(g);
+		NavigableSet<Message> set =new TreeSet<>(new Comparator<Message>() {
+			@Override
+			// first element is the most recent, normaly in right side with default compareto of Timestamp
+			public int compare(Message o1, Message o2) {
+				return - o1.getCreate().compareTo(o2.getCreate());
+			}
+		});
+
 		for (Message m : messages) {
 			if (m.getGroup().equals(g)) {
-				set.add(m.getTicket());
+				set.add(m);
 			}
 		}
-		return set;
+		System.out.println(set);
+
+		List<String> l =new ArrayList<>();
+		for (Message m : set) {
+			if (! l.contains(m.getTicket()))
+				l.add(m.getTicket());
+		}
+		System.out.println(l);
+
+		return l;
 	}
 
 	Set<Message> getTicketMessages(String ticket) {
-		NavigableSet<Message> set =new TreeSet<>();
+		NavigableSet<Message> set =new TreeSet<>(new Comparator<Message>() {
+			@Override
+			// last element is the most recent message
+			public int compare(Message o1, Message o2) {
+				return o1.getCreate().compareTo(o2.getCreate());
+			}
+		});
+
 		for (Message m : messages) {
 			if (m.getTicket().equals(ticket)) {
 				set.add(m);
 			}
 		}
 		return set;
+	}
+
+	void addMessage(Message m) {
+		messages.add(m);
+	}
+
+	void addMessages(List<Message> lm) {
+		messages.addAll(lm);
+	}
+
+	void delMessage(Message m) {
+		messages.remove(m);
 	}
 	
 }
