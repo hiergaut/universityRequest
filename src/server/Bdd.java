@@ -180,7 +180,7 @@ public class Bdd {
 		return str;
 	}
 
-	public void execute(String req) {
+	public String execute(String req) {
 		System.out.println("[Bdd] execute(" +req +");");
 		try {
 //			Class.forName("org.postgresql.Driver");
@@ -199,7 +199,9 @@ public class Bdd {
 			state.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return e.getMessage();
 		}
+		return "ok";
 	}
 
 	public int nbLine(String req) {
@@ -220,6 +222,7 @@ public class Bdd {
 
 	public boolean oneRow(String select) {
 		int nbLine =nbLine(select);
+		System.out.println("nbLine =" +nbLine);
 		return nbLine == 1;
 	}
 
@@ -240,9 +243,9 @@ public class Bdd {
 //
 //	}
 
-	void newUser(String login, String passwd, String firstName, String name, String status) {
+	String newUser(String login, String passwd, String firstName, String name, String status) {
 		System.out.println("insert into users values ('"+ login +"', '" +passwd +"', '" +firstName +"', '" +name +"', '" +status +"')");
-		execute("insert into users values ('"+ login +"', '" +passwd +"', '" +firstName +"', '" +name +"', '" +status +"')");
+		return execute("insert into users values ('"+ login +"', '" +passwd +"', '" +firstName +"', '" +name +"', '" +status +"')");
 	}
 
 	Object[] getMessages(String name) {
@@ -252,12 +255,14 @@ public class Bdd {
 //		String[][] m =select("select distinct m_idmessage, m_data, m_created, m_fk_users, t_title, g_name from messages,tickets,groups,belong where b_fk_users='" +name +"' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket or t_fk_users='"+ name +"' and t_idticket=m_fk_tickets and t_fk_groups=g_name");
 		String[][] m =select("select distinct m_idmessage, m_data, m_created, m_fk_users, u_firstname, u_name, t_title, g_name from messages,tickets,groups,belong,users where b_fk_users='" +name +"' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" +name +"' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
 
-		for (int i =0; i <m.length; i++) {
-			int idMessage =Integer.parseInt(m[i][0]);
-			String[][] userStatus =allUserStatus(idMessage);
-			sm =checkStatusMessage(userStatus);
+		if (m != null) {
+			for (int i =0; i <m.length; i++) {
+				int idMessage =Integer.parseInt(m[i][0]);
+				String[][] userStatus =allUserStatus(idMessage);
+				sm =checkStatusMessage(userStatus);
 
-			l.add(new Message(idMessage, m[i][1], Timestamp.valueOf(m[i][2]), m[i][3], m[i][4], m[i][5], m[i][6], m[i][7], sm, userStatus));
+				l.add(new Message(idMessage, m[i][1], Timestamp.valueOf(m[i][2]), m[i][3], m[i][4], m[i][5], m[i][6], m[i][7], sm, userStatus));
+			}
 		}
 		return l.toArray();
 	}
@@ -265,10 +270,19 @@ public class Bdd {
 	Object[] allGroups(String name) {
 //		request("select * from groups");
 		List<String> l = new ArrayList<>();
-		l = firstColumn(select("select * from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups"));
-		Integer size =l.size();
-		l.add(0, size.toString());
-		l.addAll(firstColumn(select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups")));
+		String[][] m =select("select * from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups");
+		if (m == null) {
+			l.add(0, "0");
+		}
+		else {
+			l =firstColumn(m);
+			l.add(0, l.size() +"");
+		}
+
+		m =select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups");
+		if (m != null) {
+			l.addAll(firstColumn(select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups")));
+		}
 
 		return l.toArray();
 	}
@@ -388,5 +402,19 @@ public class Bdd {
 		String ticket =select("select t_title from messages,tickets where m_idmessage=" +idMessage +" and m_fk_tickets=t_idticket")[0][0];
 		
 		return new Message(idMessage, body, date, author, firstname, name, ticket, group, statusMessage, allUserStatus(idMessage));
+	}
+
+	void addUserInGroup(String actualConnectUser, String group) {
+		execute("insert into belong values ('"+ actualConnectUser +"', '" +group +"')");
+	}
+
+	void delUserOfGroup(String actualConnectUser, String group) {
+		execute("delete from belong where b_fk_groups='" +group +"' and b_fk_users='" +actualConnectUser +"'");
+	}
+
+	void newTicket(String title, String author, String group) {
+		int idTicket =select("select * from tickets").length +1;
+		Timestamp date =new Timestamp(System.currentTimeMillis());
+		execute("insert into tickets values ("+ idTicket +", '" +title +"', '" +date +"', '" +author +"', '" +group +"')");
 	}
 }

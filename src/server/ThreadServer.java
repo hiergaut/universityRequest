@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.attribute.standard.RequestingUserName;
 import network.Request;
 //import static network.Request.recvRequest;
 import network.ClientRequest;
@@ -83,7 +84,8 @@ public class ThreadServer implements Runnable {
 						String name =(String)params.get(3);
 						String status =(String)params.get(4);
 
-						bdd.newUser(login, passwd, firstName, name, status);
+						String message =bdd.newUser(login, passwd, firstName, name, status);
+						sendRequest(ServerRequest.NEW_USER_RESPONSE, message);
 //						Request.sendRequest(socket, RequestName.INIT_HOME, bdd.getMessages(name));
 						break;
 
@@ -110,6 +112,44 @@ public class ThreadServer implements Runnable {
 							lm.add(bdd.getMessage(idMessage));
 						}
 						server.broadcast(lm);
+						break;
+
+					case ADD_GROUP:
+						String group =(String)params.get(0);
+						bdd.addUserInGroup(actualConnectUser, group);
+
+						sendRequest(ServerRequest.ALL_GROUP_RESPONSE, bdd.allGroups(actualConnectUser));
+						break;
+
+					case DEL_GROUP:
+						group =(String)params.get(0);
+						bdd.delUserOfGroup(actualConnectUser, group);
+
+						sendRequest(ServerRequest.ALL_GROUP_RESPONSE, bdd.allGroups(actualConnectUser));
+						break;
+
+					case ALL_GROUP_FOR_TICKET:
+						sendRequest(ServerRequest.ALL_GROUP_FOR_TICKET_RESPONSE, bdd.allGroups());
+						break;
+
+					case NEW_TICKET:
+						String title =(String)params.get(0);
+						String author =(String)params.get(1);
+						group =(String)params.get(2);
+
+						String bodyMessage =(String)params.get(3);
+						bdd.newTicket(title, author, group);
+						
+						int id =-1;
+						String body =bodyMessage;
+						Timestamp create =new Timestamp(System.currentTimeMillis());
+						String ticket =title;
+						String firstname ="";
+						name ="";
+						
+						m =new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage. SERVER_NOT_RECEIVE, null);
+						m =bdd.newMessage(m);
+						server.broadcast(m);
 						break;
 				}
 			}

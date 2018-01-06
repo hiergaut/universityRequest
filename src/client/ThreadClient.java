@@ -95,6 +95,25 @@ public class ThreadClient implements Runnable {
 						client.addMessages(lm);
 						ihm.receiveMessagesFromServer(lm);
 						break;
+
+					case NEW_USER_RESPONSE:
+						String message =(String)params.get(0);
+//						System.out.println(message);
+						ihm.getNewUser_console().setText(message);
+						break;
+
+					case ALL_GROUP_FOR_TICKET_RESPONSE:
+						List<String> ls =new ArrayList<>();
+						for (Object o : params) {
+							ls.add((String)o);
+						}
+						String[] ts =new String[ls.size()];
+						int i =0;
+						for (String s : ls) {
+							ts[i++] =s;
+						}
+						ihm.newTicketPrint(ts);
+						break;
 				}
 			}
 		}

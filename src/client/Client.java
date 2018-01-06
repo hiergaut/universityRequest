@@ -130,5 +130,23 @@ public class Client {
 	void delMessage(Message m) {
 		messages.remove(m);
 	}
+
+	String nbNotReadMessageOfTicket(String t, String user) {
+		int cpt =0;
+		for (Message m : getTicketMessages(t)) {
+			if (! m.isAlreadyReadBy(user))
+				cpt++;
+		}
+		return cpt +"";
+	}
+
+	String nbNotReadMessageInGroup(String g, String actualUser) {
+		int cpt =0;
+		for (String ticket : getTicket(g)) {
+			cpt +=Integer.parseInt(nbNotReadMessageOfTicket(ticket, actualUser));
+			
+		}
+		return cpt +"";
+	}
 	
 }
