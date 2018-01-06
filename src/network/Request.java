@@ -36,14 +36,16 @@ public class Request<Enum> implements Serializable {
 		}
 	}
 
-	public Request(Socket s) {
+	public Request(Socket s) throws IOException {
 		Request<Enum> request = recv(s);
-		if (request != null) {
-			this.requestName =request.getRequestName();
-			this.params =request.getParams();
-		}
-
 		System.out.println("[Request]" +tag +"receive :" +request);
+
+		if (request ==null)
+			throw new IOException();
+
+		this.requestName =request.getRequestName();
+		this.params =request.getParams();
+
 	}
 
 	@Override

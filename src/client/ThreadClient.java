@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import network.Request;
 import network.ServerRequest;
 import userData.Message;
@@ -34,7 +36,12 @@ public class ThreadClient implements Runnable {
 		InterfaceClient ihm =client.getIhm();
 		
 		while (true) {
-			Request<ServerRequest> serverRequest = new Request<>(client.getSocket());
+			Request<ServerRequest> serverRequest =null;
+			try {
+				serverRequest = new Request<>(client.getSocket());
+			} catch (IOException ex) {
+				Logger.getLogger(ThreadClient.class.getName()).log(Level.SEVERE, null, ex);
+			}
 			System.out.println("[ThreadClient]" +tag +"serverRequest :" +serverRequest);
 			
 			if (serverRequest != null) {

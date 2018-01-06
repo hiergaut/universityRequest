@@ -50,7 +50,12 @@ public class ThreadServer implements Runnable {
 		while (stay) {
 //			Request request = Request.recv(socket);
 //			Request<ClientRequest> request = recvRequest(socket);
-			Request<ClientRequest> clientRequest =new Request<>(socket);
+			Request<ClientRequest> clientRequest =null;
+			try {
+				clientRequest = new Request<>(socket);
+			} catch (IOException ex) {
+				Logger.getLogger(ThreadServer.class.getName()).log(Level.SEVERE, null, ex);
+			}
 //			clientRequest.recvRequest(socket);
 			System.out.println("[ThreadServer]" +tag +"Request :" +clientRequest);
 			
