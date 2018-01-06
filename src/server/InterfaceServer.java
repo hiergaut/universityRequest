@@ -222,7 +222,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel11Layout.setVerticalGroup(
                         jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 31, Short.MAX_VALUE)
+                        .addGap(0, 36, Short.MAX_VALUE)
                 );
 
                 menu_init.add(jPanel11);
@@ -252,7 +252,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 31, Short.MAX_VALUE)
+                        .addGap(0, 36, Short.MAX_VALUE)
                 );
 
                 menu_service.add(jPanel5);
@@ -320,7 +320,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jLabel10)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                                                 .addComponent(bdd_connect)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(498, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,14 +353,17 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel17)
                                         .addComponent(bdd_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(25, Short.MAX_VALUE))
                 );
 
-                bdd_baseName.setText("universityRequest");
-                bdd_password.setText("postgres");
-                bdd_user.setText("postgres");
+                bdd_baseName.setText("universityrequest");
+                //bdd_password.setText("postgres");
+                bdd_password.setText("fuck");
+                //bdd_user.setText("postgres");
+                bdd_user.setText("gauthier");
                 bdd_port.setText("5432");
-                bdd_ip.setText("127.0.0.1");
+                //bdd_ip.setText("127.0.0.1");
+                bdd_ip.setText("77.141.121.226");
 
                 view_bdd.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -432,7 +435,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel20)
                                         .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(36, Short.MAX_VALUE))
                 );
 
                 server_port.setText("5000");
@@ -549,7 +552,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel6))
-                                .addContainerGap(363, Short.MAX_VALUE))
+                                .addContainerGap(362, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,7 +567,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(168, Short.MAX_VALUE))
+                                .addContainerGap(251, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_about, "about");
