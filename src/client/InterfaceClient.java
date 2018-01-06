@@ -295,7 +295,8 @@ public class InterfaceClient extends javax.swing.JFrame {
                 );
 
                 serverNotFound_port.setText("5000");
-                serverNotFound_ip.setText("127.0.0.1");
+                //serverNotFound_ip.setText("127.0.0.1");
+                serverNotFound_ip.setText("77.141.121.226");
 
                 view_serverNotFound.add(jPanel2, java.awt.BorderLayout.CENTER);
 

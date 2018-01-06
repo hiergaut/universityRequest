@@ -173,7 +173,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="serverNotFound_ip">
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="serverNotFound_ip.setText(&quot;127.0.0.1&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//serverNotFound_ip.setText(&quot;127.0.0.1&quot;);&#xa;serverNotFound_ip.setText(&quot;77.141.121.226&quot;);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
