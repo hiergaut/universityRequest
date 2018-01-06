@@ -825,12 +825,17 @@ public class InterfaceClient extends javax.swing.JFrame {
         private void home_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_groupActionPerformed
 		show("group");
 
-		client.sendRequest(ClientRequest.ALL_GROUP, identification_login.getText());
+//		client.sendRequest(ClientRequest.ALL_GROUP, identification_login.getText());
+		client.sendRequest(ClientRequest.ALL_GROUP);
         }//GEN-LAST:event_home_groupActionPerformed
 
         private void group_swapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_swapActionPerformed
-		view_home.setVisible(true);
-		view_group.setVisible(false);
+		String ownGroupSelected =(String)group_own.getValueAt(group_own.getSelectedRow(), group_own.getSelectedColumn());
+		String otherGroupSelected =(String)group_other.getValueAt(group_other.getSelectedRow(), group_other.getSelectedColumn());
+		System.out.println(ownGroupSelected);
+		System.out.println(otherGroupSelected);
+//		view_home.setVisible(true);
+//		view_group.setVisible(false);
         }//GEN-LAST:event_group_swapActionPerformed
 
         private void group_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_backActionPerformed
