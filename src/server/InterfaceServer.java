@@ -56,7 +56,9 @@ public class InterfaceServer extends javax.swing.JFrame {
 				bddConnect();
 				temporize();
 				temporize();
+				temporize();
 				serverConnect();
+				temporize();
 			}
 		}.start();
 
@@ -161,6 +163,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_sgbd = new javax.swing.JComboBox<>();
                 bdd_clearBase = new javax.swing.JButton();
                 bdd_show = new javax.swing.JButton();
+                jButton1 = new javax.swing.JButton();
                 bdd_console = new javax.swing.JTextPane();
                 view_server = new javax.swing.JPanel();
                 jLabel3 = new javax.swing.JLabel();
@@ -230,7 +233,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel11Layout.setVerticalGroup(
                         jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addGap(0, 56, Short.MAX_VALUE)
                 );
 
                 menu_init.add(jPanel11);
@@ -260,7 +263,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 );
                 jPanel5Layout.setVerticalGroup(
                         jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addGap(0, 56, Short.MAX_VALUE)
                 );
 
                 menu_service.add(jPanel5);
@@ -329,6 +332,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                         }
                 });
 
+                jButton1.setText("use remote bdd");
+                jButton1.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                jButton1ActionPerformed(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
                 jPanel3Layout.setHorizontalGroup(
@@ -344,20 +354,22 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                         .addComponent(jLabel18)
                                                         .addComponent(jLabel17))
                                                 .addGap(39, 39, 39)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(bdd_baseName, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                                        .addComponent(bdd_ip)
-                                                        .addComponent(bdd_port)
-                                                        .addComponent(bdd_user)
-                                                        .addComponent(bdd_password)))
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                .addComponent(bdd_password, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                                                .addComponent(bdd_user)
+                                                                .addComponent(bdd_baseName)
+                                                                .addComponent(bdd_port))
+                                                        .addComponent(bdd_ip, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(43, 43, 43)
                                                 .addComponent(bdd_sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(31, 31, 31)
                                                 .addComponent(jLabel10)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(bdd_connect)))
-                                .addGap(108, 108, 108)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                                                .addComponent(bdd_connect)
+                                                .addGap(206, 206, 206)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
@@ -366,62 +378,73 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(bdd_clearBase)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(bdd_show)))
+                                .addGap(25, 25, 25))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(174, 174, 174)
+                                .addComponent(jButton1)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(95, 95, 95)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(bdd_connect)
-                                                        .addComponent(bdd_init)
-                                                        .addComponent(bdd_clearBase)
-                                                        .addComponent(bdd_show))
-                                                .addGap(34, 34, 34)
-                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGap(95, 95, 95)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addComponent(jLabel10)
-                                                                .addGap(18, 18, 18))
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(bdd_init)
+                                                                        .addComponent(bdd_clearBase)
+                                                                        .addComponent(bdd_show))
+                                                                .addGap(34, 34, 34)
+                                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addComponent(bdd_sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(56, 56, 56)))
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel13)
-                                                        .addComponent(bdd_ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel12)
-                                                        .addComponent(bdd_port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel16)
-                                                        .addComponent(bdd_baseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel18)
-                                                        .addComponent(bdd_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jLabel17)
-                                                        .addComponent(bdd_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap(365, Short.MAX_VALUE))
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                .addComponent(jLabel10)
+                                                                                .addGap(18, 18, 18))
+                                                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                .addComponent(bdd_sgbd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(56, 56, 56)))
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel13)
+                                                                        .addComponent(bdd_ip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(18, 18, 18)
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel12)
+                                                                        .addComponent(bdd_port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(18, 18, 18)
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel16)
+                                                                        .addComponent(bdd_baseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(18, 18, 18)
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel18)
+                                                                        .addComponent(bdd_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGap(18, 18, 18)
+                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                        .addComponent(jLabel17)
+                                                                        .addComponent(bdd_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addGap(79, 79, 79)
+                                                .addComponent(bdd_connect)))
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton1)
+                                .addContainerGap(245, Short.MAX_VALUE))
                 );
 
-                bdd_baseName.setText("universityrequest");
-                //bdd_password.setText("postgres");
-                bdd_password.setText("5qGw39Cg");
+                bdd_baseName.setText("universityRequest");
+                bdd_password.setText("postgres");
+                //bdd_password.setText("5qGw39Cg");
+                bdd_password.setText("root");
                 //bdd_user.setText("postgres");
                 //bdd_user.setText("gauthier");
                 bdd_user.setText("root");
-                bdd_user.setText("admin-universityrequest");
+                //bdd_user.setText("admin-universityrequest");
                 //bdd_port.setText("5432");
                 bdd_port.setText("3306");
-                //bdd_ip.setText("127.0.0.1");
-                bdd_ip.setText("database.university-request.fr");
+                bdd_ip.setText("127.0.0.1");
+                //bdd_ip.setText("database.university-request.fr");
                 bdd_sgbd.setSelectedItem("mysql");
 
                 view_bdd.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -494,7 +517,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(jLabel20)
                                         .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(376, Short.MAX_VALUE))
+                                .addContainerGap(223, Short.MAX_VALUE))
                 );
 
                 server_port.setText("5000");
@@ -503,7 +526,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 view_server.add(jPanel2, java.awt.BorderLayout.LINE_START);
 
-                server_console.setPreferredSize(new java.awt.Dimension(0, 200));
+                server_console.setPreferredSize(new java.awt.Dimension(0, 300));
                 view_server.add(server_console, java.awt.BorderLayout.SOUTH);
 
                 home_view.add(view_server, "server");
@@ -567,7 +590,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         .addGroup(view_groupLayout.createSequentialGroup()
                                                 .addGap(249, 249, 249)
                                                 .addComponent(jButton3)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(286, Short.MAX_VALUE))
                 );
                 view_groupLayout.setVerticalGroup(
                         view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -583,7 +606,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jButton2)
                                                 .addGap(40, 40, 40)
                                                 .addComponent(home_group_inputNewGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(254, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_group, "group");
@@ -611,7 +634,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         .addComponent(jLabel4)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel6))
-                                .addContainerGap(427, Short.MAX_VALUE))
+                                .addContainerGap(701, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -626,7 +649,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(591, Short.MAX_VALUE))
+                                .addContainerGap(538, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_about, "about");
@@ -690,11 +713,17 @@ public class InterfaceServer extends javax.swing.JFrame {
         private void bdd_initActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_initActionPerformed
 		//		String output = executeShellCommand("sh", "-c", "./src/bdd/initBase.sh ip gauthier universityrequest fuck");
 		//		bdd_console2.setText(output);
-		bdd.executeSqlScript(new File("src/bdd/build.sql"));
-		bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
+		new Thread() {
+			@Override
+			public void run() {
+				bdd.executeSqlScript(new File("src/bdd/build.sql"));
+				bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
+				bdd.showTable(bdd_console2);
+			}
+			
+		}.start();
 
-//		bdd.checkIntegrity(bdd_console2);
-		bdd.showTable(bdd_console2);
+		bdd_console2.setText("");
         }//GEN-LAST:event_bdd_initActionPerformed
 
         private void bdd_clearBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_clearBaseActionPerformed
@@ -707,6 +736,15 @@ public class InterfaceServer extends javax.swing.JFrame {
                 // TODO add your handling code here:
 		bdd.showTable(bdd_console2);
         }//GEN-LAST:event_bdd_showActionPerformed
+
+        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+                // TODO add your handling code here:
+		bdd_ip.setText("database.university-request.fr");
+		bdd_port.setText("3306");
+		bdd_baseName.setText("universityrequest");
+		bdd_user.setText("admin-universityrequest");
+		bdd_password.setText("5qGw39Cg");
+        }//GEN-LAST:event_jButton1ActionPerformed
 
 	void majGroupTable() {
 		Object[] myGroup =bdd.allGroups();
@@ -785,6 +823,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 
 					bdd_console.setText(bdd.uniq("select version()"));
 					bdd.checkIntegrity(bdd_console2);
+					bdd.showTable(bdd_console2);
 
 					init_bdd.setBackground(Color.green);
 
@@ -861,6 +900,7 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JTable home_view_group_table;
         private javax.swing.JButton init_bdd;
         private javax.swing.JButton init_server;
+        private javax.swing.JButton jButton1;
         private javax.swing.JButton jButton2;
         private javax.swing.JButton jButton3;
         private javax.swing.JLabel jLabel1;

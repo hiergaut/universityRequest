@@ -6,12 +6,12 @@ insert into groups values ('nadege');
 insert into groups values ('fablab');
 
 
-insert into users values ('gauthier', 'fuck', 'gauthier', 'bouyjou', 'student');
-insert into users values ('anonymous', 'passwd', 'prenom', 'nom', 'student');
-insert into users values ('rastaman', 'passwd', 'prenom', 'nom', 'student');
-insert into users values ('migeon', 'passwd', 'migeon', 'nom', 'professor');
-insert into users values ('nadege', 'passwd', 'nadege', 'nom', 'service');
-insert into users values ('maintenance', 'passwd', 'prenom', 'nom', 'service');
+insert into users values ('gauthier', 'passwd', 'gauthier', 'Bouyjou', 'student');
+insert into users values ('anonymous', 'passwd', 'anonymous', 'MrRobot', 'student');
+insert into users values ('rastaman', 'passwd', 'bob', 'Marley', 'student');
+insert into users values ('migeon', 'passwd', 'frederic', 'Migeon', 'professor');
+insert into users values ('nadege', 'passwd', 'nadege', 'Lamarque', 'service');
+insert into users values ('maintenance', 'maintenance', 'chauffage', 'nom', 'service');
 
 
 -- insert into belong values ('gauthier', 'info');

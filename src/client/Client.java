@@ -102,6 +102,15 @@ public class Client {
 		return l;
 	}
 
+	List<String> getTicket() {
+		List<String> ls =new ArrayList<>();
+		for (Message m : messages) {
+			if (! ls.contains(m.getTicket()))
+				ls.add(m.getTicket());
+		}
+		return ls;
+	}
+
 	Set<Message> getTicketMessages(String ticket) {
 		NavigableSet<Message> set =new TreeSet<>(new Comparator<Message>() {
 			@Override

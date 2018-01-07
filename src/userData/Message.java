@@ -113,5 +113,15 @@ public class Message implements Serializable, Comparable<Message> {
 		}
 		return false;
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	
 	
 }
