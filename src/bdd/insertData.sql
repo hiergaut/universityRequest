@@ -45,39 +45,39 @@ insert into tickets values (5, 'controle de math', '2010-02-02 10:28:54', 'anony
 
 
 insert into messages values (1, 'bonjour il n''y a pas de cours en salle 101', '2010-02-02 10:28:54', 'gauthier', 1);
-insert into read values ('gauthier', 1);
+insert into seen values ('gauthier', 1);
 insert into messages values (2, 'c''est normal, l''emploi du temp a ete mis a jour', '2010-02-02 10:29:54', 'nadege', 1);
-insert into read values ('nadege', 2);
+insert into seen values ('nadege', 2);
 insert into messages values (3, 'je suis desole, je suis malade', '2010-02-02 10:30:54', 'migeon', 1);
-insert into read values ('migeon', 3);
+insert into seen values ('migeon', 3);
 
 insert into messages values (4, 'pas de chauffage urgent', '2010-02-02 10:31:54', 'rastaman', 2);
-insert into read values ('rastaman', 4);
+insert into seen values ('rastaman', 4);
 insert into messages values (5, 'c''est reparé', '2010-02-02 10:33:54', 'maintenance', 2);
-insert into read values ('maintenance', 5);
+insert into seen values ('maintenance', 5);
 
 insert into messages values (6, 'il faut plus de sport', '2010-02-02 10:34:54', 'rastaman', 3);
-insert into read values ('rastaman', 6);
+insert into seen values ('rastaman', 6);
 
 insert into messages values (7, 'pourrait on avoir les notes de ct?', '2010-02-02 10:35:54', 'anonymous', 4);
-insert into read values ('anonymous', 7);
+insert into seen values ('anonymous', 7);
 insert into messages values (8, 'oui biensur', '2010-02-02 10:39:54', 'nadege', 4);
-insert into read values ('nadege', 7);
+insert into seen values ('nadege', 7);
 
 insert into messages values (9, 'controle de math quand?', '2010-02-02 10:36:54', 'anonymous', 5);
-insert into read values ('anonymous', 9);
+insert into seen values ('anonymous', 9);
 insert into messages values (10, 'je ne sais pas', '2010-02-02 10:37:54', 'nadege', 5);
-insert into read values ('nadege', 10);
+insert into seen values ('nadege', 10);
 insert into messages values (11, 'dans une semaine', '2010-02-02 10:41:54', 'migeon', 5);
-insert into read values ('migeon', 11);
+insert into seen values ('migeon', 11);
 insert into messages values (12, 'dans une semaine', '2010-02-02 10:43:54', 'migeon', 5);
-insert into read values ('migeon', 12);
+insert into seen values ('migeon', 12);
 insert into messages values (13, 'dans une semaine', '2010-02-02 10:44:54', 'migeon', 5);
-insert into read values ('migeon', 13);
+insert into seen values ('migeon', 13);
 insert into messages values (14, 'dans une semaine', '2010-02-02 10:47:54', 'migeon', 5);
-insert into read values ('migeon', 14);
+insert into seen values ('migeon', 14);
 insert into messages values (15, 'dans une semaine', '2010-02-02 10:48:54', 'migeon', 5);
-insert into read values ('migeon', 15);
+insert into seen values ('migeon', 15);
 insert into messages values (16, 'dans une semaine', '2010-02-02 10:49:54', 'migeon', 5);
-insert into read values ('migeon', 16);
+insert into seen values ('migeon', 16);
 insert into messages values (17, 'dans une semaine', '2010-02-02 10:50:54', 'migeon', 5);

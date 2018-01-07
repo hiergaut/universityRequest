@@ -1,6 +1,6 @@
 
 drop table if exists receive;
-drop table if exists read;
+drop table if exists seen;
 drop table if exists belong;
 drop table if exists messages;
 drop table if exists tickets;
@@ -48,10 +48,10 @@ create table belong (
     primary key (b_fk_users, b_fk_groups)
 );
 
-create table read (
-    read_fk_users varchar(50) not null references users(u_login),
-    read_fk_messages bigint not null references messages(m_idMessage),
-    primary key (read_fk_users, read_fk_messages)
+create table seen (
+    seen_fk_users varchar(50) not null references users(u_login),
+    seen_fk_messages bigint not null references messages(m_idMessage),
+    primary key (seen_fk_users, seen_fk_messages)
 );
 
 create table receive (

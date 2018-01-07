@@ -6,6 +6,11 @@
 package server;
 
 import function.Function;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,8 +20,10 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 import userData.Message;
 import userData.StatusMessage;
 
@@ -33,25 +40,84 @@ public class Bdd {
 	private String user;
 	private String passwd;
 	private Connection conn;
+	private String sgbd;
 
 	
-	public Bdd(String baseName, String ip, String port, String user, String passwd) throws ClassNotFoundException, SQLException {
+	public Bdd(String baseName, String ip, String port, String user, String passwd, String sgbd) throws ClassNotFoundException, SQLException {
 		this.baseName = baseName;
 		this.ip = ip;
 		this.port = port;
 		this.user = user;
 		this.passwd = passwd;
+		this.sgbd =sgbd;
 		
 		connect();
 	}
 	
 	public void connect() throws ClassNotFoundException, SQLException {
-		Class.forName("org.postgresql.Driver");
-		System.out.println("[Bdd]" +tag +"Driver O.K.");
-		String url = "jdbc:postgresql://" +ip +":" +port +"/" +baseName;
-		
+		String url ="";
+		switch (sgbd) {
+			case "postgres":
+				Class.forName("org.postgresql.Driver");
+				System.out.println("[Bdd]" +tag +"Driver postgres O.K.");
+				url = "jdbc:postgresql://" +ip +":" +port +"/" +baseName;
+				
+				break;
+
+			case "mysql":
+				Class.forName("com.mysql.jdbc.Driver");
+				System.out.println("[Bdd]" +tag +"Driver mysql O.K.");
+				url = "jdbc:mysql://" +ip +":" +port +"/" +baseName;
+				
+				break;
+		}
+
 		conn = DriverManager.getConnection(url, user, passwd);
 		System.out.println("[Bdd]"+ tag +"Connexion effective !");
+	}
+	
+	public void executeSqlScript(File inputFile) {
+		// Delimiter
+		String delimiter = ";";
+		
+		// Create scanner
+		Scanner scanner;
+		try {
+			scanner = new Scanner(inputFile).useDelimiter(delimiter);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+			return;
+		}
+		System.out.println("[Bdd] execute sql file " +inputFile);
+		
+		// Loop through the SQL file statements
+		Statement currentStatement = null;
+		while (scanner.hasNext()) {
+			
+			// Get statement
+			String rawStatement = scanner.next() + delimiter;
+			try {
+				// Execute statement
+				currentStatement = conn.createStatement();
+				System.out.println(rawStatement);
+//				if (! rawStatement.equals(";\n"))
+				if (rawStatement.length() > 5)
+					currentStatement.execute(rawStatement);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				// Release resources
+				if (currentStatement != null) {
+					try {
+						currentStatement.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+				currentStatement = null;
+			}
+		}
+		scanner.close();
 	}
 	
 	public void request(String req) {
@@ -171,6 +237,7 @@ public class Bdd {
 //						System.out.print(result.getObject(i).toString() + "\t");
 				
 //				System.out.println("\n---------------------------------");
+				str +="\n";
 			}
 			result.close();
 			state.close();
@@ -416,5 +483,49 @@ public class Bdd {
 		int idTicket =select("select * from tickets").length +1;
 		Timestamp date =new Timestamp(System.currentTimeMillis());
 		execute("insert into tickets values ("+ idTicket +", '" +title +"', '" +date +"', '" +author +"', '" +group +"')");
+	}
+
+
+	void checkIntegrity(JTextArea console) throws SQLException {
+		switch (sgbd) {
+			case "postgres":
+				if (select("select tablename from pg_tables where schemaname='public'").length != 7)
+					console.setText("database not conform, must have 7 row\nyou must init base !");
+				break;
+
+			case "mysql":
+				if (select("show tables").length != 7) {
+					console.setText("database not conform, must have 7 row\nyou must init base !");
+					throw new SQLException("not conform tables");
+				}
+				break;
+		}
+	}
+
+	public void showTable(JTextArea console) {
+		switch (sgbd) {
+			case "postgres":
+				console.setText(uniq("select tablename from pg_tables where schemaname='public'"));
+				break;
+
+			case "mysql":
+				console.setText(uniq("show tables"));
+				break;
+		}
+	}
+
+	void clearTables() {
+		switch (sgbd) {
+			case "postgres":
+				break;
+
+			case "mysql":
+				String[][] m =select("show tables");
+				for (String s[] : m) {
+					System.out.println(s[0]);
+					execute("drop table " +s[0]);
+				}
+				break;
+		}
 	}
 }

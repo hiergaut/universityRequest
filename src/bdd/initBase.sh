@@ -12,7 +12,6 @@ then
 fi
 # psql universityRequest < build.sql  
 # psql universityRequest < insertData.sql  
-# psql -h 77.141.121.226 -U gauthier universityrequest
 PGPASSWORD=$password psql -h $ip -U $user $baseName -f ./src/bdd/build.sql
 PGPASSWORD=$password psql -h $ip -U $user $baseName -f ./src/bdd/insertData.sql
 
