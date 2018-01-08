@@ -1,7 +1,6 @@
 # UniversityRequest
-
-university project in java, with netbeans
-
-Certainly finished in January 2018
+java university project
 
 ![logo](logo.png)
+
+Certainly finished in January 2018
