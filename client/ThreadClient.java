@@ -64,7 +64,8 @@ public class ThreadClient implements Runnable {
 						break;
 
 					case IDENTIFICATION_FAILED:
-						ihm.getHome_wrong().setVisible(true);
+//						ihm.getHome_wrong().setVisible(true);
+						ihm.getError_login_passwd().setVisible(true);
 						break;
 
 					case ALL_GROUP_RESPONSE:
@@ -99,7 +100,7 @@ public class ThreadClient implements Runnable {
 					case NEW_USER_RESPONSE:
 						String message =(String)params.get(0);
 //						System.out.println(message);
-						ihm.getNewUser_console().setText(message);
+//						ihm.getNewUser_console().setText(message);
 						break;
 
 					case ALL_GROUP_FOR_TICKET_RESPONSE:

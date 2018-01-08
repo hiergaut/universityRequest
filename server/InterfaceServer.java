@@ -190,7 +190,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jLabel11 = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-                setPreferredSize(new java.awt.Dimension(900, 600));
                 getContentPane().setLayout(new java.awt.CardLayout(10, 10));
 
                 home.setLayout(new java.awt.BorderLayout(10, 10));
