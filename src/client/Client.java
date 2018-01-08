@@ -148,5 +148,16 @@ public class Client {
 		}
 		return cpt +"";
 	}
+
+	List<String> getAllTickets() {
+		List<String> ls =new ArrayList<>();
+		for (Message m : messages) {
+			String ticket =m.getTicket();
+			if (! ls.contains(ticket)) {
+				ls.add(ticket);
+			}
+		}
+		return ls;
+	}
 	
 }

@@ -349,9 +349,10 @@ public class Bdd {
 			l.add(0, l.size() +"");
 		}
 
-		m =select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups");
+//		m =select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups");
+		m =select("select g_name from groups where g_name not in ( select g_name from groups, belong where b_fk_users='gauthier' and g_name=b_fk_groups)");
 		if (m != null) {
-			l.addAll(firstColumn(select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups")));
+			l.addAll(firstColumn(m));
 		}
 
 		return l.toArray();
@@ -420,7 +421,7 @@ public class Bdd {
 	}
 
 	List<String> destineUsersMessage(int idMessage) {
-		return firstColumn(select("select b_fk_users from messages,tickets,belong where m_idmessage=" +idMessage +" and m_fk_tickets=t_idticket and t_fk_groups=b_fk_groups"));
+		return firstColumn(select("select b_fk_users from messages,tickets,belong where m_idmessage=" +idMessage +" and m_fk_tickets=t_idticket and t_fk_groups=b_fk_groups union select t_fk_users from messages,tickets where m_idmessage=" +idMessage +" and m_fk_tickets=t_idTicket"));
 	}
 
 	private StatusMessage checkStatusMessage(String[][] userStatus) {
@@ -438,7 +439,7 @@ public class Bdd {
 	}
 
 	private String checkUserMessageStatus(int idMessage, String user) {
-		if (select("select * from read where read_fk_users='" +user +"' and read_fk_messages=" +idMessage) != null) {
+		if (select("select * from seen where seen_fk_users='" +user +"' and seen_fk_messages=" +idMessage) != null) {
 			return "lu";
 		}
 
@@ -450,7 +451,7 @@ public class Bdd {
 	}
 
 	void userReadMessage(String user, Integer idMessages) {
-		execute("insert into read values ('" +user +"', " +idMessages +")");
+		execute("insert into seen values ('" +user +"', " +idMessages +")");
 	}
 
 	Message getMessage(Integer idMessage) {
