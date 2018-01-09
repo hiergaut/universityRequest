@@ -365,6 +365,11 @@ public class Bdd {
 		return l.toArray();
 	}
 
+	String[][] allGroupsWithNbUser() {
+		String[][] m =select("select *,0 from groups where g_name not in (select distinct g_name from groups,belong where g_name=b_fk_groups) union select g_name,count(b_fk_users) from belong,groups where b_fk_groups=g_name group by g_name");
+		return m;
+	}
+
 	private List<String> firstColumn(String[][] select) {
 		List<String> r =new ArrayList<>();
 		for (String[] l : select) {
@@ -531,5 +536,27 @@ public class Bdd {
 				}
 				break;
 		}
+	}
+	
+	String[][] allUsersOfGroup(String group) {
+		String[][] m = select("select b_fk_users from belong where b_fk_groups='" +group +"'");
+		return m;
+	}
+	
+	void delUserInGroup(String user, String group) {
+		execute("delete from belong where b_fk_users='" +user +"' and b_fk_groups='" +group +"'");
+	}
+
+	String[][] otherUsersOfGroup(String group) {
+//		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		return select("select u_login from users where u_login not in (select b_fk_users from belong where b_fk_groups='" +group +"')");
+	}
+
+	public String getNbUsers() {
+		return select("select count(*) from users")[0][0];
+	}
+
+	public String getNbGroups() {
+		return select("select count(*) from groups")[0][0];
 	}
 }

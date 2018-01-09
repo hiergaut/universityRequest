@@ -126,4 +126,8 @@ public class Server {
 //		allSocketClient.remove(socket);
 //		thr
 	}
+
+	public Integer getNbThreads() {
+		return threads.size();
+	}
 }
