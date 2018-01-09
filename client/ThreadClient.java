@@ -66,6 +66,12 @@ public class ThreadClient implements Runnable {
 					case IDENTIFICATION_FAILED:
 //						ihm.getHome_wrong().setVisible(true);
 						ihm.getError_login_passwd().setVisible(true);
+                                                try {
+                                                    Thread.sleep(3000);
+                                                } catch (InterruptedException ex) {
+                                                    Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
+                                                ihm.getError_login_passwd().setVisible(false);
 						break;
 
 					case ALL_GROUP_RESPONSE:
