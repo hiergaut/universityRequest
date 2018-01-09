@@ -1501,8 +1501,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 return; // c'est toujours mal de faire ça ?
             }
             
-            
-            
             // Domain verification
             String[] email_split=email.split("@");
             String domain=email_split[1];
@@ -1525,6 +1523,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 return; // vraiment ?
             }
             
+            // GET url
             String url="https://join.university-request.fr/email/?email="+email+"&login="+login+"&pswd="+passwd+"&fstnm="+firstName+"&nm="+name+"&status="+status;
 
             String retour="";
@@ -1534,12 +1533,10 @@ public class InterfaceClient extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
-            // Vérification du résultat
-
+            // Vérification result
             switch (retour){
-                case "ok" :
+                case "ok" : // Email sent successfully
                     newUser_okEmail.setVisible(true);
                     new Thread() {
                         @Override
@@ -1555,22 +1552,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                     }.start();
                     break;
 
-                case "ko" : // L'email n'a pas été envoyé
-                    newUser_error.setVisible(true);
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            try {
-                                    Thread.sleep(5000);
-                            } catch (InterruptedException ex) {
-                                    Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            newUser_error.setVisible(false);
-                        }
-                    }.start();
-                    break;
-
-                default : // Erreur
+                default : // Error
                     newUser_error.setVisible(true);
                     new Thread() {
                         @Override
@@ -1621,7 +1603,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_group_swapActionPerformed
 
         private void group_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_backActionPerformed
-                // TODO add your handling code here:
 		majTree();
 		show("home");
         }//GEN-LAST:event_group_backActionPerformed
@@ -1642,7 +1623,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_newMessage_inputKeyPressed
 
         private void messages_box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messages_box1MouseClicked
-                // TODO add your handling code here:
 		System.out.println("fuck");
         }//GEN-LAST:event_messages_box1MouseClicked
 
@@ -1652,7 +1632,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_home_newTicketActionPerformed
 
         private void newTicket_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTicket_backActionPerformed
-                // TODO add your handling code here:
 		show("home");
         }//GEN-LAST:event_newTicket_backActionPerformed
 
