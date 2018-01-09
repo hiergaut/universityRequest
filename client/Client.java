@@ -26,6 +26,7 @@ import userData.Message;
  * @author gauthier
  */
 public class Client {
+
 	private String ipServer;
 	private int portServer;
 	private InterfaceClient ihm;
@@ -33,17 +34,17 @@ public class Client {
 
 	private Socket socket;
 
-	private String tag =Function.color(this);
+	private String tag = Function.color(this);
 
 	public Client(String ipServer, int portServer, InterfaceClient ihm) throws IOException {
 		this.ipServer = ipServer;
 		this.portServer = portServer;
-		this.ihm =ihm;
+		this.ihm = ihm;
 
 		socket = new Socket(ipServer, portServer);
 
 		Thread thread = new Thread(new ThreadClient(this));
-		System.out.println("[Client]" +tag +"new thread client : "+ socket);
+		System.out.println("[Client]" + tag + "new thread client : " + socket);
 		thread.start();
 	}
 
@@ -61,14 +62,14 @@ public class Client {
 	}
 
 	void setMessages(ArrayList<Object> params) {
-		messages =new TreeSet<>();
+		messages = new TreeSet<>();
 		for (Object o : params) {
-			messages.add((Message)o);
+			messages.add((Message) o);
 		}
 	}
 
 	Set<String> getGroups() {
-		NavigableSet<String> set =new TreeSet<>();
+		NavigableSet<String> set = new TreeSet<>();
 		for (Message m : messages) {
 			set.add(m.getGroup());
 		}
@@ -77,11 +78,11 @@ public class Client {
 
 	List<String> getTicket(String g) {
 		System.out.println(g);
-		NavigableSet<Message> set =new TreeSet<>(new Comparator<Message>() {
+		NavigableSet<Message> set = new TreeSet<>(new Comparator<Message>() {
 			@Override
 			// first element is the most recent, normaly in right side with default compareto of Timestamp
 			public int compare(Message o1, Message o2) {
-				return - o1.getCreate().compareTo(o2.getCreate());
+				return -o1.getCreate().compareTo(o2.getCreate());
 			}
 		});
 
@@ -92,10 +93,11 @@ public class Client {
 		}
 		System.out.println(set);
 
-		List<String> l =new ArrayList<>();
+		List<String> l = new ArrayList<>();
 		for (Message m : set) {
-			if (! l.contains(m.getTicket()))
+			if (!l.contains(m.getTicket())) {
 				l.add(m.getTicket());
+			}
 		}
 		System.out.println(l);
 
@@ -103,7 +105,7 @@ public class Client {
 	}
 
 	Set<Message> getTicketMessages(String ticket) {
-		NavigableSet<Message> set =new TreeSet<>(new Comparator<Message>() {
+		NavigableSet<Message> set = new TreeSet<>(new Comparator<Message>() {
 			@Override
 			// last element is the most recent message
 			public int compare(Message o1, Message o2) {
@@ -132,32 +134,33 @@ public class Client {
 	}
 
 	String nbNotReadMessageOfTicket(String t, String user) {
-		int cpt =0;
+		int cpt = 0;
 		for (Message m : getTicketMessages(t)) {
-			if (! m.isAlreadyReadBy(user))
+			if (!m.isAlreadyReadBy(user)) {
 				cpt++;
+			}
 		}
-		return cpt +"";
+		return cpt + "";
 	}
 
 	String nbNotReadMessageInGroup(String g, String actualUser) {
-		int cpt =0;
+		int cpt = 0;
 		for (String ticket : getTicket(g)) {
-			cpt +=Integer.parseInt(nbNotReadMessageOfTicket(ticket, actualUser));
-			
+			cpt += Integer.parseInt(nbNotReadMessageOfTicket(ticket, actualUser));
+
 		}
-		return cpt +"";
+		return cpt + "";
 	}
 
 	List<String> getAllTickets() {
-		List<String> ls =new ArrayList<>();
+		List<String> ls = new ArrayList<>();
 		for (Message m : messages) {
-			String ticket =m.getTicket();
-			if (! ls.contains(ticket)) {
+			String ticket = m.getTicket();
+			if (!ls.contains(ticket)) {
 				ls.add(ticket);
 			}
 		}
 		return ls;
 	}
-	
+
 }

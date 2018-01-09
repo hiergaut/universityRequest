@@ -23,9 +23,10 @@ import userData.Message;
  * @author gauthier
  */
 public class ThreadClient implements Runnable {
+
 	private Client client;
 
-	private String tag =Function.color(this);
+	private String tag = Function.color(this);
 
 	public ThreadClient(Client client) {
 		this.client = client;
@@ -33,17 +34,17 @@ public class ThreadClient implements Runnable {
 
 	@Override
 	public void run() {
-		InterfaceClient ihm =client.getIhm();
-		
+		InterfaceClient ihm = client.getIhm();
+
 		while (true) {
-			Request<ServerRequest> serverRequest =null;
+			Request<ServerRequest> serverRequest = null;
 			try {
 				serverRequest = new Request<>(client.getSocket());
 			} catch (IOException ex) {
 				Logger.getLogger(ThreadClient.class.getName()).log(Level.SEVERE, null, ex);
 			}
-			System.out.println("[ThreadClient]" +tag +"serverRequest :" +serverRequest);
-			
+			System.out.println("[ThreadClient]" + tag + "serverRequest :" + serverRequest);
+
 			if (serverRequest != null) {
 				ArrayList<Object> params = serverRequest.getParams();
 				switch (serverRequest.getRequestName()) {
@@ -54,7 +55,7 @@ public class ThreadClient implements Runnable {
 						break;
 
 					case IDENTIFICATION_OK:
-						String name =(String)params.get(0);
+						String name = (String) params.get(0);
 						ihm.getHome_userName().setText(name);
 						ihm.setActualUser(name);
 
@@ -66,27 +67,27 @@ public class ThreadClient implements Runnable {
 					case IDENTIFICATION_FAILED:
 //						ihm.getHome_wrong().setVisible(true);
 						ihm.getError_login_passwd().setVisible(true);
-                                                try {
-                                                    Thread.sleep(3000);
-                                                } catch (InterruptedException ex) {
-                                                    Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                                                }
-                                                ihm.getError_login_passwd().setVisible(false);
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException ex) {
+							Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+						}
+						ihm.getError_login_passwd().setVisible(false);
 						break;
 
 					case ALL_GROUP_RESPONSE:
-						List<String> allGroup =new ArrayList<>();
+						List<String> allGroup = new ArrayList<>();
 						for (Object o : params) {
-							allGroup.add((String)o);
+							allGroup.add((String) o);
 						}
 
-						int lenMyGroup =Integer.parseInt(allGroup.remove(0));
-						Set<String> myGroup =new TreeSet<>();
-						for (int i =0; i <lenMyGroup; i++) {
+						int lenMyGroup = Integer.parseInt(allGroup.remove(0));
+						Set<String> myGroup = new TreeSet<>();
+						for (int i = 0; i < lenMyGroup; i++) {
 							myGroup.add(allGroup.remove(0));
 						}
 
-						Set<String> other =new TreeSet<>();
+						Set<String> other = new TreeSet<>();
 						other.addAll(allGroup);
 
 						System.out.println(myGroup);
@@ -98,26 +99,26 @@ public class ThreadClient implements Runnable {
 						break;
 
 					case MAJ_MESSAGES:
-						List<Message> lm =(List<Message>)params.get(0);
+						List<Message> lm = (List<Message>) params.get(0);
 						client.addMessages(lm);
 						ihm.receiveMessagesFromServer(lm);
 						break;
 
 					case NEW_USER_RESPONSE:
-						String message =(String)params.get(0);
+						String message = (String) params.get(0);
 //						System.out.println(message);
 //						ihm.getNewUser_console().setText(message);
 						break;
 
 					case ALL_GROUP_FOR_TICKET_RESPONSE:
-						List<String> ls =new ArrayList<>();
+						List<String> ls = new ArrayList<>();
 						for (Object o : params) {
-							ls.add((String)o);
+							ls.add((String) o);
 						}
-						String[] ts =new String[ls.size()];
-						int i =0;
+						String[] ts = new String[ls.size()];
+						int i = 0;
 						for (String s : ls) {
-							ts[i++] =s;
+							ts[i++] = s;
 						}
 						ihm.newTicketPrint(ts);
 						break;

@@ -57,23 +57,24 @@ import userData.StatusMessage;
  * @author gauthier
  */
 public class InterfaceClient extends javax.swing.JFrame {
-	private static final long serialVersionUID =1L;
+
+	private static final long serialVersionUID = 1L;
 	private Client client;
 	private boolean retry;
 	private CardLayout cview;
 	// login user actually connected
 	private String actualUser;
 
-	private String tag =Function.color(this);
-        
-        boolean identification_clic_login=true;
-        boolean identification_clic_passwd=true;
-        
-        boolean newUser_clic_name=true;
-        boolean newUser_clic_firstname=true;
-        boolean newUser_clic_email=true;
-        boolean newUser_clic_login=true;
-        boolean newUser_clic_passwd=true;
+	private String tag = Function.color(this);
+
+	boolean identification_clic_login = true;
+	boolean identification_clic_passwd = true;
+
+	boolean newUser_clic_name = true;
+	boolean newUser_clic_firstname = true;
+	boolean newUser_clic_email = true;
+	boolean newUser_clic_login = true;
+	boolean newUser_clic_passwd = true;
 
 	/**
 	 * Creates new form Interface
@@ -102,15 +103,15 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	public void serverConnect() {
-		InterfaceClient ihm =this;
+		InterfaceClient ihm = this;
 		show("connect");
 
 		new Thread() {
 			public void run() {
 				temporize();
 				try {
-					String ip =serverNotFound_ip.getText();
-					int port =Integer.parseInt(serverNotFound_port.getText());
+					String ip = serverNotFound_ip.getText();
+					int port = Integer.parseInt(serverNotFound_port.getText());
 					client = new Client(ip, port, ihm);
 
 					show("identification");
@@ -167,7 +168,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 //		serverConnect.setVisible(false);
 //
 //
-
 	/**
 	 * This method is called from within the constructor to initialize the
 	 * form. WARNING: Do NOT modify this code. The content of this method is
@@ -1515,137 +1515,136 @@ public class InterfaceClient extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
         private void passwdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdInputActionPerformed
-                // TODO add your handling code here:
+		// TODO add your handling code here:
         }//GEN-LAST:event_passwdInputActionPerformed
 
         private void identification_connectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identification_connectionActionPerformed
 		String login = identification_login.getText();
 		char[] str = passwdInput.getPassword();
-		String passwd ="";
+		String passwd = "";
 		for (char c : str) {
-			passwd +=c;
+			passwd += c;
 		}
 
 		client.sendRequest(ClientRequest.IDENTIFICATION, login, passwd);
         }//GEN-LAST:event_identification_connectionActionPerformed
 
         private void newUser_joinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUser_joinActionPerformed
-            String name =newUser_name.getText();
-            String firstName = newUser_firstName.getText();
-            String email=newUser_email.getText();
-            String login = newUser_login.getText();
-            char[] str = newUser_passwrd.getPassword();
-            String passwd ="";
-            for (char c : str) {
-                    passwd +=c;
-            }
-            String status = newUser_status.getSelectedItem().toString();
+		String name = newUser_name.getText();
+		String firstName = newUser_firstName.getText();
+		String email = newUser_email.getText();
+		String login = newUser_login.getText();
+		char[] str = newUser_passwrd.getPassword();
+		String passwd = "";
+		for (char c : str) {
+			passwd += c;
+		}
+		String status = newUser_status.getSelectedItem().toString();
 
-            //client.sendRequest(ClientRequest.NEW_USER, login, passwd, firstName, name, status);
-            
-            if(name.isEmpty() || firstName.isEmpty() || email.isEmpty() || login.isEmpty()|| passwd.isEmpty() || name.equals("name") || firstName.equals("firstname") || email.equals("email") || login.equals("login") || passwd.equals("password")){
-                newUser_errorFields.setVisible(true);
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                                Thread.sleep(3000);
-                        } catch (InterruptedException ex) {
-                                Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        newUser_errorFields.setVisible(false);
-                    }
-                }.start();
-                return; // c'est mal de faire ça ? mdrrrrr
-            }
-            
-            // Email verification
-            Pattern p = Pattern.compile("^(\\[a-zA-Z]+((\\.|\\-)?\\[a-zA-Z0-9]+)*)@(\\[a-zA-Z]+((\\.|\\-)?\\[a-zA-Z0-9]+)*)(\\.\\[a-zA-Z0-9]+)+$");
-            Matcher m = p.matcher(email);
-            
-            if(!m.matches()){
-                newUser_errorDomain.setVisible(true);
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                                Thread.sleep(3000);
-                        } catch (InterruptedException ex) {
-                                Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        newUser_errorDomain.setVisible(false);
-                    }
-                }.start();
-                System.out.println("client.InterfaceClient.newUser_joinActionPerformed()");
-                return; // c'est toujours mal de faire ça ?
-            }
-            
-            // Domain verification
-            String[] email_split=email.split("@");
-            String domain=email_split[1];
-            System.out.println(domain);
-            
-            if(!domain.equals("univ-tlse3.fr") && !domain.equals("irit.fr") && !domain.equals("enima.fr")){
-                newUser_errorDomain.setVisible(true);
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                                Thread.sleep(3000);
-                        } catch (InterruptedException ex) {
-                                Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        newUser_errorDomain.setVisible(false);
-                    }
-                }.start();
-                System.out.println("client.InterfaceClient.newUser_joinActionPerformed()");
-                return; // vraiment ?
-            }
-            
-            // GET url
-            String url="https://join.university-request.fr/email/?email="+email+"&login="+login+"&pswd="+passwd+"&fstnm="+firstName+"&nm="+name+"&status="+status;
+		//client.sendRequest(ClientRequest.NEW_USER, login, passwd, firstName, name, status);
+		if (name.isEmpty() || firstName.isEmpty() || email.isEmpty() || login.isEmpty() || passwd.isEmpty() || name.equals("name") || firstName.equals("firstname") || email.equals("email") || login.equals("login") || passwd.equals("password")) {
+			newUser_errorFields.setVisible(true);
+			new Thread() {
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException ex) {
+						Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+					}
+					newUser_errorFields.setVisible(false);
+				}
+			}.start();
+			return; // c'est mal de faire ça ? mdrrrrr
+		}
 
-            String retour="";
-            
-            try {
-                retour = get(url);
-            } catch (IOException ex) {
-                Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-            }
+		// Email verification
+		Pattern p = Pattern.compile("^(\\[a-zA-Z]+((\\.|\\-)?\\[a-zA-Z0-9]+)*)@(\\[a-zA-Z]+((\\.|\\-)?\\[a-zA-Z0-9]+)*)(\\.\\[a-zA-Z0-9]+)+$");
+		Matcher m = p.matcher(email);
 
-            // Vérification result
-            switch (retour){
-                case "ok" : // Email sent successfully
-                    newUser_okEmail.setVisible(true);
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            try {
-                                    Thread.sleep(3000);
-                            } catch (InterruptedException ex) {
-                                    Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            view_newUser.setVisible(false);
-                            view_identification.setVisible(true);
-                        }
-                    }.start();
-                    break;
+		if (!m.matches()) {
+			newUser_errorDomain.setVisible(true);
+			new Thread() {
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException ex) {
+						Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+					}
+					newUser_errorDomain.setVisible(false);
+				}
+			}.start();
+			System.out.println("client.InterfaceClient.newUser_joinActionPerformed()");
+			return; // c'est toujours mal de faire ça ?
+		}
 
-                default : // Error
-                    newUser_error.setVisible(true);
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            try {
-                                    Thread.sleep(5000);
-                            } catch (InterruptedException ex) {
-                                    Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            newUser_error.setVisible(false);
-                        }
-                    }.start();
-                    break;
-            }
+		// Domain verification
+		String[] email_split = email.split("@");
+		String domain = email_split[1];
+		System.out.println(domain);
+
+		if (!domain.equals("univ-tlse3.fr") && !domain.equals("irit.fr") && !domain.equals("enima.fr")) {
+			newUser_errorDomain.setVisible(true);
+			new Thread() {
+				@Override
+				public void run() {
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException ex) {
+						Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+					}
+					newUser_errorDomain.setVisible(false);
+				}
+			}.start();
+			System.out.println("client.InterfaceClient.newUser_joinActionPerformed()");
+			return; // vraiment ?
+		}
+
+		// GET url
+		String url = "https://join.university-request.fr/email/?email=" + email + "&login=" + login + "&pswd=" + passwd + "&fstnm=" + firstName + "&nm=" + name + "&status=" + status;
+
+		String retour = "";
+
+		try {
+			retour = get(url);
+		} catch (IOException ex) {
+			Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+		}
+
+		// Vérification result
+		switch (retour) {
+			case "ok": // Email sent successfully
+				newUser_okEmail.setVisible(true);
+				new Thread() {
+					@Override
+					public void run() {
+						try {
+							Thread.sleep(3000);
+						} catch (InterruptedException ex) {
+							Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+						}
+						view_newUser.setVisible(false);
+						view_identification.setVisible(true);
+					}
+				}.start();
+				break;
+
+			default: // Error
+				newUser_error.setVisible(true);
+				new Thread() {
+					@Override
+					public void run() {
+						try {
+							Thread.sleep(5000);
+						} catch (InterruptedException ex) {
+							Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+						}
+						newUser_error.setVisible(false);
+					}
+				}.start();
+				break;
+		}
 
         }//GEN-LAST:event_newUser_joinActionPerformed
 
@@ -1657,24 +1656,23 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_home_groupActionPerformed
 
         private void group_swapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_swapActionPerformed
-		
-		int row =group_own.getSelectedRow();
-		int column =group_own.getSelectedColumn();
-		System.out.println(row +"" +column);
-		if (row >=0 && column >=0) {
-			String ownGroupSelected =(String)group_own.getValueAt(row, column);
-			System.out.println("ownGroup " +ownGroupSelected);
+
+		int row = group_own.getSelectedRow();
+		int column = group_own.getSelectedColumn();
+		System.out.println(row + "" + column);
+		if (row >= 0 && column >= 0) {
+			String ownGroupSelected = (String) group_own.getValueAt(row, column);
+			System.out.println("ownGroup " + ownGroupSelected);
 
 			client.sendRequest(ClientRequest.DEL_GROUP, ownGroupSelected);
-		}
-		else {
-			row =group_other.getSelectedRow();
-			column =group_other.getSelectedColumn();
-			System.out.println(row +"" +column);
+		} else {
+			row = group_other.getSelectedRow();
+			column = group_other.getSelectedColumn();
+			System.out.println(row + "" + column);
 
-			if (row >=0 && column >=0) {
-				String otherGroupSelected =(String)group_other.getValueAt(row, column);
-				System.out.println("otherGroup " +otherGroupSelected);
+			if (row >= 0 && column >= 0) {
+				String otherGroupSelected = (String) group_other.getValueAt(row, column);
+				System.out.println("otherGroup " + otherGroupSelected);
 
 				client.sendRequest(ClientRequest.ADD_GROUP, otherGroupSelected);
 			}
@@ -1715,116 +1713,116 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_newTicket_backActionPerformed
 
         private void newTicket_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTicket_sendActionPerformed
-		String title =newTicket_title.getText();
-		String author =actualUser;
-		String group =newTicket_group.getSelectedItem().toString();
-		String bodyMessage =new_ticketBody.getText();
+		String title = newTicket_title.getText();
+		String author = actualUser;
+		String group = newTicket_group.getSelectedItem().toString();
+		String bodyMessage = new_ticketBody.getText();
 		client.sendRequest(ClientRequest.NEW_TICKET, title, author, group, bodyMessage);
 		show("home");
 //		tree.setSelectionRow(indexOfAlreadyClicked);
         }//GEN-LAST:event_newTicket_sendActionPerformed
 
     private void identification_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identification_loginActionPerformed
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_identification_loginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        serverConnect();
+	    serverConnect();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void not_registeredMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_not_registeredMouseClicked
-	newUser_clic_name=true;
-        newUser_clic_firstname=true;
-        newUser_clic_email=true;
-        newUser_clic_login=true;
-        newUser_clic_passwd=true;
-        
-        newUser_name.setText("name");
-        newUser_firstName.setText("firstname");
-        newUser_email.setText("email");
-        newUser_login.setText("login");
-        newUser_passwrd.setText("password");
-        
-        newUser_join.requestFocus();
-        
-	view_newUser.setVisible(true);
-	view_identification.setVisible(false);
+	    newUser_clic_name = true;
+	    newUser_clic_firstname = true;
+	    newUser_clic_email = true;
+	    newUser_clic_login = true;
+	    newUser_clic_passwd = true;
+
+	    newUser_name.setText("name");
+	    newUser_firstName.setText("firstname");
+	    newUser_email.setText("email");
+	    newUser_login.setText("login");
+	    newUser_passwrd.setText("password");
+
+	    newUser_join.requestFocus();
+
+	    view_newUser.setVisible(true);
+	    view_identification.setVisible(false);
     }//GEN-LAST:event_not_registeredMouseClicked
 
     private void passwdInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwdInputFocusGained
-        if(identification_clic_passwd){
-            passwdInput.setText("");
-            identification_clic_passwd=false;
-        }
+	    if (identification_clic_passwd) {
+		    passwdInput.setText("");
+		    identification_clic_passwd = false;
+	    }
     }//GEN-LAST:event_passwdInputFocusGained
 
     private void identification_loginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_identification_loginFocusGained
-        if(identification_clic_login){
-            identification_login.setText("");
-            identification_clic_login=false;
-        }
+	    if (identification_clic_login) {
+		    identification_login.setText("");
+		    identification_clic_login = false;
+	    }
     }//GEN-LAST:event_identification_loginFocusGained
 
     private void backMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backMouseClicked
-	identification_clic_login=true;
-        identification_clic_passwd=true;	
-        view_identification.setVisible(true);
-	view_newUser.setVisible(false);
+	    identification_clic_login = true;
+	    identification_clic_passwd = true;
+	    view_identification.setVisible(true);
+	    view_newUser.setVisible(false);
     }//GEN-LAST:event_backMouseClicked
 
     private void newUser_logMessageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUser_logMessageMouseClicked
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_newUser_logMessageMouseClicked
 
     private void newUser_logMessage1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUser_logMessage1MouseClicked
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_newUser_logMessage1MouseClicked
 
     private void not_registered1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_not_registered1MouseClicked
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_not_registered1MouseClicked
 
     private void newUser_nameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newUser_nameFocusGained
-        if(newUser_clic_name){
-            newUser_name.setText("");
-            newUser_clic_name=false;
-        }
+	    if (newUser_clic_name) {
+		    newUser_name.setText("");
+		    newUser_clic_name = false;
+	    }
     }//GEN-LAST:event_newUser_nameFocusGained
 
     private void newUser_firstNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newUser_firstNameFocusGained
-        if(newUser_clic_firstname){
-            newUser_firstName.setText("");
-            newUser_clic_firstname=false;
-        }
+	    if (newUser_clic_firstname) {
+		    newUser_firstName.setText("");
+		    newUser_clic_firstname = false;
+	    }
     }//GEN-LAST:event_newUser_firstNameFocusGained
 
     private void newUser_emailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newUser_emailFocusGained
-        if(newUser_clic_email){
-            newUser_email.setText("");
-            newUser_clic_email=false;
-        }
+	    if (newUser_clic_email) {
+		    newUser_email.setText("");
+		    newUser_clic_email = false;
+	    }
     }//GEN-LAST:event_newUser_emailFocusGained
 
     private void newUser_loginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newUser_loginFocusGained
-        if(newUser_clic_login){
-            newUser_login.setText("");
-            newUser_clic_login=false;
-        }
+	    if (newUser_clic_login) {
+		    newUser_login.setText("");
+		    newUser_clic_login = false;
+	    }
     }//GEN-LAST:event_newUser_loginFocusGained
 
     private void newUser_passwrdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newUser_passwrdFocusGained
-        if(newUser_clic_passwd){
-            newUser_passwrd.setText("");
-            newUser_clic_passwd=false;
-        }
+	    if (newUser_clic_passwd) {
+		    newUser_passwrd.setText("");
+		    newUser_clic_passwd = false;
+	    }
     }//GEN-LAST:event_newUser_passwrdFocusGained
 
     private void newUser_logMessage2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUser_logMessage2MouseClicked
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_newUser_logMessage2MouseClicked
 
     private void newUser_logMessage3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_newUser_logMessage3MouseClicked
-        // TODO add your handling code here:
+	    // TODO add your handling code here:
     }//GEN-LAST:event_newUser_logMessage3MouseClicked
 
 	public void newTicketPrint(String[] ls) {
@@ -1833,17 +1831,17 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	public void newMessage_input_sendMessage() {
-		int id =-1;
-		String body =newMessage_input.getText();
-		Timestamp create =new Timestamp(System.currentTimeMillis());
-		String author =identification_login.getText();
+		int id = -1;
+		String body = newMessage_input.getText();
+		Timestamp create = new Timestamp(System.currentTimeMillis());
+		String author = identification_login.getText();
 //		String ticket =(String)tree.getLastSelectedPathComponent().toString();
-		String ticket =actualTicket();
-		String group ="";
-		String firstname ="";
-		String name ="";
+		String ticket = actualTicket();
+		String group = "";
+		String firstname = "";
+		String name = "";
 
-		Message m =new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage. SERVER_NOT_RECEIVE, null);
+		Message m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
 
 		client.addMessage(m);
 		buildMessagesPane(ticket);
@@ -2019,7 +2017,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JPanel zone_newUser;
         // End of variables declaration//GEN-END:variables
 
-
 	// getters
 	public JPanel getHome() {
 		return view_home;
@@ -2029,28 +2026,28 @@ public class InterfaceClient extends javax.swing.JFrame {
 		return home_userName;
 	}
 
-        // ne fonctionne pas avec jpanel, à toi de voir Gauthier
-        //public JPanel getHome_wrong() {
-
+	// ne fonctionne pas avec jpanel, à toi de voir Gauthier
+	//public JPanel getHome_wrong() {
 	public JPanel getIdentification() {
 		return view_identification;
 	}
 
 	void majTree() {
 		// already click
-		String ticketAlreadyClicked =actualTicket();
-		int indexOfAlreadyClicked =0;
+		String ticketAlreadyClicked = actualTicket();
+		int indexOfAlreadyClicked = 0;
 
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode("posts");
-		int cpt =2;
+		int cpt = 2;
 		for (String g : client.getGroups()) {
-			DefaultMutableTreeNode group = new DefaultMutableTreeNode("" +g +" (" +client.nbNotReadMessageInGroup(g, actualUser) +")");
+			DefaultMutableTreeNode group = new DefaultMutableTreeNode("" + g + " (" + client.nbNotReadMessageInGroup(g, actualUser) + ")");
 			for (String t : client.getTicket(g)) {
-				DefaultMutableTreeNode ticket =new DefaultMutableTreeNode(t +" (" +client.nbNotReadMessageOfTicket(t, actualUser) +")");
+				DefaultMutableTreeNode ticket = new DefaultMutableTreeNode(t + " (" + client.nbNotReadMessageOfTicket(t, actualUser) + ")");
 				group.add(ticket);
 
-				if (t.equals(ticketAlreadyClicked))
-					indexOfAlreadyClicked =cpt;
+				if (t.equals(ticketAlreadyClicked)) {
+					indexOfAlreadyClicked = cpt;
+				}
 
 				cpt++;
 			}
@@ -2064,8 +2061,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 //				TreePath tp =tree.getPathForLocation(me.getX(), me.getY());
 //				System.out.println(tp);
 //				String ticket =(String)tree.getLastSelectedPathComponent().toString();
-				String ticket =actualTicket();
-				List<String> ls =client.getAllTickets();
+				String ticket = actualTicket();
+				List<String> ls = client.getAllTickets();
 				if (ls.contains(ticket)) {
 					System.out.println(ticket);
 					readMessagesOfTicket(ticket);
@@ -2073,7 +2070,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 //				right_messages =new JPanel();
 //				right_messages.setLayout(null);
-				
 //				buildMessagesPane(ticket);
 			}
 
@@ -2082,26 +2078,24 @@ public class InterfaceClient extends javax.swing.JFrame {
 		tree.setCellRenderer(new DefaultTreeCellRenderer() {
 			@Override
 			public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus) {
-				String text =value.toString();
-				int len =text.length();
+				String text = value.toString();
+				int len = text.length();
 				StringBuffer html;
-				if (text.substring(len -3, len).equals("(0)")) {
-					html =new StringBuffer(text);
-				}
-				else {
-					html =new StringBuffer("<html><b>" +text +"</b></html>");
+				if (text.substring(len - 3, len).equals("(0)")) {
+					html = new StringBuffer(text);
+				} else {
+					html = new StringBuffer("<html><b>" + text + "</b></html>");
 				}
 				return super.getTreeCellRendererComponent(tree, html.toString(), sel, expanded, leaf, row, hasFocus); //To change body of generated methods, choose Tools | Templates.
 			}
-			
+
 		});
 
 		right_messages.removeAll();
 		right_messagesScroll.setViewportView(right_messages);
 		right_newMessage.setVisible(false);
 
-                home_tickets.setViewportView(tree);
-
+		home_tickets.setViewportView(tree);
 
 		if (ticketAlreadyClicked != "") {
 			buildMessagesPane(ticketAlreadyClicked);
@@ -2110,47 +2104,43 @@ public class InterfaceClient extends javax.swing.JFrame {
 		}
 
 //		messageUsersStatus.setVisible(false);
-
-
 //		jScrollPane1.removeAll();
 //		jScrollPane1.add(tree)
 //		jScrollPane1.revalidate();
 	}
 
 	private void readMessagesOfTicket(String ticket) {
-		List<Integer> idMessages =new ArrayList<>();
+		List<Integer> idMessages = new ArrayList<>();
 
 		for (Message m : client.getTicketMessages(ticket)) {
-			if (! m.isAlreadyReadBy(actualUser)) {
+			if (!m.isAlreadyReadBy(actualUser)) {
 				idMessages.add(m.getId());
 			}
 		}
 
 		client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, idMessages);
 	}
-	
-	
+
 	public void buildMessagesPane(String ticket) {
-		int nbTickets =client.getTicketMessages(ticket).size();
-		if (nbTickets < 5)
-			nbTickets =5;
+		int nbTickets = client.getTicketMessages(ticket).size();
+		if (nbTickets < 5) {
+			nbTickets = 5;
+		}
 		right_messages.setLayout(new java.awt.GridLayout(nbTickets, 1, 0, 20));
 
 		right_messages.removeAll();
 		for (Message m : client.getTicketMessages(ticket)) {
 			right_messages.add(createBoxMessage(m));
 		}
-		
-		
+
 		right_newMessage.setVisible(true);
 		right_messagesScroll.setViewportView(right_messages);
 
 		newMessage_input.setText("");
 		newMessage_input.requestFocus();
 
-		JScrollBar vertical =right_messagesScroll.getVerticalScrollBar();
+		JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
 		vertical.setValue(vertical.getMaximum());
-
 
 		new Thread() {
 			@Override
@@ -2160,86 +2150,79 @@ public class InterfaceClient extends javax.swing.JFrame {
 				} catch (InterruptedException ex) {
 					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
 				}
-				JScrollBar vertical =right_messagesScroll.getVerticalScrollBar();
+				JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
 				vertical.setValue(vertical.getMaximum());
 			}
 		}.start();
 	}
-	
-	public JPanel createBoxMessage(Message m) {
-		JPanel messages_box1 =new JPanel();
-		JLabel box1_firstName =new JLabel();
-		JLabel box1_name =new JLabel();
-		JLabel box1_date =new JLabel();
-		JLabel box1_hour =new JLabel();
-		JTextArea box1_body =new JTextArea();
-		JScrollPane box1_scroll_body =new JScrollPane();
 
+	public JPanel createBoxMessage(Message m) {
+		JPanel messages_box1 = new JPanel();
+		JLabel box1_firstName = new JLabel();
+		JLabel box1_name = new JLabel();
+		JLabel box1_date = new JLabel();
+		JLabel box1_hour = new JLabel();
+		JTextArea box1_body = new JTextArea();
+		JScrollPane box1_scroll_body = new JScrollPane();
 
 //                box1_autor.setText(m.getAuthor());
 		box1_body.setText(m.getBody());
-                box1_date.setText(m.getCreate().toString().substring(0, 10));
+		box1_date.setText(m.getCreate().toString().substring(0, 10));
 		box1_hour.setText(m.getCreate().toString().substring(11, 19));
-                messages_box1.setBackground(m.stateColor());
-                box1_firstName.setText(m.getFirstName());
-                box1_name.setText(m.getLastName());
+		messages_box1.setBackground(m.stateColor());
+		box1_firstName.setText(m.getFirstName());
+		box1_name.setText(m.getLastName());
 
-
-                messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
-                messages_box1.addMouseListener(new java.awt.event.MouseAdapter() {
-                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+		messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
+		messages_box1.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				System.out.println(m.getId());
 				majTableMessageUsersStatus(m);
-                        }
-                });
-                box1_scroll_body.setBorder(null);
-                box1_scroll_body.setViewportView(box1_body);
+			}
+		});
+		box1_scroll_body.setBorder(null);
+		box1_scroll_body.setViewportView(box1_body);
 
-
-
-
-                javax.swing.GroupLayout messages_box1Layout = new javax.swing.GroupLayout(messages_box1);
-                messages_box1.setLayout(messages_box1Layout);
-                messages_box1Layout.setHorizontalGroup(
-                        messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(messages_box1Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(box1_firstName)
-                                        .addComponent(box1_name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(49, 49, 49)
-                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(box1_date)
-                                        .addComponent(box1_hour))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                );
-                messages_box1Layout.setVerticalGroup(
-                        messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messages_box1Layout.createSequentialGroup()
-                                .addGap(0, 21, Short.MAX_VALUE)
-                                .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(messages_box1Layout.createSequentialGroup()
-                                                .addComponent(box1_firstName)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(box1_name))
-                                        .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addGroup(messages_box1Layout.createSequentialGroup()
-                                                        .addComponent(box1_date)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(box1_hour))
-                                                .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18))
-                );
-
-
+		javax.swing.GroupLayout messages_box1Layout = new javax.swing.GroupLayout(messages_box1);
+		messages_box1.setLayout(messages_box1Layout);
+		messages_box1Layout.setHorizontalGroup(
+			messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(messages_box1Layout.createSequentialGroup()
+					.addGap(43, 43, 43)
+					.addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(box1_firstName)
+						.addComponent(box1_name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+					.addGap(41, 41, 41)
+					.addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE)
+					.addGap(49, 49, 49)
+					.addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addComponent(box1_date)
+						.addComponent(box1_hour))
+					.addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		messages_box1Layout.setVerticalGroup(
+			messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, messages_box1Layout.createSequentialGroup()
+					.addGap(0, 21, Short.MAX_VALUE)
+					.addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(messages_box1Layout.createSequentialGroup()
+							.addComponent(box1_firstName)
+							.addGap(18, 18, 18)
+							.addComponent(box1_name))
+						.addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+							.addGroup(messages_box1Layout.createSequentialGroup()
+								.addComponent(box1_date)
+								.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(box1_hour))
+							.addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+					.addGap(18, 18, 18))
+		);
 
 		return messages_box1;
 	}
 
 	public void expandAll(JTree tree) {
-		int row =0;
+		int row = 0;
 		while (row < tree.getRowCount()) {
 			tree.expandRow(row);
 			row++;
@@ -2255,33 +2238,32 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	void majTableOneColumn(Set<String> l, String title, JTable table, JScrollPane sp) {
-		Object data[][] =new Object[l.size()][1];
-		int i =0;
+		Object data[][] = new Object[l.size()][1];
+		int i = 0;
 		for (String str : l) {
-			data[i][0] =str;
+			data[i][0] = str;
 			i++;
 		}
 
-		String title2[] ={title};
+		String title2[] = {title};
 //		JScrollPane jp =(JScrollPane) table.getParent();
-		table =new JTable(data, title2);
+		table = new JTable(data, title2);
 		if (title.equals("own groups")) {
-			group_own =table;
-		}
-		else {
-			group_other =table;
+			group_own = table;
+		} else {
+			group_other = table;
 		}
 
 //		group_sown.setViewportView(table);
-                sp.setViewportView(table);
+		sp.setViewportView(table);
 //		jScrollPane2.setViewportView(table);
 	}
 
 	void majTableMessageUsersStatus(Message m) {
-		Object data[][] =m.getUsersStatus();
+		Object data[][] = m.getUsersStatus();
 		String title[] = {"user", "status"};
 
-		messageUsersStatusTable =new JTable(data, title);
+		messageUsersStatusTable = new JTable(data, title);
 		messageUsersStatus.setViewportView(messageUsersStatusTable);
 	}
 
@@ -2300,7 +2282,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 //
 //                jScrollPane2.setViewportView(group_own);
 //	}
-
 	public JScrollPane getGroup_sown() {
 		return group_sown;
 	}
@@ -2310,11 +2291,13 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	public String actualTicket() {
-		String ticket ="";
+		String ticket = "";
 		if (tree.getLastSelectedPathComponent() != null) {
-			ticket =(String)tree.getLastSelectedPathComponent().toString();
-			while (ticket.charAt(ticket.length() -1) !='(') ticket =ticket.substring(0, ticket.length() -1);
-			ticket =ticket.substring(0, ticket.length() -2);
+			ticket = (String) tree.getLastSelectedPathComponent().toString();
+			while (ticket.charAt(ticket.length() - 1) != '(') {
+				ticket = ticket.substring(0, ticket.length() - 1);
+			}
+			ticket = ticket.substring(0, ticket.length() - 2);
 //			System.out.println("ticket ='" +ticket +"'");
 		}
 		return ticket;
@@ -2322,19 +2305,17 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 	void receiveMessagesFromServer(List<Message> lm) {
 		if (lm.size() == 1) {
-			Message m =lm.get(0);
-			String ticket =m.getTicket();
-			
+			Message m = lm.get(0);
+			String ticket = m.getTicket();
+
 			if (ticket.equals(actualTicket())) {
 				System.out.println("[InterfaceClient] buildPane");
 				buildMessagesPane(ticket);
-			}
-			else {
+			} else {
 				System.out.println("[InterfaceClient] majTree");
 				majTree();
 			}
-		}
-		else {
+		} else {
 			majTree();
 		}
 	}
@@ -2343,25 +2324,24 @@ public class InterfaceClient extends javax.swing.JFrame {
 		this.actualUser = actualUser;
 	}
 
-        
-	public static String get(String url) throws IOException{
+	public static String get(String url) throws IOException {
 
-		String reponse ="";
+		String reponse = "";
 		URL oracle = new URL(url);
 		URLConnection yc = oracle.openConnection();
-            try (BufferedReader in = new BufferedReader(
-                    new InputStreamReader(yc.getInputStream()))) {
-                String inputLine;
-                
-                while ((inputLine = in.readLine()) != null)
-                    reponse +=inputLine;
-            }
+		try (BufferedReader in = new BufferedReader(
+			new InputStreamReader(yc.getInputStream()))) {
+			String inputLine;
+
+			while ((inputLine = in.readLine()) != null) {
+				reponse += inputLine;
+			}
+		}
 		return reponse;
 	}
 
 	public JPanel getError_login_passwd() {
 		return identification_errorLoginPasswd;
 	}
-	
-	
+
 }

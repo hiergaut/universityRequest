@@ -33,8 +33,9 @@ import userData.Message;
  * @author gauthier
  */
 public class Server {
-	private static final long serialVersionUID =1L;
-	private String tag =Function.color(this);
+
+	private static final long serialVersionUID = 1L;
+	private String tag = Function.color(this);
 
 	private int listenPort;
 	private int maxLog;
@@ -52,22 +53,21 @@ public class Server {
 		this.bdd = bdd;
 		this.ihm = ihm;
 
-		this.threads =new ArrayList<>();
+		this.threads = new ArrayList<>();
 
 //		allSocketClient =new ArrayList<>();
-
 		openingCommunication();
 	}
 
 	public void openingCommunication() throws IOException {
-		serverSocket =new ServerSocket(listenPort, maxLog);
-		System.out.println("[Server]" +tag + serverSocket);
+		serverSocket = new ServerSocket(listenPort, maxLog);
+		System.out.println("[Server]" + tag + serverSocket);
 	}
-	
+
 	void waitClient() {
-		Server server =this;
+		Server server = this;
 		new Thread() {
-			@Override			
+			@Override
 			public void run() {
 				try {
 					Socket clientSocket;
@@ -75,15 +75,15 @@ public class Server {
 					// close first client, not a really client
 					clientSocket = serverSocket.accept();
 					clientSocket.close();
-					
+
 					while (true) {
 						// new client
 						clientSocket = serverSocket.accept();
 //						allSocketClient.add(clientSocket);
-						
-						ThreadServer ts =new ThreadServer(server, clientSocket);
+
+						ThreadServer ts = new ThreadServer(server, clientSocket);
 						thread = new Thread(ts);
-						System.out.println("[Server]" +tag +"new thread client : "+ clientSocket);
+						System.out.println("[Server]" + tag + "new thread client : " + clientSocket);
 						thread.start();
 
 						threads.add(ts);
@@ -91,7 +91,7 @@ public class Server {
 //				thread.run();
 					}
 				} catch (IOException ex) {
-					System.out.print("[Server] "+ tag +"waitClient failed");
+					System.out.print("[Server] " + tag + "waitClient failed");
 					Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
 					System.exit(1);
 				}
@@ -111,7 +111,7 @@ public class Server {
 	}
 
 	void broadcast(Message m) {
-		List<Message> lm =new ArrayList<>();
+		List<Message> lm = new ArrayList<>();
 		lm.add(m);
 		for (ThreadServer ts : threads) {
 //			sendRequest(ts.getSocket(), ServerRequest.MAJ_MESSAGES, lm);
@@ -119,9 +119,8 @@ public class Server {
 		}
 	}
 
-
 	void loseClient(ThreadServer ts) {
-		System.out.println("[Server] client " +ts.getSocket() +" definitely lost");
+		System.out.println("[Server] client " + ts.getSocket() + " definitely lost");
 		threads.remove(ts);
 //		allSocketClient.remove(socket);
 //		thr
