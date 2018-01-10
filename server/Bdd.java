@@ -567,4 +567,22 @@ public class Bdd {
 	public String getNbGroups() {
 		return select("select count(*) from groups")[0][0];
 	}
+
+	String[][] usersTable() {
+		return select("select * from users");
+	}
+
+	void changeUserRow(String[] userRow) {
+		String login =userRow[0];
+		String passwd =userRow[1];
+		String firstname =userRow[2];
+		String name =userRow[3];
+		String status =userRow[4];
+
+		execute("update users set u_login='" +login +"', u_password='" +passwd +"', u_firstname='" +firstname +"', u_name='" +name +"', u_status='" +status +"' where u_login='" +login +"'");
+	}
+
+	void delUserInGroup(String login) {
+		execute("delete from users where u_login='" +login +"'");
+	}
 }

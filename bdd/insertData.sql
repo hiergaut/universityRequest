@@ -11,7 +11,7 @@ insert into users values ('anonymous', 'passwd', 'anonymous', 'anonymous', 'stud
 insert into users values ('rastaman', 'passwd', 'Bob', 'Marley', 'student');
 insert into users values ('migeon', 'passwd', 'Migeon', 'Frederic', 'professor');
 insert into users values ('nadege', 'passwd', 'Nadege', 'Lamarque', 'service');
-insert into users values ('maintenance', 'Michel', 'Blanc', 'nom', 'service');
+insert into users values ('maintenance', 'passwd', 'Blanc', 'Michel', 'service');
 
 
 -- insert into belong values ('gauthier', 'info');
