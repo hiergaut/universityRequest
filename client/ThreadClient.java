@@ -36,7 +36,8 @@ public class ThreadClient implements Runnable {
 	public void run() {
 		InterfaceClient ihm = client.getIhm();
 
-		while (true) {
+		boolean stay = true;
+		while (stay) {
 			Request<ServerRequest> serverRequest = null;
 			try {
 				serverRequest = new Request<>(client.getSocket());
@@ -123,6 +124,11 @@ public class ThreadClient implements Runnable {
 						ihm.newTicketPrint(ts);
 						break;
 				}
+			}
+			else {
+				stay =false;
+				System.out.println("[ThreadClient] lose server connection");
+				ihm.show("serverNotFound");
 			}
 		}
 
