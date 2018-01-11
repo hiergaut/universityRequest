@@ -44,14 +44,16 @@ public class Bdd {
 	private String passwd;
 	private Connection conn;
 	private String sgbd;
+	private Server server;
 
-	public Bdd(String baseName, String ip, String port, String user, String passwd, String sgbd) throws ClassNotFoundException, SQLException {
+	public Bdd(String baseName, String ip, String port, String user, String passwd, String sgbd, Server server) throws ClassNotFoundException, SQLException {
 		this.baseName = baseName;
 		this.ip = ip;
 		this.port = port;
 		this.user = user;
 		this.passwd = passwd;
 		this.sgbd = sgbd;
+		this.server =server;
 
 		connect();
 	}
@@ -467,7 +469,7 @@ public class Bdd {
 		execute("insert into seen values ('" + user + "', " + idMessages + ")");
 	}
 
-	Message getMessage(Integer idMessage) {
+	Message getMessageFromId(Integer idMessage) {
 		String[] ls = select("select * from messages where m_idmessage=" + idMessage)[0];
 		String body = ls[1];
 		Timestamp date = Timestamp.valueOf(ls[2]);
@@ -585,4 +587,42 @@ public class Bdd {
 	void delUserInGroup(String login) {
 		execute("delete from users where u_login='" +login +"'");
 	}
+
+	void majReceiveStatusMessagesOf(String login) {
+		String[][] m = select("select distinct m_idmessage from messages,tickets,groups,belong,users where b_fk_users='" + login + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + login + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
+		List<Message> lm =new ArrayList<>();
+		
+		for (String[] ls : m) {
+			String idMessage =ls[0];
+
+			if (! oneRow("select * from receive where rcv_fk_users='" +login +"' and rcv_fk_messages=" +idMessage)) {
+				execute("insert into receive values ('" +login +"', " +idMessage +")");
+				lm.add(getMessageFromId(Integer.parseInt(idMessage)));
+			}
+		}
+
+		System.out.println("server =" +server);
+		if (lm.size() != 0)
+			server.broadcast(lm);
+	}
+
+	boolean messageAdressToUser(Message m, String login) {
+		Integer m_idmessage =m.getId();
+		return oneRow("select distinct m_idmessage from messages,tickets,groups,belong,users where b_fk_users='" + login + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login and m_idmessage=" +m_idmessage +" or t_fk_users='" + login + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login and m_idmessage=" +m_idmessage);
+	}
+
+	void setServer(Server server) {
+		this.server =server;
+	}
+
+	boolean userAlreadyReceive(String actualUser, Message m) {
+		Integer idMessage =m.getId();
+		return oneRow("select * from receive where rcv_fk_users='" +actualUser +"' and rcv_fk_messages=" +idMessage);
+	}
+
+	void userReceiveMessage(String actualUser, Message m) {
+		Integer idMessage =m.getId();
+		execute("insert into receive values ('" +actualUser +"', " +idMessage +")");
+	}
+
 }

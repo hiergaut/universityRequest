@@ -1686,6 +1686,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 
         private void home_leaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_leaveActionPerformed
 		show("identification");
+		client.sendRequest(ClientRequest.LOGOUT, (Object)null);
         }//GEN-LAST:event_home_leaveActionPerformed
 
         private void newMessage_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMessage_sendActionPerformed
@@ -2070,7 +2071,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 //				right_messages =new JPanel();
 //				right_messages.setLayout(null);
-//				buildMessagesPane(ticket);
+				buildMessagesPane(ticket);
 			}
 
 		});
@@ -2099,9 +2100,17 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 		if (ticketAlreadyClicked != "") {
 			buildMessagesPane(ticketAlreadyClicked);
+
+			List<String> ls = client.getAllTickets();
+			if (ls.contains(ticketAlreadyClicked)) {
+				System.out.println(ticketAlreadyClicked);
+				readMessagesOfTicket(ticketAlreadyClicked);
+			}
+
 //			System.out.println(indexOfAlreadyClicked);
 			tree.setSelectionRow(indexOfAlreadyClicked);
 		}
+
 
 //		messageUsersStatus.setVisible(false);
 //		jScrollPane1.removeAll();
@@ -2118,7 +2127,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 			}
 		}
 
-		client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, idMessages);
+		if (idMessages.size() != 0)
+			client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, idMessages);
 	}
 
 	public void buildMessagesPane(String ticket) {
@@ -2142,18 +2152,18 @@ public class InterfaceClient extends javax.swing.JFrame {
 		JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
 		vertical.setValue(vertical.getMaximum());
 
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					sleep(10);
-				} catch (InterruptedException ex) {
-					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-				}
-				JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
-				vertical.setValue(vertical.getMaximum());
-			}
-		}.start();
+//		new Thread() {
+//			@Override
+//			public void run() {
+//				try {
+//					sleep(10);
+//				} catch (InterruptedException ex) {
+//					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+//				}
+//				JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
+//				vertical.setValue(vertical.getMaximum());
+//			}
+//		}.start();
 	}
 
 	public JPanel createBoxMessage(Message m) {
@@ -2304,20 +2314,22 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	void receiveMessagesFromServer(List<Message> lm) {
-		if (lm.size() == 1) {
-			Message m = lm.get(0);
-			String ticket = m.getTicket();
-
-			if (ticket.equals(actualTicket())) {
-				System.out.println("[InterfaceClient] buildPane");
-				buildMessagesPane(ticket);
-			} else {
-				System.out.println("[InterfaceClient] majTree");
-				majTree();
-			}
-		} else {
-			majTree();
-		}
+//		if (lm.size() == 1) {
+//			Message m = lm.get(0);
+//			String ticket = m.getTicket();
+//
+//			if (ticket.equals(actualTicket())) {
+//				System.out.println("[InterfaceClient] buildPane");
+//				buildMessagesPane(ticket);
+//			} else {
+//				System.out.println("[InterfaceClient] majTree");
+//				majTree();
+//			}
+//		} else {
+//			majTree();
+//		}
+//		if (lm.size() > 0)
+		majTree();
 	}
 
 	public void setActualUser(String actualUser) {

@@ -4,6 +4,7 @@ insert into groups values ('info');
 insert into groups values ('chauffage');
 insert into groups values ('nadege');
 insert into groups values ('fablab');
+insert into groups values ('robotique');
 
 
 insert into users values ('gauthier', 'passwd', 'gauthier', 'bouyjou', 'student');
@@ -18,6 +19,7 @@ insert into users values ('maintenance', 'passwd', 'Blanc', 'Michel', 'service')
 insert into belong values ('gauthier', 'nadege');
 insert into belong values ('gauthier', 'chauffage');
 insert into belong values ('gauthier', 'sport');
+-- insert into belong values ('gauthier', 'robotique');
 
 insert into belong values ('anonymous', 'info');
 
@@ -28,7 +30,7 @@ insert into belong values ('migeon', 'info');
 insert into belong values ('migeon', 'nadege');
 insert into belong values ('migeon', 'fablab');
 
-insert into belong values ('nadege', 'sport');
+-- insert into belong values ('nadege', 'sport');
 insert into belong values ('nadege', 'info');
 insert into belong values ('nadege', 'chauffage');
 insert into belong values ('nadege', 'nadege');

@@ -78,7 +78,12 @@ public class Message implements Serializable, Comparable<Message> {
 
 	@Override
 	public String toString() {
-		return "\nid =" +id +", ticket=" +ticket +", created=" +create;
+		String allStatus ="";
+		if (usersStatus != null)
+			for (String ls[] : usersStatus) {
+				allStatus +="[" +ls[0] +", " +ls[1] +"] ";
+			}
+		return "id =" +id +", body =" +body +", ticket=" +ticket +", created=" +create +", status =" +status +" allStatus =" +allStatus +"\t";
 	}
 
 	public StatusMessage getStatus() {

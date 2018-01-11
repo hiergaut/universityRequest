@@ -2010,6 +2010,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 					int maxLog = Integer.parseInt(server_maxLog.getText());
 					try {
 						server = new Server(port, maxLog, bdd, ihm);
+						bdd.setServer(server);
 						String output = executeShellCommand("nmap", "localhost");
 						server_console.setText(output);
 
@@ -2054,7 +2055,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 					String passwd = bdd_password.getText();
 					String sgbd = bdd_sgbd.getSelectedItem().toString();
 //					bdd = new Bdd("universityRequest", "127.0.0.1", "5432", "postgres", "postgres");
-					bdd = new Bdd(baseName, ip, port, user, passwd, sgbd);
+					bdd = new Bdd(baseName, ip, port, user, passwd, sgbd, server);
 
 					bdd_console.setText(bdd.uniq("select version()"));
 					bdd.checkIntegrity(bdd_console2);

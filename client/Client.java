@@ -77,7 +77,7 @@ public class Client {
 	}
 
 	List<String> getTicket(String g) {
-		System.out.println(g);
+//		System.out.println(g);
 		NavigableSet<Message> set = new TreeSet<>(new Comparator<Message>() {
 			@Override
 			// first element is the most recent, normaly in right side with default compareto of Timestamp
@@ -91,7 +91,7 @@ public class Client {
 				set.add(m);
 			}
 		}
-		System.out.println(set);
+//		System.out.println(set);
 
 		List<String> l = new ArrayList<>();
 		for (Message m : set) {
@@ -99,7 +99,7 @@ public class Client {
 				l.add(m.getTicket());
 			}
 		}
-		System.out.println(l);
+//		System.out.println(l);
 
 		return l;
 	}
@@ -126,6 +126,7 @@ public class Client {
 	}
 
 	void addMessages(List<Message> lm) {
+		messages.removeAll(lm);
 		messages.addAll(lm);
 	}
 

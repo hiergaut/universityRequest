@@ -104,21 +104,39 @@ public class Server {
 	}
 
 	void broadcast(List<Message> lm) {
-		for (ThreadServer ts : threads) {
-//			sendRequest(ts.getSocket(), ServerRequest.MAJ_MESSAGES, lm);
-			ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm);
-		}
+		if (lm.size() != 0)
+			for (ThreadServer ts : threads) {
+				String actualUser =ts.getActualConnectUser();
+				
+				if (! actualUser.equals("")) {
+					List<Message> lm2 =new ArrayList<>();
+					
+					for (Message m : lm) {
+						if (bdd.messageAdressToUser(m, actualUser))
+							lm2.add(m);
+					}
+					
+					ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm2);
+				}
+			}
 	}
-
+	
 	void broadcast(Message m) {
-		List<Message> lm = new ArrayList<>();
-		lm.add(m);
-		for (ThreadServer ts : threads) {
-//			sendRequest(ts.getSocket(), ServerRequest.MAJ_MESSAGES, lm);
-			ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm);
-		}
+		if (m != null)
+			for (ThreadServer ts : threads) {
+				String actualUser =ts.getActualConnectUser();
+				
+				if (! actualUser.equals("")) {
+					List<Message> lm = new ArrayList<>();
+					
+					if (bdd.messageAdressToUser(m, actualUser))
+						lm.add(m);
+					
+					ts.sendRequest(ServerRequest.MAJ_MESSAGES, lm);
+				}
+			}
 	}
-
+	
 	void loseClient(ThreadServer ts) {
 		System.out.println("[Server] client " + ts.getSocket() + " definitely lost");
 		threads.remove(ts);
@@ -128,5 +146,19 @@ public class Server {
 
 	public Integer getNbThreads() {
 		return threads.size();
+	}
+
+	void connectUserReceiveConcernedMessage(Message m) {
+		if (m != null) {
+			for (ThreadServer ts : threads) {
+				String actualUser =ts.getActualConnectUser();
+				
+				if (! actualUser.equals("")) {
+					if (! bdd.userAlreadyReceive(actualUser, m)) {
+						bdd.userReceiveMessage(actualUser, m);
+					}
+				}
+			}
+		}
 	}
 }

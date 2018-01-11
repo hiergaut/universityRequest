@@ -70,6 +70,7 @@ public class ThreadServer implements Runnable {
 
 						if (bdd.identification(login, passwd)) {
 							sendRequest(ServerRequest.IDENTIFICATION_OK, login);
+							bdd.majReceiveStatusMessagesOf(login);
 							sendRequest(ServerRequest.INIT_HOME, bdd.getMessages(login));
 							actualConnectUser = login;
 						} else {
@@ -96,7 +97,11 @@ public class ThreadServer implements Runnable {
 
 					case NEW_MESSAGE:
 						Message m = bdd.newMessage((Message) params.get(0));
-						server.broadcast(m);
+
+						server.connectUserReceiveConcernedMessage(m);
+						
+						// m is a oldest version, missing receive status
+						server.broadcast(bdd.getMessageFromId(m.getId()));
 						break;
 
 					case READ_MESSAGES:
@@ -109,7 +114,7 @@ public class ThreadServer implements Runnable {
 
 						List<Message> lm = new ArrayList<>();
 						for (Integer idMessage : idMessages) {
-							lm.add(bdd.getMessage(idMessage));
+							lm.add(bdd.getMessageFromId(idMessage));
 						}
 						server.broadcast(lm);
 						break;
@@ -151,6 +156,10 @@ public class ThreadServer implements Runnable {
 						m = bdd.newMessage(m);
 						server.broadcast(m);
 						break;
+
+					case LOGOUT:
+						actualConnectUser ="";
+						break;
 				}
 			} else {
 //				System.out.println("[ThreadServer] null request");
@@ -165,5 +174,10 @@ public class ThreadServer implements Runnable {
 	public Socket getSocket() {
 		return socket;
 	}
+
+	public String getActualConnectUser() {
+		return actualConnectUser;
+	}
+
 
 }

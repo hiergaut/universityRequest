@@ -20,4 +20,5 @@ public enum ClientRequest {
 	ADD_GROUP,
 	ALL_GROUP_FOR_TICKET,
 	NEW_TICKET,
+	LOGOUT,
 }
