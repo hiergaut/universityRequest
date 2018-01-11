@@ -193,6 +193,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 serverNotFound_ip = new javax.swing.JTextField();
                 serverNotFound_port = new javax.swing.JTextField();
                 serverNotFound_icon = new javax.swing.JLabel();
+                serverNotFound_localhost = new javax.swing.JButton();
                 panel_consoleServerNotFound = new javax.swing.JPanel();
                 serverNotFound_console = new javax.swing.JTextPane();
                 view_identification = new javax.swing.JPanel();
@@ -431,24 +432,36 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(serverNotFound_icon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
 
-                serverNotFound_ip.setText("127.0.0.1");
+                //serverNotFound_ip.setText("127.0.0.1");
+                serverNotFound_ip.setText("77.141.121.226");
                 serverNotFound_port.setText("5000");
+
+                serverNotFound_localhost.setText("localhost");
+                serverNotFound_localhost.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                serverNotFound_localhostActionPerformed(evt);
+                        }
+                });
 
                 javax.swing.GroupLayout body_ServerNotFoundLayout = new javax.swing.GroupLayout(body_ServerNotFound);
                 body_ServerNotFound.setLayout(body_ServerNotFoundLayout);
                 body_ServerNotFoundLayout.setHorizontalGroup(
                         body_ServerNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(body_ServerNotFoundLayout.createSequentialGroup()
-                                .addContainerGap(243, Short.MAX_VALUE)
+                                .addContainerGap(241, Short.MAX_VALUE)
                                 .addComponent(_retry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(587, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(serverNotFound_localhost)
+                                .addContainerGap(472, Short.MAX_VALUE))
                 );
                 body_ServerNotFoundLayout.setVerticalGroup(
                         body_ServerNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(body_ServerNotFoundLayout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(_retry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0))
+                                .addComponent(_retry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(body_ServerNotFoundLayout.createSequentialGroup()
+                                .addGap(208, 208, 208)
+                                .addComponent(serverNotFound_localhost))
                 );
 
                 _serverNotFound.add(body_ServerNotFound);
@@ -1826,6 +1839,11 @@ public class InterfaceClient extends javax.swing.JFrame {
 	    // TODO add your handling code here:
     }//GEN-LAST:event_newUser_logMessage3MouseClicked
 
+        private void serverNotFound_localhostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverNotFound_localhostActionPerformed
+		serverNotFound_ip.setText("127.0.0.1");
+		serverNotFound_localhost.setVisible(false);
+        }//GEN-LAST:event_serverNotFound_localhostActionPerformed
+
 	public void newTicketPrint(String[] ls) {
 		show("newTicket");
 		newTicket_group.setModel(new javax.swing.DefaultComboBoxModel<>(ls));
@@ -2004,6 +2022,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JTextPane serverNotFound_console;
         private javax.swing.JLabel serverNotFound_icon;
         private javax.swing.JTextField serverNotFound_ip;
+        private javax.swing.JButton serverNotFound_localhost;
         private javax.swing.JTextField serverNotFound_port;
         private javax.swing.JTree tree;
         private javax.swing.JPanel view;
