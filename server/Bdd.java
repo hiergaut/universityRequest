@@ -625,4 +625,9 @@ public class Bdd {
 		execute("insert into receive values ('" +actualUser +"', " +idMessage +")");
 	}
 
+	boolean userAlreadyRead(String actualUser, Message m) {
+		Integer idMessage =m.getId();
+		return oneRow("select * from seen where seen_fk_users='" +actualUser +"' and seen_fk_messages=" +idMessage);
+	}
+
 }

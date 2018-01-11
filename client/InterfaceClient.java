@@ -2127,8 +2127,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 			}
 		}
 
-		if (idMessages.size() != 0)
-			client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, idMessages);
+//		if (idMessages.size() != 0)
+			client.sendRequest(ClientRequest.READ_MESSAGES, actualUser, ticket, idMessages);
 	}
 
 	public void buildMessagesPane(String ticket) {
@@ -2152,18 +2152,18 @@ public class InterfaceClient extends javax.swing.JFrame {
 		JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
 		vertical.setValue(vertical.getMaximum());
 
-//		new Thread() {
-//			@Override
-//			public void run() {
-//				try {
-//					sleep(10);
-//				} catch (InterruptedException ex) {
-//					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-//				}
-//				JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
-//				vertical.setValue(vertical.getMaximum());
-//			}
-//		}.start();
+		new Thread() {
+			@Override
+			public void run() {
+				try {
+					sleep(100);
+				} catch (InterruptedException ex) {
+					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+				}
+				JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();
+				vertical.setValue(vertical.getMaximum());
+			}
+		}.start();
 	}
 
 	public JPanel createBoxMessage(Message m) {

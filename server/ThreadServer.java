@@ -34,6 +34,7 @@ public class ThreadServer implements Runnable {
 	private Server server;
 	private Socket socket;
 	private String actualConnectUser = "";
+	private String actualSelectTicketByUser = "";
 
 	public ThreadServer(Server server, Socket socket) {
 		this.server = server;
@@ -99,14 +100,17 @@ public class ThreadServer implements Runnable {
 						Message m = bdd.newMessage((Message) params.get(0));
 
 						server.connectUserReceiveConcernedMessage(m);
-						
+						server.autoReadMessageIfTicketAlreadySelected(m);
+
 						// m is a oldest version, missing receive status
 						server.broadcast(bdd.getMessageFromId(m.getId()));
 						break;
 
 					case READ_MESSAGES:
 						String user = (String) params.get(0);
-						List<Integer> idMessages = (List) params.get(1);
+						String ticket = (String) params.get(1);
+						actualSelectTicketByUser =ticket;
+						List<Integer> idMessages = (List) params.get(2);
 
 						for (Integer idMessage : idMessages) {
 							bdd.userReadMessage(user, idMessage);
@@ -148,17 +152,20 @@ public class ThreadServer implements Runnable {
 						int id = -1;
 						String body = bodyMessage;
 						Timestamp create = new Timestamp(System.currentTimeMillis());
-						String ticket = title;
+						ticket = title;
 						String firstname = "";
 						name = "";
 
 						m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
 						m = bdd.newMessage(m);
-						server.broadcast(m);
+						server.connectUserReceiveConcernedMessage(m);
+//						server.broadcast(m);
+						server.broadcast(bdd.getMessageFromId(m.getId()));
 						break;
 
 					case LOGOUT:
-						actualConnectUser ="";
+						actualConnectUser = "";
+						actualSelectTicketByUser ="";
 						break;
 				}
 			} else {
@@ -179,5 +186,7 @@ public class ThreadServer implements Runnable {
 		return actualConnectUser;
 	}
 
-
+	public String getActualSelectTicketByUser() {
+		return actualSelectTicketByUser;
+	}
 }

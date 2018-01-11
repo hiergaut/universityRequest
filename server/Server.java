@@ -161,4 +161,21 @@ public class Server {
 			}
 		}
 	}
+
+	void autoReadMessageIfTicketAlreadySelected(Message m) {
+		if (m != null) {
+			for (ThreadServer ts : threads) {
+				String actualUser =ts.getActualConnectUser();
+				String actualTicket =ts.getActualSelectTicketByUser();
+				
+				if (! actualTicket.equals("")) {
+					if (m.getTicket().equals(actualTicket)) {
+						if (! bdd.userAlreadyRead(actualUser, m)) {
+							bdd.userReadMessage(actualUser, m.getId());
+						}
+					}
+				}
+			}
+		}
+	}
 }
