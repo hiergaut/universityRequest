@@ -32,6 +32,7 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -1190,6 +1191,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                         .addGap(0, 43, Short.MAX_VALUE)
                 );
 
+                home_tickets.setBackground(new java.awt.Color(255, 51, 51));
                 home_tickets.setBorder(null);
 
                 tree.setBackground(new java.awt.Color(188, 7, 46));
@@ -2550,6 +2552,9 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 		tree = new JTree(root);
 		tree.setRootVisible(false);
+		tree.setBackground(new Color(188,7,46));
+
+		
 		tree.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent me) {
 				ihm.show2("message");
@@ -2589,6 +2594,14 @@ public class InterfaceClient extends javax.swing.JFrame {
 			}
 
 		});
+
+		DefaultTreeCellRenderer renderer = (DefaultTreeCellRenderer) tree.getCellRenderer();
+		ImageIcon closedIcon = new ImageIcon("picture/closed.png");
+		ImageIcon openIcon = new ImageIcon("picture/open.png");
+		ImageIcon leafIcon = new ImageIcon("picture/leaf.png");
+		renderer.setClosedIcon(closedIcon);
+		renderer.setOpenIcon(openIcon);
+		renderer.setLeafIcon(leafIcon);
 
 		right_messages.removeAll();
 		right_messagesScroll.setViewportView(right_messages);
