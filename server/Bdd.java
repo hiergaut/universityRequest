@@ -307,6 +307,9 @@ public class Bdd {
 	}
 
 	boolean identification(String login, String passwd) {
+		login = login.replace("'", "''");
+		passwd = passwd.replace("'", "''");
+
 		return oneRow("select u_login, u_password from users where u_login = '" + login + "' and u_password = '" + passwd + "'");
 	}
 
@@ -323,11 +326,19 @@ public class Bdd {
 //
 //	}
 	String newUser(String login, String passwd, String firstName, String name, String status) {
+		login = login.replace("'", "''");
+		passwd = passwd.replace("'", "''");
+		firstName = firstName.replace("'", "''");
+		name = name.replace("'", "''");
+		status = status.replace("'", "''");
+
 		System.out.println("insert into users values ('" + login + "', '" + passwd + "', '" + firstName + "', '" + name + "', '" + status + "')");
 		return execute("insert into users values ('" + login + "', '" + passwd + "', '" + firstName + "', '" + name + "', '" + status + "')");
 	}
 
 	Object[] getMessages(String name) {
+		name = name.replace("'", "''");
+
 		List<Message> l = new ArrayList<>();
 		StatusMessage sm;
 //		l.add(new Message(1, "fuckGroup", "ticketBitch", "name", "suck", new Date(1993, 6, 12)));
@@ -347,6 +358,8 @@ public class Bdd {
 	}
 
 	Object[] allGroups(String name) {
+		name = name.replace("'", "''");
+
 //		request("select * from groups");
 		List<String> l = new ArrayList<>();
 		String[][] m = select("select * from groups, belong where b_fk_users='" + name + "' and g_name=b_fk_groups");
@@ -388,10 +401,14 @@ public class Bdd {
 	}
 
 	void addGroup(String text) {
+		text = text.replace("'", "''");
+
 		execute("insert into groups values ('" + text + "')");
 	}
 
 	void removeGroup(String nameGroup) {
+		nameGroup = nameGroup.replace("'", "''");
+
 		execute("delete from groups where g_name ='" + nameGroup + "'");
 	}
 
@@ -400,6 +417,9 @@ public class Bdd {
 		String body = m.getBody();
 		String author = m.getAuthor();
 		String date = m.getCreate().toString();
+
+		body = body.replace("'", "''");
+		author = author.replace("'", "''");
 
 		String ticketForBdd = ticket.replace("'", "''");
 
@@ -414,6 +434,9 @@ public class Bdd {
 		String name = sl[1];
 
 		userReadMessage(author, idMessage);
+
+		body = body.replace("''", "'");
+		author = author.replace("''", "'");
 
 		return new Message(idMessage, body, m.getCreate(), author, firstname, name, ticket, group, StatusMessage.GROUP_NOT_RECEIVE, allUserStatus(idMessage));
 	}
@@ -454,6 +477,8 @@ public class Bdd {
 	}
 
 	private String checkUserMessageStatus(int idMessage, String user) {
+		user = user.replace("'", "''");
+
 		if (select("select * from seen where seen_fk_users='" + user + "' and seen_fk_messages=" + idMessage) != null) {
 			return "lu";
 		}
@@ -491,14 +516,24 @@ public class Bdd {
 	}
 
 	void addUserInGroup(String actualConnectUser, String group) {
+		actualConnectUser = actualConnectUser.replace("'", "''");
+		group = group.replace("'", "''");
+
 		execute("insert into belong values ('" + actualConnectUser + "', '" + group + "')");
 	}
 
 	void delUserOfGroup(String actualConnectUser, String group) {
+		actualConnectUser = actualConnectUser.replace("'", "''");
+		group = group.replace("'", "''");
+
 		execute("delete from belong where b_fk_groups='" + group + "' and b_fk_users='" + actualConnectUser + "'");
 	}
 
 	void newTicket(String title, String author, String group) {
+		title = title.replace("'", "''");
+		author = author.replace("'", "''");
+		group = group.replace("'", "''");
+
 		int idTicket = select("select * from tickets").length + 1;
 		Timestamp date = new Timestamp(System.currentTimeMillis());
 		execute("insert into tickets values (" + idTicket + ", '" + title + "', '" + date + "', '" + author + "', '" + group + "')");
@@ -549,15 +584,21 @@ public class Bdd {
 	}
 
 	String[][] allUsersOfGroup(String group) {
+		group = group.replace("'", "''");
+
 		String[][] m = select("select b_fk_users from belong where b_fk_groups='" + group + "'");
 		return m;
 	}
 
 	void delUserInGroup(String user, String group) {
+		user = user.replace("'", "''");
+		group = group.replace("'", "''");
+
 		execute("delete from belong where b_fk_users='" + user + "' and b_fk_groups='" + group + "'");
 	}
 
 	String[][] otherUsersOfGroup(String group) {
+		group = group.replace("'", "''");
 //		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 		return select("select u_login from users where u_login not in (select b_fk_users from belong where b_fk_groups='" + group + "')");
 	}
@@ -581,14 +622,24 @@ public class Bdd {
 		String name =userRow[3];
 		String status =userRow[4];
 
+		login = login.replace("'", "''");
+		passwd = passwd.replace("'", "''");
+		firstname = firstname.replace("'", "''");
+		name = name.replace("'", "''");
+		status = status.replace("'", "''");
+
 		execute("update users set u_login='" +login +"', u_password='" +passwd +"', u_firstname='" +firstname +"', u_name='" +name +"', u_status='" +status +"' where u_login='" +login +"'");
 	}
 
 	void delUserInGroup(String login) {
+		login = login.replace("'", "''");
+
 		execute("delete from users where u_login='" +login +"'");
 	}
 
 	void majReceiveStatusMessagesOf(String login) {
+		login = login.replace("'", "''");
+
 		String[][] m = select("select distinct m_idmessage from messages,tickets,groups,belong,users where b_fk_users='" + login + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + login + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
 		List<Message> lm =new ArrayList<>();
 		
@@ -607,6 +658,8 @@ public class Bdd {
 	}
 
 	boolean messageAdressToUser(Message m, String login) {
+		login = login.replace("'", "''");
+
 		Integer m_idmessage =m.getId();
 		return oneRow("select distinct m_idmessage from messages,tickets,groups,belong,users where b_fk_users='" + login + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login and m_idmessage=" +m_idmessage +" or t_fk_users='" + login + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login and m_idmessage=" +m_idmessage);
 	}
@@ -616,16 +669,22 @@ public class Bdd {
 	}
 
 	boolean userAlreadyReceive(String actualUser, Message m) {
+		actualUser = actualUser.replace("'", "''");
+
 		Integer idMessage =m.getId();
 		return oneRow("select * from receive where rcv_fk_users='" +actualUser +"' and rcv_fk_messages=" +idMessage);
 	}
 
 	void userReceiveMessage(String actualUser, Message m) {
+		actualUser = actualUser.replace("'", "''");
+
 		Integer idMessage =m.getId();
 		execute("insert into receive values ('" +actualUser +"', " +idMessage +")");
 	}
 
 	boolean userAlreadyRead(String actualUser, Message m) {
+		actualUser = actualUser.replace("'", "''");
+
 		Integer idMessage =m.getId();
 		return oneRow("select * from seen where seen_fk_users='" +actualUser +"' and seen_fk_messages=" +idMessage);
 	}

@@ -5,6 +5,7 @@ insert into groups values ('chauffage');
 insert into groups values ('nadege');
 insert into groups values ('fablab');
 insert into groups values ('robotique');
+insert into groups values ('slack');
 
 
 insert into users values ('gauthier', 'passwd', 'gauthier', 'bouyjou', 'student');
@@ -13,12 +14,14 @@ insert into users values ('rastaman', 'passwd', 'Bob', 'Marley', 'student');
 insert into users values ('migeon', 'passwd', 'Migeon', 'Frederic', 'professor');
 insert into users values ('nadege', 'passwd', 'Nadege', 'Lamarque', 'service');
 insert into users values ('maintenance', 'passwd', 'Blanc', 'Michel', 'service');
+insert into users values ('amine', 'passwd', 'Amine', 'Benz', 'student');
 
 
 -- insert into belong values ('gauthier', 'info');
 insert into belong values ('gauthier', 'nadege');
 insert into belong values ('gauthier', 'chauffage');
 insert into belong values ('gauthier', 'sport');
+insert into belong values ('gauthier', 'slack');
 -- insert into belong values ('gauthier', 'robotique');
 
 insert into belong values ('anonymous', 'info');
@@ -37,6 +40,8 @@ insert into belong values ('nadege', 'nadege');
 
 insert into belong values ('maintenance', 'chauffage');
 insert into belong values ('maintenance', 'nadege');
+
+insert into belong values ('amine', 'slack');
 
 
 insert into tickets values (1, 'cours d''info en salle 101 ?', '2010-02-02 10:24:54', 'gauthier', 'info');
