@@ -92,17 +92,17 @@ public class Message implements Serializable, Comparable<Message> {
 	
 	public Color stateColor() {
 		switch (status) {
-			case SERVER_NOT_RECEIVE:
-				return Color.GRAY;
+			case SERVER_NOT_RECEIVE: // gray
+				return new java.awt.Color(236, 240, 241);
 
-			case GROUP_NOT_RECEIVE:
-				return Color.RED;
+			case GROUP_NOT_RECEIVE: // red
+				return new java.awt.Color(188,7,46);
 
-			case GROUP_NOT_READ:
-				return Color.ORANGE;
+			case GROUP_NOT_READ: // orange
+				return new java.awt.Color(211, 84, 0);
 
-			case GROUP_READ:
-				return Color.GREEN;
+			case GROUP_READ: // green
+				return new java.awt.Color(39, 174, 96);
 		}
 		return null;
 	}

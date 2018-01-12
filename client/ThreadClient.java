@@ -59,6 +59,7 @@ public class ThreadClient implements Runnable {
 						String name = (String) params.get(0);
 						ihm.getHome_userName().setText(name);
 						ihm.setActualUser(name);
+                                                
 
 //						ihm.display(ihm.getHome());
 //						ihm.getHome().setVisible(true);
