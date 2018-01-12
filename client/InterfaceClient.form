@@ -21,7 +21,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-89,0,0,5,-109"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,123,0,0,4,-69"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -54,18 +54,18 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="668" max="32767" attributes="0"/>
+                      <EmptySpace pref="561" max="32767" attributes="0"/>
                       <Component id="loading" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="695" max="32767" attributes="0"/>
+                      <EmptySpace pref="586" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="435" max="32767" attributes="0"/>
+                      <EmptySpace pref="413" max="32767" attributes="0"/>
                       <Component id="loading" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="436" max="32767" attributes="0"/>
+                      <EmptySpace pref="414" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -143,9 +143,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="296" max="32767" attributes="0"/>
+                              <EmptySpace pref="189" max="32767" attributes="0"/>
                               <Component id="_retry" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="621" max="32767" attributes="0"/>
+                              <EmptySpace pref="512" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -230,9 +230,6 @@
                       <SubComponents>
                         <Component class="javax.swing.JSeparator" name="jSeparator3">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
@@ -240,9 +237,6 @@
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator4">
                           <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
@@ -269,7 +263,7 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur en forme de main"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[0, 0]"/>
@@ -606,9 +600,8 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="identification_connectionActionPerformed"/>
@@ -641,7 +634,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Not registered ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -709,9 +702,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="487" max="32767" attributes="0"/>
                               <Component id="identification_errorLoginPasswd" min="-2" pref="236" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="488" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -780,7 +773,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Login/password incorrect !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1109,7 +1102,7 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -1178,9 +1171,8 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newUser_joinActionPerformed"/>
@@ -1199,7 +1191,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Go back ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1250,33 +1242,33 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1427" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1211" max="32767" attributes="0"/>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="526" max="32767" attributes="0"/>
+                                  <EmptySpace pref="418" max="32767" attributes="0"/>
                                   <Component id="newUser_error" min="-2" pref="374" max="-2" attributes="0"/>
-                                  <EmptySpace pref="527" max="32767" attributes="0"/>
+                                  <EmptySpace pref="419" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="611" max="32767" attributes="0"/>
+                                  <EmptySpace pref="503" max="32767" attributes="0"/>
                                   <Component id="newUser_okEmail" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace pref="611" max="32767" attributes="0"/>
+                                  <EmptySpace pref="503" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="593" max="32767" attributes="0"/>
+                                  <EmptySpace pref="485" max="32767" attributes="0"/>
                                   <Component id="newUser_errorFields" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <EmptySpace pref="593" max="32767" attributes="0"/>
+                                  <EmptySpace pref="485" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="486" max="32767" attributes="0"/>
+                                  <EmptySpace pref="378" max="32767" attributes="0"/>
                                   <Component id="newUser_errorDomain" min="-2" pref="454" max="-2" attributes="0"/>
-                                  <EmptySpace pref="487" max="32767" attributes="0"/>
+                                  <EmptySpace pref="379" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1370,7 +1362,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Error ! Contact us (admin@university-request.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1440,7 +1432,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please complete all fields ! "/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1510,7 +1502,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Check your emails !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1580,7 +1572,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please use your professional email (@univ-tlse3.fr or @irit.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1681,7 +1673,7 @@
                           <Component id="footer_left" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Component id="about" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="64" max="32767" attributes="0"/>
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1903,8 +1895,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="home_userName1" min="-2" pref="317" max="-2" attributes="0"/>
-                              <EmptySpace pref="622" max="32767" attributes="0"/>
+                              <Component id="home_ticket" min="-2" pref="317" max="-2" attributes="0"/>
+                              <EmptySpace pref="406" max="32767" attributes="0"/>
                               <Component id="home_leave" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
@@ -1917,7 +1909,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                      <Component id="home_userName1" max="32767" attributes="0"/>
+                                      <Component id="home_ticket" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="home_leave" pref="26" max="32767" attributes="0"/>
@@ -1950,14 +1942,14 @@
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="home_leaveActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="home_userName1">
+                    <Component class="javax.swing.JLabel" name="home_ticket">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Dialog" size="14" style="0"/>
@@ -1965,12 +1957,14 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="2e" green="7" red="bc" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="NOM DU TICKET (PENSER A L&apos;INIT)"/>
                       </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="javax.swing.JPanel" name="jPanel2">
+                <Container class="javax.swing.JPanel" name="view2">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="cview2 =(CardLayout)view2.getLayout();"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout" value="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout$BorderConstraintsDescription">
                       <BorderConstraints direction="Center"/>
@@ -1995,7 +1989,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="175" max="32767" attributes="0"/>
+                                  <EmptySpace pref="57" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="310" pref="310" max="-2" attributes="0"/>
@@ -2018,7 +2012,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="483" max="32767" attributes="0"/>
+                                  <EmptySpace pref="360" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2103,7 +2097,7 @@
                     <Container class="javax.swing.JPanel" name="message_box">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-                          <CardConstraints cardName="message_box"/>
+                          <CardConstraints cardName="message"/>
                         </Constraint>
                       </Constraints>
 
@@ -2166,8 +2160,8 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                 <Property name="columns" type="int" value="1"/>
-                                <Property name="verticalGap" type="int" value="5"/>
                                 <Property name="rows" type="int" value="10"/>
+                                <Property name="verticalGap" type="int" value="5"/>
                               </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="messages_box1">
@@ -2199,7 +2193,7 @@
                                                   <Component id="box1_date" min="-2" max="-2" attributes="0"/>
                                                   <Component id="box1_hour" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace pref="42" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -2296,9 +2290,6 @@
                           <SubComponents>
                             <Component class="javax.swing.JTable" name="messageUsersStatusTable">
                               <Properties>
-                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                                   <Font name="Dialog" size="14" style="0"/>
                                 </Property>
@@ -2371,7 +2362,7 @@
                                           <Component id="newMessage_send" max="32767" attributes="0"/>
                                           <Component id="jScrollPane2" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                                      <EmptySpace pref="62" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -2444,7 +2435,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                                  <EmptySpace pref="74" max="32767" attributes="0"/>
                                   <Component id="group_sown" min="-2" pref="213" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="group_swap" min="-2" pref="154" max="-2" attributes="0"/>
@@ -2452,7 +2443,7 @@
                                   <Component id="group_sother" min="-2" pref="217" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                                   <Component id="group_back" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="121" max="32767" attributes="0"/>
+                                  <EmptySpace pref="57" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2473,7 +2464,7 @@
                                           <Component id="group_back" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="451" max="32767" attributes="0"/>
+                                  <EmptySpace pref="407" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2596,7 +2587,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace pref="200" max="32767" attributes="0"/>
+                                  <EmptySpace pref="88" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -2621,7 +2612,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="284" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="170" max="32767" attributes="0"/>
                                           <Component id="newTicket_back" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                           <Component id="newTicket_send" min="-2" pref="97" max="-2" attributes="0"/>
