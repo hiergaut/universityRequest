@@ -506,7 +506,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 serverNotFound_console.setForeground(new java.awt.Color(188, 7, 46));
                 panel_consoleServerNotFound.add(serverNotFound_console);
 
-                serverNotFound_localhost.setText("localhost");
+                serverNotFound_localhost.setText("remote server");
                 serverNotFound_localhost.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 serverNotFound_localhostActionPerformed(evt);
@@ -2347,7 +2347,8 @@ public class InterfaceClient extends javax.swing.JFrame {
     }//GEN-LAST:event_newUser_logMessage3MouseClicked
 
         private void serverNotFound_localhostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverNotFound_localhostActionPerformed
-		serverNotFound_ip.setText("127.0.0.1");
+//		serverNotFound_ip.setText("127.0.0.1");
+		serverNotFound_ip.setText("77.141.121.226");
 		serverNotFound_localhost.setVisible(false);
         }//GEN-LAST:event_serverNotFound_localhostActionPerformed
 
