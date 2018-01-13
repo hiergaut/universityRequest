@@ -377,7 +377,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="serverNotFound_localhost">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="localhost"/>
+                        <Property name="text" type="java.lang.String" value="remote server"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serverNotFound_localhostActionPerformed"/>
