@@ -21,7 +21,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-124,0,0,6,27"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-124,0,0,6,38"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -54,9 +54,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="737" max="32767" attributes="0"/>
+                      <EmptySpace pref="743" max="32767" attributes="0"/>
                       <Component id="loading" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="762" max="32767" attributes="0"/>
+                      <EmptySpace pref="767" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -143,9 +143,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="365" max="32767" attributes="0"/>
+                              <EmptySpace pref="371" max="32767" attributes="0"/>
                               <Component id="_retry" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="688" max="32767" attributes="0"/>
+                              <EmptySpace pref="693" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -263,7 +263,7 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Curseur en forme de main"/>
                             </Property>
                             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[0, 0]"/>
@@ -695,7 +695,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1563" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1574" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -727,9 +727,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="652" max="32767" attributes="0"/>
+                              <EmptySpace pref="657" max="32767" attributes="0"/>
                               <Component id="identification_errorLogin" min="-2" pref="259" max="-2" attributes="0"/>
-                              <EmptySpace pref="652" max="32767" attributes="0"/>
+                              <EmptySpace pref="658" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -838,9 +838,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="690" max="32767" attributes="0"/>
+                              <EmptySpace pref="696" max="32767" attributes="0"/>
                               <Component id="identification_loadingInterface" min="-2" pref="182" max="-2" attributes="0"/>
-                              <EmptySpace pref="691" max="32767" attributes="0"/>
+                              <EmptySpace pref="696" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1240,7 +1240,7 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur par d&#xe9;faut"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -1380,33 +1380,33 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1563" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1574" max="32767" attributes="0"/>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="594" max="32767" attributes="0"/>
+                                  <EmptySpace pref="600" max="32767" attributes="0"/>
                                   <Component id="newUser_error" min="-2" pref="374" max="-2" attributes="0"/>
-                                  <EmptySpace pref="595" max="32767" attributes="0"/>
+                                  <EmptySpace pref="600" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="679" max="32767" attributes="0"/>
+                                  <EmptySpace pref="684" max="32767" attributes="0"/>
                                   <Component id="newUser_okEmail" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace pref="679" max="32767" attributes="0"/>
+                                  <EmptySpace pref="685" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="661" max="32767" attributes="0"/>
+                                  <EmptySpace pref="666" max="32767" attributes="0"/>
                                   <Component id="newUser_errorFields" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <EmptySpace pref="661" max="32767" attributes="0"/>
+                                  <EmptySpace pref="667" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="554" max="32767" attributes="0"/>
+                                  <EmptySpace pref="560" max="32767" attributes="0"/>
                                   <Component id="newUser_errorDomain" min="-2" pref="454" max="-2" attributes="0"/>
-                                  <EmptySpace pref="555" max="32767" attributes="0"/>
+                                  <EmptySpace pref="560" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1869,6 +1869,9 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
+                        <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                          <Color id="Curseur en forme de main"/>
+                        </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[10000, 10000]"/>
                         </Property>
@@ -2049,7 +2052,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Component id="home_ticket" min="-2" pref="317" max="-2" attributes="0"/>
-                              <EmptySpace pref="758" max="32767" attributes="0"/>
+                              <EmptySpace pref="769" max="32767" attributes="0"/>
                               <Component id="home_leave" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
@@ -2150,7 +2153,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="255" max="32767" attributes="0"/>
+                                  <EmptySpace pref="261" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="icon_logo_opacity10" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -2170,7 +2173,7 @@
                                           <Component id="help_email" min="-2" pref="196" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="458" max="32767" attributes="0"/>
+                                  <EmptySpace pref="463" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2317,17 +2320,14 @@
                                           <Group type="102" attributes="0">
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="box1_scroll_body" min="-2" pref="1233" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                  </Group>
+                                                  <Component id="box1_scroll_body" alignment="0" min="-2" pref="1233" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="box1_allName" min="-2" pref="229" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="835" max="-2" attributes="0"/>
                                                       <Component id="box1_date" min="-2" pref="168" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
+                                              <EmptySpace max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                     </DimensionLayout>
@@ -2434,7 +2434,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jScrollPane2" pref="1125" max="32767" attributes="0"/>
+                                              <Component id="jScrollPane2" pref="1136" max="32767" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="newMessage_send" min="-2" pref="76" max="-2" attributes="0"/>
                                           </Group>
@@ -2539,7 +2539,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="231" max="32767" attributes="0"/>
+                                  <EmptySpace pref="242" max="32767" attributes="0"/>
                                   <Component id="group_sown" min="-2" pref="213" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="group_swap" min="-2" pref="154" max="-2" attributes="0"/>
@@ -2547,7 +2547,7 @@
                                   <Component id="group_sother" min="-2" pref="217" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                                   <Component id="group_back" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="232" max="32767" attributes="0"/>
+                                  <EmptySpace pref="242" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2691,7 +2691,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace pref="254" max="32767" attributes="0"/>
+                                  <EmptySpace pref="265" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
@@ -2716,7 +2716,7 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="346" max="32767" attributes="0"/>
                                           <Component id="newTicket_back" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
                                           <Component id="newTicket_send" min="-2" pref="97" max="-2" attributes="0"/>
