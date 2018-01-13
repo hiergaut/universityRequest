@@ -301,7 +301,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 init_bdd.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setMinimumSize(new java.awt.Dimension(60, 20));
-                init_bdd.setOpaque(false);
                 init_bdd.setPreferredSize(new java.awt.Dimension(60, 20));
                 init_bdd.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,7 +317,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 init_server.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_server.setMinimumSize(new java.awt.Dimension(60, 20));
-                init_server.setOpaque(false);
                 init_server.setPreferredSize(new java.awt.Dimension(60, 20));
                 init_server.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,7 +364,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_group.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_group.setMinimumSize(new java.awt.Dimension(60, 20));
-                service_group.setOpaque(false);
                 service_group.setPreferredSize(new java.awt.Dimension(60, 20));
                 service_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -383,7 +380,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_user.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_user.setMinimumSize(new java.awt.Dimension(60, 20));
-                service_user.setOpaque(false);
                 service_user.setPreferredSize(new java.awt.Dimension(60, 20));
                 service_user.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,7 +396,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_statistic.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setMinimumSize(new java.awt.Dimension(60, 20));
-                service_statistic.setOpaque(false);
                 service_statistic.setPreferredSize(new java.awt.Dimension(60, 20));
                 service_statistic.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -599,7 +594,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_connect.setContentAreaFilled(false);
                 bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                bdd_connect.setOpaque(false);
                 bdd_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_connectActionPerformed(evt);
@@ -791,7 +785,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addGap(83, 83, 83)
                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addGap(0, 34, Short.MAX_VALUE)
+                                                                .addGap(0, 0, Short.MAX_VALUE)
                                                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                                         .addComponent(bdd_clearBase, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(bdd_init, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -941,7 +935,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 server_connect.setContentAreaFilled(false);
                 server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                server_connect.setOpaque(false);
                 server_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 server_connectActionPerformed(evt);
@@ -1602,7 +1595,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(uptime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(57, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
 
                 view_statistic.add(jPanel18, java.awt.BorderLayout.CENTER);
@@ -1843,9 +1836,11 @@ public class InterfaceServer extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
         private void service_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_groupActionPerformed
-		// TODO add your handling code here:
-//		view_group.setVisible(true);
-//		view_welcome.setVisible(false);
+                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 1, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
 		show("group");
 		majGroupTable();
                 clic_home_group_inputNewGroup=true;
@@ -1861,6 +1856,11 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         private void init_bddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_bddActionPerformed
 		show("bdd");
+                init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_init_bddActionPerformed
 
         private void bdd_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_connectActionPerformed
@@ -1873,6 +1873,11 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         private void init_serverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_serverActionPerformed
 		show("server");
+                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 1, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_init_serverActionPerformed
 
         private void server_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_connectActionPerformed
@@ -1966,7 +1971,13 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_swap_group_btnActionPerformed
 
         private void service_statisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_statisticActionPerformed
-		// TODO add your handling code here:
+                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 1, 14));
+                
+                
 		statistic_nbUsers.setText(bdd.getNbUsers());
 		statistic_nbGroups.setText(bdd.getNbGroups());
 		statistic_nbLog.setText(server.getNbThreads().toString());
@@ -1979,6 +1990,11 @@ public class InterfaceServer extends javax.swing.JFrame {
         private void service_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_userActionPerformed
 		show("user");
 		user_majTable();
+                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 1, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_service_userActionPerformed
 
         private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1994,6 +2010,11 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
                 show("about");
+                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_aboutMouseClicked
 
         private void remoteDatabase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remoteDatabase1ActionPerformed
