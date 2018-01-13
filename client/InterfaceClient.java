@@ -340,7 +340,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 about_email = new javax.swing.JLabel();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-                setPreferredSize(new java.awt.Dimension(20, 20));
                 getContentPane().setLayout(new java.awt.CardLayout());
 
                 view.setLayout(new java.awt.CardLayout());
@@ -1590,6 +1589,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 newMessage_input.setBackground(new java.awt.Color(255, 255, 255));
                 newMessage_input.setColumns(20);
+                newMessage_input.setLineWrap(true);
                 newMessage_input.setRows(5);
                 newMessage_input.setToolTipText("");
                 newMessage_input.setBorder(null);
@@ -1634,9 +1634,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_newMessageLayout.setVerticalGroup(
                         right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(right_newMessageLayout.createSequentialGroup()
-                                .addContainerGap()
+                                .addGap(18, 18, 18)
                                 .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(newMessage_send, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
@@ -1765,6 +1765,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 new_ticketBody.setColumns(20);
                 new_ticketBody.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                new_ticketBody.setLineWrap(true);
                 new_ticketBody.setRows(5);
                 jScrollPane4.setViewportView(new_ticketBody);
 
