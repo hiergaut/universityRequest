@@ -8,6 +8,8 @@ package userData;
 import java.awt.Color;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -125,6 +127,31 @@ public class Message implements Serializable, Comparable<Message> {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public String allUserStatusTipText() {
+		List<String> lu =new ArrayList<>();
+		List<String> enAttente =new ArrayList<>();
+		List<String> recu =new ArrayList<>();
+
+		if (usersStatus != null) {
+			for (String[] ls : usersStatus) {
+				switch (ls[1]) {
+					case "lu":
+						lu.add(ls[0]);
+						break;
+						
+					case "en attente":
+						enAttente.add(ls[0]);
+						break;
+						
+					case "reçu":
+						recu.add(ls[0]);
+						break;
+				}
+			}
+		}
+                return "<html> Lu : " +lu + "<br> En attente : " +enAttente +"<br> Reçu : " +recu +"</html>";
 	}
 	
 	

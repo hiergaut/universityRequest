@@ -59,6 +59,7 @@ public class ThreadClient implements Runnable {
 						String name = (String) params.get(0);
 						ihm.getHome_userName().setText(name);
 						ihm.setActualUser(name);
+//						ihm.show3("empty");
                                                 
 
 //						ihm.display(ihm.getHome());
@@ -67,14 +68,16 @@ public class ThreadClient implements Runnable {
 						break;
 
 					case IDENTIFICATION_FAILED:
+						ihm.show3("incorrect");
 //						ihm.getHome_wrong().setVisible(true);
-						ihm.getError_login_passwd().setVisible(true);
+//						ihm.getError_login_passwd().setVisible(true);
 						try {
 							Thread.sleep(3000);
+							ihm.show3("empty");
 						} catch (InterruptedException ex) {
 							Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
 						}
-						ihm.getError_login_passwd().setVisible(false);
+//						ihm.getError_login_passwd().setVisible(false);
 						break;
 
 					case ALL_GROUP_RESPONSE:
