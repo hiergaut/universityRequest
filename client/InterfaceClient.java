@@ -395,7 +395,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 jButton1.setText("retry");
                 jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 jButton1.setContentAreaFilled(false);
-                jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 jButton1.setMinimumSize(new java.awt.Dimension(0, 0));
                 jButton1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -571,7 +571,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 identification_connection.setText("Sign in");
                 identification_connection.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 identification_connection.setContentAreaFilled(false);
-                identification_connection.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                identification_connection.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 identification_connection.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 identification_connectionActionPerformed(evt);
@@ -586,7 +586,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 not_registered.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 not_registered.setForeground(new java.awt.Color(255, 255, 255));
                 not_registered.setText("Not registered ?");
-                not_registered.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                not_registered.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 not_registered.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 not_registeredMouseClicked(evt);
@@ -903,7 +903,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newUser_status.setForeground(new java.awt.Color(255, 255, 255));
                 newUser_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student", "professor", "service" }));
                 newUser_status.setToolTipText("");
-                newUser_status.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newUser_status.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newUser_status.setDoubleBuffered(true);
                 newUser_status.setName(""); // NOI18N
                 newUser_status.setNextFocusableComponent(newUser_join);
@@ -925,7 +925,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newUser_join.setText("Join");
                 newUser_join.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 newUser_join.setContentAreaFilled(false);
-                newUser_join.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newUser_join.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newUser_join.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newUser_joinActionPerformed(evt);
@@ -936,7 +936,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 back.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 back.setForeground(new java.awt.Color(255, 255, 255));
                 back.setText("Go back ?");
-                back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                back.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 back.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 backMouseClicked(evt);
@@ -1280,7 +1280,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 tree.setBackground(new java.awt.Color(188, 7, 46));
                 tree.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 tree.setForeground(new java.awt.Color(255, 255, 255));
-                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 tree.setMaximumSize(new java.awt.Dimension(10000, 10000));
                 tree.setMinimumSize(new java.awt.Dimension(300, 0));
                 tree.setOpaque(false);
@@ -1291,7 +1291,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 about.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
                 about.setForeground(new java.awt.Color(188, 7, 46));
                 about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 about.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 aboutMouseClicked(evt);
@@ -1316,7 +1316,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_newTicket.setActionCommand("   new ticket       ");
                 home_newTicket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_newTicket.setContentAreaFilled(false);
-                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 home_newTicket.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_newTicketActionPerformed(evt);
@@ -1330,7 +1330,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_group.setText("   add/remove  group");
                 home_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_group.setContentAreaFilled(false);
-                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 home_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_groupActionPerformed(evt);
@@ -1544,9 +1544,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 box1_scroll_body.setOpaque(false);
 
                 box1_body.setEditable(false);
-                box1_body.setBackground(new java.awt.Color(255, 255, 255));
                 box1_body.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-                box1_body.setForeground(new java.awt.Color(51, 51, 51));
                 box1_body.setText("Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.");
                 box1_body.setToolTipText("");
                 box1_body.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1588,7 +1586,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_newMessage.setBackground(new java.awt.Color(255, 255, 255));
                 right_newMessage.setPreferredSize(new java.awt.Dimension(0, 200));
 
-                newMessage_input.setBackground(new java.awt.Color(255, 255, 255));
                 newMessage_input.setColumns(20);
                 newMessage_input.setRows(5);
                 newMessage_input.setToolTipText("");
@@ -2190,6 +2187,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 				client.sendRequest(ClientRequest.ADD_GROUP, otherGroupSelected);
 			}
 		}
+
         }//GEN-LAST:event_group_swapActionPerformed
 
         private void group_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_backActionPerformed

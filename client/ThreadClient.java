@@ -52,7 +52,6 @@ public class ThreadClient implements Runnable {
 					case INIT_HOME:
 						client.setMessages(params);
 						ihm.majTree();
-						ihm.show("home");
 						break;
 
 					case IDENTIFICATION_OK:
@@ -60,6 +59,7 @@ public class ThreadClient implements Runnable {
 						ihm.getHome_userName().setText(name);
 						ihm.setActualUser(name);
 //						ihm.show3("empty");
+						ihm.show("home");
                                                 
 
 //						ihm.display(ihm.getHome());
@@ -101,6 +101,7 @@ public class ThreadClient implements Runnable {
 						ihm.majTableOneColumn(myGroup, "own groups", ihm.getGroup_own(), ihm.getGroup_sown());
 						ihm.majTableOneColumn(other, "other groups", ihm.getGroup_other(), ihm.getGroup_sother());
 //						ihm.majGroupTable(myGroup, other);
+//						ihm.majTree();
 						break;
 
 					case MAJ_MESSAGES:

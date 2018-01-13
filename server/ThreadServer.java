@@ -127,6 +127,7 @@ public class ThreadServer implements Runnable {
 						String group = (String) params.get(0);
 						bdd.addUserInGroup(actualConnectUser, group);
 
+						sendRequest(ServerRequest.INIT_HOME, bdd.getMessages(actualConnectUser));
 						sendRequest(ServerRequest.ALL_GROUP_RESPONSE, bdd.allGroups(actualConnectUser));
 						break;
 
@@ -134,6 +135,7 @@ public class ThreadServer implements Runnable {
 						group = (String) params.get(0);
 						bdd.delUserOfGroup(actualConnectUser, group);
 
+						sendRequest(ServerRequest.INIT_HOME, bdd.getMessages(actualConnectUser));
 						sendRequest(ServerRequest.ALL_GROUP_RESPONSE, bdd.allGroups(actualConnectUser));
 						break;
 

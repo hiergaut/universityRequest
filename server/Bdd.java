@@ -371,7 +371,7 @@ public class Bdd {
 		}
 
 //		m =select("select * from groups except select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups");
-		m = select("select g_name from groups where g_name not in ( select g_name from groups, belong where b_fk_users='gauthier' and g_name=b_fk_groups)");
+		m = select("select g_name from groups where g_name not in ( select g_name from groups, belong where b_fk_users='" +name +"' and g_name=b_fk_groups)");
 		if (m != null) {
 			l.addAll(firstColumn(m));
 		}
@@ -643,18 +643,20 @@ public class Bdd {
 		String[][] m = select("select distinct m_idmessage from messages,tickets,groups,belong,users where b_fk_users='" + login + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + login + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
 		List<Message> lm =new ArrayList<>();
 		
-		for (String[] ls : m) {
-			String idMessage =ls[0];
-
-			if (! oneRow("select * from receive where rcv_fk_users='" +login +"' and rcv_fk_messages=" +idMessage)) {
-				execute("insert into receive values ('" +login +"', " +idMessage +")");
-				lm.add(getMessageFromId(Integer.parseInt(idMessage)));
+		if (m != null) {
+			for (String[] ls : m) {
+				String idMessage =ls[0];
+				
+				if (! oneRow("select * from receive where rcv_fk_users='" +login +"' and rcv_fk_messages=" +idMessage)) {
+					execute("insert into receive values ('" +login +"', " +idMessage +")");
+					lm.add(getMessageFromId(Integer.parseInt(idMessage)));
+				}
 			}
+			
+			System.out.println("server =" +server);
+			if (lm.size() != 0)
+				server.broadcast(lm);
 		}
-
-		System.out.println("server =" +server);
-		if (lm.size() != 0)
-			server.broadcast(lm);
 	}
 
 	boolean messageAdressToUser(Message m, String login) {

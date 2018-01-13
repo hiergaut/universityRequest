@@ -263,7 +263,7 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur en forme de main"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[0, 0]"/>
@@ -597,7 +597,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -631,7 +631,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Not registered ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -798,7 +798,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Login/password incorrect !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -907,7 +907,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Interface loading..."/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1240,7 +1240,7 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -1309,7 +1309,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1329,7 +1329,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Go back ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1500,7 +1500,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Error ! Contact us (admin@university-request.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1569,7 +1569,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please complete all fields ! "/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1638,7 +1638,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Check your emails !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1708,7 +1708,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please use your professional email (@univ-tlse3.fr or @irit.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Curseur par d&#xe9;faut"/>
+                              <Color id="Default Cursor"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1870,7 +1870,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[10000, 10000]"/>
@@ -1897,7 +1897,7 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;font style=&quot;background-color : white&quot;&gt;&amp;nbsp;&amp;nbsp;about the project ?&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/html&gt;"/>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                      <Color id="Curseur en forme de main"/>
+                      <Color id="Default Cursor"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -1975,7 +1975,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2006,7 +2006,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur en forme de main"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2098,7 +2098,7 @@
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur par d&#xe9;faut"/>
+                          <Color id="Default Cursor"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2297,8 +2297,8 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                 <Property name="columns" type="int" value="1"/>
-                                <Property name="verticalGap" type="int" value="5"/>
                                 <Property name="rows" type="int" value="4"/>
+                                <Property name="verticalGap" type="int" value="5"/>
                               </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="messages_box1">
@@ -2383,21 +2383,15 @@
                                         <Component class="javax.swing.JTextPane" name="box1_body">
                                           <Properties>
                                             <Property name="editable" type="boolean" value="false"/>
-                                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                            </Property>
                                             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                                               <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
                                                 <EmptyBorder/>
                                               </Border>
                                             </Property>
-                                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                              <Color blue="33" green="33" red="33" type="rgb"/>
-                                            </Property>
                                             <Property name="text" type="java.lang.String" value="Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum."/>
                                             <Property name="toolTipText" type="java.lang.String" value=""/>
                                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                              <Color id="Curseur par d&#xe9;faut"/>
+                                              <Color id="Default Cursor"/>
                                             </Property>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[10, 10, 10, 10]"/>
@@ -2472,9 +2466,6 @@
                               <SubComponents>
                                 <Component class="javax.swing.JTextArea" name="newMessage_input">
                                   <Properties>
-                                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                                    </Property>
                                     <Property name="columns" type="int" value="20"/>
                                     <Property name="rows" type="int" value="5"/>
                                     <Property name="toolTipText" type="java.lang.String" value=""/>
