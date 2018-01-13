@@ -23,10 +23,10 @@ server
 ```viml
 java -jar InterfaceServer.jar
 ```
-#[server](server.png)
+![server](server.png)
 
 client
 ```viml
 java -jar InterfaceClient.jar
 ```
-#[client](client.png)
+![client](client.png)
