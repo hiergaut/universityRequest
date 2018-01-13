@@ -2367,6 +2367,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	public void newMessage_input_sendMessage() {
+
 		int id = -1;
 		String body = newMessage_input.getText();
 		Timestamp create = new Timestamp(System.currentTimeMillis());
@@ -2392,6 +2393,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
 				}
 				client.sendRequest(ClientRequest.NEW_MESSAGE, m);
+				newMessage_input.setText("");
 			}
 		}.start();
 	}
@@ -2774,7 +2776,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 		right_newMessage.setVisible(true);
 		right_messagesScroll.setViewportView(right_messages);
 
-		newMessage_input.setText("");
+//		newMessage_input.setText("");
 		newMessage_input.requestFocus();
 
 		JScrollBar vertical = right_messagesScroll.getVerticalScrollBar();

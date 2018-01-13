@@ -151,7 +151,7 @@ public class Message implements Serializable, Comparable<Message> {
 				}
 			}
 		}
-                return "<html> Lu : " +lu + "<br> En attente : " +enAttente +"<br> Reçu : " +recu +"</html>";
+                return "<html> En attente : " +enAttente +"<br>Reçu : " +recu + "<br>Lu : " +lu + "</html>";
 	}
 	
 	
