@@ -167,6 +167,7 @@ public class ThreadServer implements Runnable {
 
 					case LOGOUT:
 						actualConnectUser = "";
+						System.out.println("actualUser deco '" +actualConnectUser +"'");
 						actualSelectTicketByUser ="";
 						break;
 				}
