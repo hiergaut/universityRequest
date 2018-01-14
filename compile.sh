@@ -9,10 +9,11 @@
 # java -cp ../lib/mysql-connector-java-5.1.23-bin.jar:. client.InterfaceClient
 
 rm *.jar
+rm */*.class
 
-javac -cp lib/mysql-connector-java-5.1.45-bin.jar */*.java
+# javac -cp .:lib/mysql-connector-java-5.1.45-bin.jar */*.java
+javac */*.java
 # rm */*.class
 jar cfm InterfaceServer.jar Manifest_server.txt */*
 jar cfm InterfaceClient.jar Manifest_client.txt */*
-
-rm */*.class
+# jar cvfe InterfaceServer.jar server.InterfaceServer */*
