@@ -695,4 +695,40 @@ public class Bdd {
 		return oneRow("select * from seen where seen_fk_users='" +actualUser +"' and seen_fk_messages=" +idMessage);
 	}
 
+	String export() {
+		String str =readFile(new File("src/bdd/build.sql"));
+		str +=readFile(new File("src/bdd/insertData.sql"));
+
+		return str;
+	}
+
+	String readFile(File inputFile) {
+		String str ="";
+
+		// Delimiter
+		String delimiter = ";";
+
+		// Create scanner
+		Scanner scanner;
+		try {
+			scanner = new Scanner(inputFile).useDelimiter(delimiter);
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+			return "";
+		}
+		System.out.println("[Bdd] export file " + inputFile);
+
+		// Loop through the SQL file statements
+		Statement currentStatement = null;
+		while (scanner.hasNext()) {
+
+			// Get statement
+			String rawStatement = scanner.next() + delimiter;
+			str +=rawStatement;
+		}
+		scanner.close();
+
+		return str;
+	}
+
 }

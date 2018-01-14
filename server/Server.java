@@ -178,4 +178,14 @@ public class Server {
 			}
 		}
 	}
+
+	String nbUserOnline() {
+		Integer i =0;
+		for (ThreadServer ts : threads) {
+			if (ts.getActualConnectUser() !="") {
+				i++;
+			}
+		}
+		return i.toString();
+	}
 }

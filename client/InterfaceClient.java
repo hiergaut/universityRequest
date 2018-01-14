@@ -38,7 +38,6 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import network.ClientRequest;
-import server.MyScrollBar;
 import userData.Message;
 import userData.StatusMessage;
 
@@ -2201,6 +2200,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private void home_leaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_leaveActionPerformed
 		show3("empty");
 		show("identification");
+		show2("welcome");
 		client.sendRequest(ClientRequest.LOGOUT, (Object)null);
         }//GEN-LAST:event_home_leaveActionPerformed
 
@@ -2636,6 +2636,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 //		right_messagesScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 //		right_messagesScroll.getVerticalScrollBar().setUI(new MetalScrollBarUI());
 //		right_messagesScroll.getVerticalScrollBar().setUI(new MyScrollBar());
+		
 
 		InterfaceClient ihm =this;
 		// already click
@@ -2736,14 +2737,17 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 		DefaultTreeCellRenderer renderer = (DefaultTreeCellRenderer) tree.getCellRenderer();
 //		ImageIcon closedIcon = new ImageIcon("picture/closed.png");
-//		ImageIcon openIcon = new ImageIcon("picture/open.png");
+		ImageIcon node = new ImageIcon("src/picture/node.png");
 //		ImageIcon leafIcon = new ImageIcon("picture/leaf.png");
 //		ImageIcon closedIcon = new ImageIcon("picture/blue.png");
 //		ImageIcon openIcon = new ImageIcon("picture/blue.png");
-		ImageIcon leafIcon = new ImageIcon("picture/blue.png");
+		ImageIcon leafIcon = new ImageIcon("src/picture/blue.png");
 //		ImageIcon leafIcon =  createImageIcon("picture/blue.png");
 //		renderer.setClosedIcon(closedIcon);
 //		renderer.setOpenIcon(openIcon);
+		renderer.setLeafIcon(leafIcon);
+		renderer.setOpenIcon(node);
+
 
 		right_messages.removeAll();
 		right_messagesScroll.setViewportView(right_messages);

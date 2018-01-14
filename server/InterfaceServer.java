@@ -40,6 +40,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 	private String tag = Function.color(this);
         
         private boolean clic_home_group_inputNewGroup = true;
+	private String actualSelectedGroup;
         
         
 	/**
@@ -179,6 +180,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_console = new javax.swing.JTextPane();
                 jSeparator5 = new javax.swing.JSeparator();
                 jLabel1 = new javax.swing.JLabel();
+                bdd_export = new javax.swing.JButton();
                 view_server = new javax.swing.JPanel();
                 header_server = new javax.swing.JPanel();
                 title_server = new javax.swing.JPanel();
@@ -306,7 +308,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_bdd.setText("    Database");
                 init_bdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_bdd.setContentAreaFilled(false);
-                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 init_bdd.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setMinimumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -322,7 +324,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_server.setText("    Server    ");
                 init_server.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_server.setContentAreaFilled(false);
-                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 init_server.setEnabled(false);
                 init_server.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_server.setMinimumSize(new java.awt.Dimension(60, 20));
@@ -370,7 +372,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_group.setText("    Groups    ");
                 service_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_group.setContentAreaFilled(false);
-                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_group.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_group.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_group.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -386,7 +388,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_user.setText("    Users      ");
                 service_user.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_user.setContentAreaFilled(false);
-                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_user.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_user.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_user.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -402,7 +404,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_statistic.setText("    Stats       ");
                 service_statistic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_statistic.setContentAreaFilled(false);
-                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_statistic.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -452,7 +454,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 about.setForeground(new java.awt.Color(188, 7, 46));
                 about.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 about.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 aboutMouseClicked(evt);
@@ -484,7 +486,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(footer_left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(about, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(178, Short.MAX_VALUE))
+                                .addContainerGap(183, Short.MAX_VALUE))
                 );
 
                 service.setVisible(false);
@@ -551,7 +553,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase.setText("remote database");
                 remoteDatabase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase.setContentAreaFilled(false);
-                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 remoteDatabase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabaseActionPerformed(evt);
@@ -564,7 +566,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase1.setText("local database");
                 remoteDatabase1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase1.setContentAreaFilled(false);
-                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 remoteDatabase1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabase1ActionPerformed(evt);
@@ -597,27 +599,22 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jLabel17.setText("password");
 
                 bdd_password.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_password.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_password.setText("password");
                 bdd_password.setBorder(null);
 
                 bdd_user.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_user.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_user.setText("user");
                 bdd_user.setBorder(null);
 
                 bdd_baseName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_baseName.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_baseName.setText("databaseName");
                 bdd_baseName.setBorder(null);
 
                 bdd_port.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_port.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_port.setText("port");
                 bdd_port.setBorder(null);
 
                 bdd_ip.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_ip.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_ip.setText("ip");
                 bdd_ip.setBorder(null);
                 bdd_ip.addActionListener(new java.awt.event.ActionListener() {
@@ -632,7 +629,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_connect.setText("connect");
                 bdd_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_connect.setContentAreaFilled(false);
-                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_connectActionPerformed(evt);
@@ -722,10 +719,8 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
 
                 bdd_console2.setEditable(false);
-                bdd_console2.setBackground(new java.awt.Color(255, 255, 255));
                 bdd_console2.setColumns(20);
                 bdd_console2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_console2.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_console2.setRows(5);
                 bdd_console2.setBorder(null);
                 bdd_console2.setMargin(new java.awt.Insets(5, 5, 5, 5));
@@ -740,7 +735,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_show.setToolTipText("");
                 bdd_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_show.setContentAreaFilled(false);
-                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_show.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_showActionPerformed(evt);
@@ -755,7 +750,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_clearBase.setToolTipText("");
                 bdd_clearBase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_clearBase.setContentAreaFilled(false);
-                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_clearBase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_clearBaseActionPerformed(evt);
@@ -770,7 +765,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_init.setToolTipText("");
                 bdd_init.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_init.setContentAreaFilled(false);
-                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_init.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_initActionPerformed(evt);
@@ -810,7 +805,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_console.setEditable(false);
                 bdd_console.setBorder(null);
                 bdd_console.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_console.setForeground(new java.awt.Color(51, 51, 51));
                 bdd_console.setText("Console log...");
                 bdd_console.setPreferredSize(new java.awt.Dimension(0, 100));
 
@@ -845,6 +839,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addContainerGap())
                 );
 
+                bdd_export.setText("export database");
+                bdd_export.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bdd_exportActionPerformed(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
                 jPanel3Layout.setHorizontalGroup(
@@ -859,8 +860,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(24, 24, 24)
                                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                .addGap(55, 55, 55)
+                                                                .addComponent(bdd_export)))))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
@@ -868,10 +874,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(60, 60, 60)
+                                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(bdd_export)))
+                                .addGap(39, 39, 39)
                                 .addComponent(console_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(126, Short.MAX_VALUE))
                 );
@@ -940,15 +949,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
                 jLabel20.setText("max_users");
 
-                server_port.setBackground(new java.awt.Color(255, 255, 255));
                 server_port.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                server_port.setForeground(new java.awt.Color(51, 51, 51));
                 server_port.setText("5000");
                 server_port.setBorder(null);
 
-                server_maxLog.setBackground(new java.awt.Color(255, 255, 255));
                 server_maxLog.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                server_maxLog.setForeground(new java.awt.Color(51, 51, 51));
                 server_maxLog.setText("100");
                 server_maxLog.setBorder(null);
 
@@ -957,7 +962,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_connect.setText("connect");
                 server_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 server_connect.setContentAreaFilled(false);
-                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 server_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 server_connectActionPerformed(evt);
@@ -1017,7 +1022,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel2Layout.setVerticalGroup(
                         jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addContainerGap(409, Short.MAX_VALUE)
+                                .addContainerGap(350, Short.MAX_VALUE)
                                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(120, 120, 120))
                 );
@@ -1025,8 +1030,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 console_server.setBackground(new java.awt.Color(255, 255, 255));
 
                 server_console.setEditable(false);
-                server_console.setBackground(new java.awt.Color(255, 255, 255));
-                server_console.setForeground(new java.awt.Color(51, 51, 51));
                 server_console.setPreferredSize(new java.awt.Dimension(0, 300));
 
                 jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/console-icon.png"))); // NOI18N
@@ -1181,7 +1184,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 body_groups.add(swap_group_btn);
                 swap_group_btn.setBounds(780, 110, 120, 470);
 
-                home_view_group_table.setBackground(new java.awt.Color(255, 255, 255));
                 home_view_group_table.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 home_view_group_table.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -1215,7 +1217,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 body_groups.add(jSeparator1);
                 jSeparator1.setBounds(90, 60, 250, 10);
 
-                home_group_inputNewGroup.setBackground(new java.awt.Color(255, 255, 255));
                 home_group_inputNewGroup.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 home_group_inputNewGroup.setForeground(new java.awt.Color(188, 7, 46));
                 home_group_inputNewGroup.setText("create new group..");
@@ -1228,7 +1229,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 body_groups.add(home_group_inputNewGroup);
                 home_group_inputNewGroup.setBounds(90, 30, 330, 40);
 
-                group_usersTable.setBackground(new java.awt.Color(255, 255, 255));
                 group_usersTable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 group_usersTable.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -1247,7 +1247,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 body_groups.add(jScrollPane2);
                 jScrollPane2.setBounds(610, 110, 161, 470);
 
-                group_otherUserTable.setBackground(new java.awt.Color(255, 255, 255));
                 group_otherUserTable.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 group_otherUserTable.setModel(new javax.swing.table.DefaultTableModel(
                         new Object [][] {
@@ -1316,7 +1315,6 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 jPanel17.setBackground(new java.awt.Color(255, 255, 255));
 
-                user_save.setBackground(new java.awt.Color(255, 255, 255));
                 user_save.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 user_save.setForeground(new java.awt.Color(255, 255, 255));
                 user_save.setModel(new javax.swing.table.DefaultTableModel(
@@ -1332,7 +1330,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                 ));
                 jScrollPane6.setViewportView(user_save);
 
-                user_table.setBackground(new java.awt.Color(255, 255, 255));
                 user_table.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 user_table.setForeground(new java.awt.Color(255, 255, 255));
                 user_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -1363,13 +1360,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel17Layout.setHorizontalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addContainerGap(229, Short.MAX_VALUE)
+                                .addContainerGap(227, Short.MAX_VALUE)
                                 .addComponent(jButton6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(229, Short.MAX_VALUE))
+                                .addContainerGap(226, Short.MAX_VALUE))
                 );
                 jPanel17Layout.setVerticalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1442,18 +1439,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbUsers.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbUsers.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsers.setText("123");
 
                 jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel7.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel7.setText("users registered");
 
                 statistic_nbUsers_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user-stats.png"))); // NOI18N
                 statistic_nbUsers_icon.setToolTipText("click to refresh");
-                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbUsers_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsers_iconMouseClicked(evt);
@@ -1503,18 +1498,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
                 jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel22.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel22.setText("users online");
 
                 statistic_nbUsersOnline.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbUsersOnline.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsersOnline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsersOnline.setText("12");
 
                 statistic_nbUsersOnline_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/usersonline-stats.png"))); // NOI18N
                 statistic_nbUsersOnline_icon.setToolTipText("click to refresh");
-                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbUsersOnline_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsersOnline_iconMouseClicked(evt);
@@ -1564,18 +1557,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_tickets.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_tickets.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_tickets.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_tickets.setText("63");
 
                 jLabel25.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel25.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel25.setText("tickets");
 
                 statistic_tickets_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tickets-stats.png"))); // NOI18N
                 statistic_tickets_icon.setToolTipText("click to refresh");
-                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_tickets_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_tickets_iconMouseClicked(evt);
@@ -1625,18 +1616,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbGroups.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbGroups.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbGroups.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbGroups.setText("12");
 
                 jLabel21.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel21.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel21.setText("groups");
 
                 statistic_nbGroups_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/groups-stats.png"))); // NOI18N
                 statistic_nbGroups_icon.setToolTipText("click to refresh");
-                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbGroups_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbGroups_iconMouseClicked(evt);
@@ -1682,18 +1671,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_uptime.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_uptime.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_uptime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_uptime.setText("date");
 
                 jLabel23.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel23.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("uptime");
 
                 statistic_uptime_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/uptime-stats.png"))); // NOI18N
                 statistic_uptime_icon.setToolTipText("click to refresh");
-                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_uptime_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_uptime_iconMouseClicked(evt);
@@ -1741,7 +1728,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(41, 41, 41)
                                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(169, Short.MAX_VALUE))
+                                .addContainerGap(173, Short.MAX_VALUE))
                 );
 
                 view_statistic.add(jPanel18, java.awt.BorderLayout.CENTER);
@@ -1999,7 +1986,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                         .addGroup(view_welcomeLayout.createSequentialGroup()
                                 .addGap(202, 202, 202)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(346, Short.MAX_VALUE))
+                                .addContainerGap(347, Short.MAX_VALUE))
                 );
 
                 home_view.add(view_welcome, "welcome");
@@ -2100,9 +2087,17 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         private void home_view_group_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_view_group_tableMouseClicked
 		// TODO add your handling code here:
-		String nameGroup = (String) home_view_group_table.getValueAt(home_view_group_table.getSelectedRow(), 0);
-		System.out.println(nameGroup);
+		String nameGroup;
+		if (home_view_group_table.getSelectedRow() != -1) {
+			nameGroup = (String) home_view_group_table.getValueAt(home_view_group_table.getSelectedRow(), 0);
+		}
+		else {
+			nameGroup =actualSelectedGroup;
+		}
+		System.out.println("nameGroup =" +nameGroup);
 		majUsersTable(nameGroup);
+
+		actualSelectedGroup =nameGroup;
         }//GEN-LAST:event_home_view_group_tableMouseClicked
 
         private void rm_group_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rm_group_btnActionPerformed
@@ -2133,12 +2128,19 @@ public class InterfaceServer extends javax.swing.JFrame {
 		String otherUsers = getSelectedValueInTable(group_otherUserTable);
 		String group = getSelectedValueInTable(home_view_group_table);
 
+		if (group == "") {
+			group =actualSelectedGroup;
+		}
+		else {
+			actualSelectedGroup =group;
+		}
+
 		System.out.println("userInGroup(" + userInGroup + ") otherUsers(" + otherUsers + ") group(" + group + ")");
 
 		if (!userInGroup.equals("")) {
 			System.out.println("del " + userInGroup + " in " + group);
 			bdd.delUserInGroup(userInGroup, group);
-		} else {
+		} else if (! otherUsers.equals("")) {
 			System.out.println("add " + otherUsers + " in " + group);
 			bdd.addUserInGroup(otherUsers, group);
 		}
@@ -2157,7 +2159,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 
 		statistic_nbUsers.setText(bdd.getNbUsers());
 		statistic_nbGroups.setText(bdd.getNbGroups());
-		statistic_nbUsersOnline.setText(server.getNbThreads().toString());
+		statistic_nbUsersOnline.setText(server.nbUserOnline());
 		RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
 		statistic_uptime.setText(rb.getUptime()/1000 + " sec");
 		statistic_tickets.setText(bdd.getNbTickets());
@@ -2234,6 +2236,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 statistic_uptime.setText(rb.getUptime()/1000 + " sec");
         }//GEN-LAST:event_statistic_uptime_iconMouseClicked
 
+        private void bdd_exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_exportActionPerformed
+                // TODO add your handling code here:
+		bdd_console2.setText(bdd.export());
+        }//GEN-LAST:event_bdd_exportActionPerformed
+
 	public void user_majSaveTable() {
 		String title[] = {"save"};
 		int len =user_table.getRowCount();
@@ -2255,6 +2262,10 @@ public class InterfaceServer extends javax.swing.JFrame {
 				for (int i =0; i <5; i++) {
 					userRow[i] =(String)user_table.getValueAt(line, i);
 					System.out.print(userRow[i] +" ");
+					if (userRow[i].isEmpty()) {
+						user_table.setValueAt("not empty !", line, i);
+						return;
+					}
 				}
 				System.out.println("");
 
@@ -2349,8 +2360,8 @@ public class InterfaceServer extends javax.swing.JFrame {
 					try {
 						server = new Server(port, maxLog, bdd, ihm);
 						bdd.setServer(server);
-						String output = executeShellCommand("nmap", "localhost");
-						server_console.setText(output);
+//						String output = executeShellCommand("nmap", "localhost");
+//						server_console.setText(output);
 
 						bdd_connect.setVisible(false);
 						server_connect.setVisible(false);
@@ -2489,6 +2500,7 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JButton bdd_connect;
         private javax.swing.JTextPane bdd_console;
         private javax.swing.JTextArea bdd_console2;
+        private javax.swing.JButton bdd_export;
         private javax.swing.JLabel bdd_icon;
         private javax.swing.JButton bdd_init;
         private javax.swing.JTextField bdd_ip;
