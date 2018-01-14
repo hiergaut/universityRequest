@@ -17,3 +17,5 @@ javac */*.java
 jar cfm InterfaceServer.jar Manifest_server.txt */*
 jar cfm InterfaceClient.jar Manifest_client.txt */*
 # jar cvfe InterfaceServer.jar server.InterfaceServer */*
+
+rm */*.class
