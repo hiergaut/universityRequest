@@ -696,8 +696,16 @@ public class Bdd {
 	}
 
 	String export() {
-		String str =readFile(new File("src/bdd/build.sql"));
-		str +=readFile(new File("src/bdd/insertData.sql"));
+		String str;
+		// netbeans conf
+		if (new File("src").exists()) {
+			str =readFile(new File("src/bdd/build.sql"));
+			str +=readFile(new File("src/bdd/insertData.sql"));
+		}
+		else {
+			str =readFile(new File("bdd/build.sql"));
+			str +=readFile(new File("bdd/insertData.sql"));
+		}
 
 		return str;
 	}

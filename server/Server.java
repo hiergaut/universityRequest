@@ -73,8 +73,8 @@ public class Server {
 					Socket clientSocket;
 					Thread thread;
 					// close first client, not a really client
-					clientSocket = serverSocket.accept();
-					clientSocket.close();
+//					clientSocket = serverSocket.accept();
+//					clientSocket.close();
 
 					while (true) {
 						// new client

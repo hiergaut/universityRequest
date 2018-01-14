@@ -2055,8 +2055,19 @@ public class InterfaceServer extends javax.swing.JFrame {
 		new Thread() {
 			@Override
 			public void run() {
-				bdd.executeSqlScript(new File("src/bdd/build.sql"));
-				bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
+				// netbeans fucking conf
+				if (new File("src").exists()) {
+					bdd.executeSqlScript(new File("src/bdd/build.sql"));
+					bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
+				}
+				else {
+					bdd.executeSqlScript(new File("bdd/build.sql"));
+					bdd.executeSqlScript(new File("bdd/insertData.sql"));
+				}
+
+//				bdd.executeSqlScript(new File(getClass().getResource("bdd/build.sql").getFile()));
+//				bdd.executeSqlScript(new File(getClass().getResource("bdd/insertData.sql").getFile()));
+//				bdd.executeSqlScript(new File(getClass().getResource("/bdd/build.sql").toURI()));
 
 //		bdd.checkIntegrity(bdd_console2);
 				bdd.showTable(bdd_console2);

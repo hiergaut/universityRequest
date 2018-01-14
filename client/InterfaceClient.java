@@ -13,10 +13,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -2737,11 +2740,24 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 		DefaultTreeCellRenderer renderer = (DefaultTreeCellRenderer) tree.getCellRenderer();
 //		ImageIcon closedIcon = new ImageIcon("picture/closed.png");
-		ImageIcon node = new ImageIcon("src/picture/node.png");
+//		ImageIcon node = new ImageIcon("src/picture/node.png");
+
+		ImageIcon node;
+		ImageIcon leafIcon;
+		// netbeans conf
+		if (new File("src").exists()) {
+			node = new ImageIcon("src/picture/node.png");
+			leafIcon = new ImageIcon("src/picture/blue.png");
+		}
+		else {
+			node = new ImageIcon("picture/node.png");
+			leafIcon = new ImageIcon("picture/blue.png");
+		}
+
 //		ImageIcon leafIcon = new ImageIcon("picture/leaf.png");
 //		ImageIcon closedIcon = new ImageIcon("picture/blue.png");
 //		ImageIcon openIcon = new ImageIcon("picture/blue.png");
-		ImageIcon leafIcon = new ImageIcon("src/picture/blue.png");
+//		ImageIcon leafIcon = new ImageIcon("src/picture/blue.png");
 //		ImageIcon leafIcon =  createImageIcon("picture/blue.png");
 //		renderer.setClosedIcon(closedIcon);
 //		renderer.setOpenIcon(openIcon);
