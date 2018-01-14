@@ -548,7 +548,8 @@ public class Bdd {
 				break;
 
 			case "mysql":
-				if (select("show tables").length != 7) {
+				String[][] m =select("show tables");
+				if (m == null || m.length != 7) {
 					console.setText("database not conform, must have 7 row\nyou must init base !");
 					throw new SQLException("not conform tables");
 				}

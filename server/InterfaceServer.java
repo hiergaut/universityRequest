@@ -2403,7 +2403,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                         
                         show("bdd");
                         
-                        bdd_console.setText("Before turning on the server, you must connect the database.");
+//                        bdd_console.setText("Before turning on the server, you must connect the database.");
 		}
 	}
 
