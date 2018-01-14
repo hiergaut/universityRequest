@@ -9,10 +9,17 @@ import function.Function;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.Window;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,7 +41,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,6 +53,7 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
 import javax.swing.border.Border;
+import javax.swing.plaf.metal.MetalScrollBarUI;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
@@ -80,6 +90,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 	boolean newUser_clic_email = true;
 	boolean newUser_clic_login = true;
 	boolean newUser_clic_passwd = true;
+        boolean first_clic_newMessage_input = true;
 
 	/**
 	 * Creates new form Interface
@@ -274,9 +285,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_menu = new javax.swing.JPanel();
                 logo_client = new javax.swing.JLabel();
                 footer_left = new javax.swing.JPanel();
+                about = new javax.swing.JLabel();
                 home_tickets = new javax.swing.JScrollPane();
                 tree = new javax.swing.JTree();
-                about = new javax.swing.JLabel();
                 jLabel3 = new javax.swing.JLabel();
                 home_userName = new javax.swing.JLabel();
                 jPanel1 = new javax.swing.JPanel();
@@ -304,7 +315,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_newMessage = new javax.swing.JPanel();
                 jScrollPane2 = new javax.swing.JScrollPane();
                 newMessage_input = new javax.swing.JTextArea();
-                jLabel10 = new javax.swing.JLabel();
+                log_message = new javax.swing.JLabel();
                 newMessage_send = new javax.swing.JButton();
                 view_group = new javax.swing.JPanel();
                 group_sown = new javax.swing.JScrollPane();
@@ -312,17 +323,16 @@ public class InterfaceClient extends javax.swing.JFrame {
                 group_swap = new javax.swing.JButton();
                 group_sother = new javax.swing.JScrollPane();
                 group_other = new javax.swing.JTable();
-                group_back = new javax.swing.JButton();
                 view_newTicket = new javax.swing.JPanel();
+                jPanel2 = new javax.swing.JPanel();
+                newTicket_send = new javax.swing.JButton();
                 jScrollPane4 = new javax.swing.JScrollPane();
                 new_ticketBody = new javax.swing.JTextArea();
-                newTicket_back = new javax.swing.JButton();
-                newTicket_send = new javax.swing.JButton();
+                jLabel13 = new javax.swing.JLabel();
+                jLabel14 = new javax.swing.JLabel();
+                newTicket_group = new javax.swing.JComboBox<>();
                 newTicket_title = new javax.swing.JTextField();
                 jLabel11 = new javax.swing.JLabel();
-                jLabel13 = new javax.swing.JLabel();
-                newTicket_group = new javax.swing.JComboBox<>();
-                jLabel14 = new javax.swing.JLabel();
                 view_about = new javax.swing.JPanel();
                 universityRequest = new javax.swing.JLabel();
                 version = new javax.swing.JLabel();
@@ -353,9 +363,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 view_loadingLayout.setHorizontalGroup(
                         view_loadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_loadingLayout.createSequentialGroup()
-                                .addContainerGap(743, Short.MAX_VALUE)
+                                .addContainerGap(763, Short.MAX_VALUE)
                                 .addComponent(loading)
-                                .addContainerGap(767, Short.MAX_VALUE))
+                                .addContainerGap(785, Short.MAX_VALUE))
                 );
                 view_loadingLayout.setVerticalGroup(
                         view_loadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -485,9 +495,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 body_ServerNotFoundLayout.setHorizontalGroup(
                         body_ServerNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(body_ServerNotFoundLayout.createSequentialGroup()
-                                .addContainerGap(371, Short.MAX_VALUE)
+                                .addContainerGap(391, Short.MAX_VALUE)
                                 .addComponent(_retry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(693, Short.MAX_VALUE))
+                                .addContainerGap(711, Short.MAX_VALUE))
                 );
                 body_ServerNotFoundLayout.setVerticalGroup(
                         body_ServerNotFoundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -678,7 +688,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 footer_empty.setLayout(footer_emptyLayout);
                 footer_emptyLayout.setHorizontalGroup(
                         footer_emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1574, Short.MAX_VALUE)
+                        .addGap(0, 1612, Short.MAX_VALUE)
                 );
                 footer_emptyLayout.setVerticalGroup(
                         footer_emptyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -733,9 +743,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 footer_incorrectLayout.setHorizontalGroup(
                         footer_incorrectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footer_incorrectLayout.createSequentialGroup()
-                                .addContainerGap(657, Short.MAX_VALUE)
+                                .addContainerGap(676, Short.MAX_VALUE)
                                 .addComponent(identification_errorLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(658, Short.MAX_VALUE))
+                                .addContainerGap(677, Short.MAX_VALUE))
                 );
                 footer_incorrectLayout.setVerticalGroup(
                         footer_incorrectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -795,9 +805,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 footer_loadingLayout.setHorizontalGroup(
                         footer_loadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footer_loadingLayout.createSequentialGroup()
-                                .addContainerGap(696, Short.MAX_VALUE)
+                                .addContainerGap(715, Short.MAX_VALUE)
                                 .addComponent(identification_loadingInterface, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(696, Short.MAX_VALUE))
+                                .addContainerGap(715, Short.MAX_VALUE))
                 );
                 footer_loadingLayout.setVerticalGroup(
                         footer_loadingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1190,27 +1200,27 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newUser_print.setLayout(newUser_printLayout);
                 newUser_printLayout.setHorizontalGroup(
                         newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1574, Short.MAX_VALUE)
+                        .addGap(0, 1612, Short.MAX_VALUE)
                         .addGroup(newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUser_printLayout.createSequentialGroup()
-                                        .addContainerGap(600, Short.MAX_VALUE)
+                                        .addContainerGap(619, Short.MAX_VALUE)
                                         .addComponent(newUser_error, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(600, Short.MAX_VALUE)))
+                                        .addContainerGap(619, Short.MAX_VALUE)))
                         .addGroup(newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUser_printLayout.createSequentialGroup()
-                                        .addContainerGap(684, Short.MAX_VALUE)
+                                        .addContainerGap(703, Short.MAX_VALUE)
                                         .addComponent(newUser_okEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(685, Short.MAX_VALUE)))
+                                        .addContainerGap(704, Short.MAX_VALUE)))
                         .addGroup(newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUser_printLayout.createSequentialGroup()
-                                        .addContainerGap(666, Short.MAX_VALUE)
+                                        .addContainerGap(685, Short.MAX_VALUE)
                                         .addComponent(newUser_errorFields, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(667, Short.MAX_VALUE)))
+                                        .addContainerGap(686, Short.MAX_VALUE)))
                         .addGroup(newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUser_printLayout.createSequentialGroup()
-                                        .addContainerGap(560, Short.MAX_VALUE)
+                                        .addContainerGap(579, Short.MAX_VALUE)
                                         .addComponent(newUser_errorDomain, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap(560, Short.MAX_VALUE)))
+                                        .addContainerGap(579, Short.MAX_VALUE)))
                 );
                 newUser_printLayout.setVerticalGroup(
                         newUser_printLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1262,15 +1272,31 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 footer_left.setBackground(new java.awt.Color(188, 7, 46));
 
+                about.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
+                about.setForeground(new java.awt.Color(188, 7, 46));
+                about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                about.addMouseListener(new java.awt.event.MouseAdapter() {
+                        public void mouseClicked(java.awt.event.MouseEvent evt) {
+                                aboutMouseClicked(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout footer_leftLayout = new javax.swing.GroupLayout(footer_left);
                 footer_left.setLayout(footer_leftLayout);
                 footer_leftLayout.setHorizontalGroup(
                         footer_leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footer_leftLayout.createSequentialGroup()
+                                .addContainerGap(83, Short.MAX_VALUE)
+                                .addComponent(about, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(83, Short.MAX_VALUE))
                 );
                 footer_leftLayout.setVerticalGroup(
                         footer_leftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 43, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, footer_leftLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(about, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(20, Short.MAX_VALUE))
                 );
 
                 home_tickets.setBackground(new java.awt.Color(255, 51, 51));
@@ -1286,16 +1312,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 tree.setPreferredSize(new java.awt.Dimension(300, 0));
                 tree.setRootVisible(false);
                 home_tickets.setViewportView(tree);
-
-                about.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
-                about.setForeground(new java.awt.Color(188, 7, 46));
-                about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-                about.addMouseListener(new java.awt.event.MouseAdapter() {
-                        public void mouseClicked(java.awt.event.MouseEvent evt) {
-                                aboutMouseClicked(evt);
-                        }
-                });
 
                 jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/client-user.png"))); // NOI18N
                 jLabel3.setToolTipText("");
@@ -1356,10 +1372,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_menu.setLayout(home_menuLayout);
                 home_menuLayout.setHorizontalGroup(
                         home_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(home_menuLayout.createSequentialGroup()
-                                .addGap(82, 82, 82)
-                                .addComponent(about, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, home_menuLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(home_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
@@ -1389,9 +1401,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(home_tickets, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(footer_left, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(about, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(42, Short.MAX_VALUE))
                 );
 
                 view_home.add(home_menu, java.awt.BorderLayout.WEST);
@@ -1427,7 +1437,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                         .addGroup(header_homeLayout.createSequentialGroup()
                                 .addGap(38, 38, 38)
                                 .addComponent(home_ticket, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 769, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 807, Short.MAX_VALUE)
                                 .addComponent(home_leave, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33))
                 );
@@ -1474,7 +1484,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 view_welcomeLayout.setHorizontalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_welcomeLayout.createSequentialGroup()
-                                .addContainerGap(261, Short.MAX_VALUE)
+                                .addContainerGap(281, Short.MAX_VALUE)
                                 .addGroup(view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(icon_logo_opacity10)
                                         .addGroup(view_welcomeLayout.createSequentialGroup()
@@ -1489,7 +1499,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                                         .addGroup(view_welcomeLayout.createSequentialGroup()
                                                 .addGap(309, 309, 309)
                                                 .addComponent(help_email, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(463, Short.MAX_VALUE))
+                                .addContainerGap(481, Short.MAX_VALUE))
                 );
                 view_welcomeLayout.setVerticalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1555,14 +1565,14 @@ public class InterfaceClient extends javax.swing.JFrame {
                 messages_box1Layout.setHorizontalGroup(
                         messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(messages_box1Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap(29, Short.MAX_VALUE)
                                 .addGroup(messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(box1_scroll_body, javax.swing.GroupLayout.PREFERRED_SIZE, 1233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(messages_box1Layout.createSequentialGroup()
                                                 .addComponent(box1_allName, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(835, 835, 835)
                                                 .addComponent(box1_date, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(30, Short.MAX_VALUE))
                 );
                 messages_box1Layout.setVerticalGroup(
                         messages_box1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1586,11 +1596,18 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_newMessage.setPreferredSize(new java.awt.Dimension(0, 200));
 
                 newMessage_input.setColumns(20);
+                newMessage_input.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 newMessage_input.setLineWrap(true);
                 newMessage_input.setRows(5);
+                newMessage_input.setText("new message...");
                 newMessage_input.setToolTipText("");
                 newMessage_input.setBorder(null);
                 newMessage_input.setOpaque(false);
+                newMessage_input.addFocusListener(new java.awt.event.FocusAdapter() {
+                        public void focusGained(java.awt.event.FocusEvent evt) {
+                                newMessage_inputFocusGained(evt);
+                        }
+                });
                 newMessage_input.addKeyListener(new java.awt.event.KeyAdapter() {
                         public void keyPressed(java.awt.event.KeyEvent evt) {
                                 newMessage_inputKeyPressed(evt);
@@ -1598,9 +1615,9 @@ public class InterfaceClient extends javax.swing.JFrame {
                 });
                 jScrollPane2.setViewportView(newMessage_input);
 
-                jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel10.setForeground(new java.awt.Color(188, 7, 46));
-                jLabel10.setText("new message");
+                log_message.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                log_message.setForeground(new java.awt.Color(188, 7, 46));
+                log_message.setText("0 /1000.");
 
                 newMessage_send.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/send_message.png"))); // NOI18N
                 newMessage_send.setToolTipText("send !");
@@ -1618,21 +1635,20 @@ public class InterfaceClient extends javax.swing.JFrame {
                         right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(right_newMessageLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(right_newMessageLayout.createSequentialGroup()
-                                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1136, Short.MAX_VALUE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(newMessage_send, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(right_newMessageLayout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1174, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(newMessage_send, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
+                        .addGroup(right_newMessageLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(log_message, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 right_newMessageLayout.setVerticalGroup(
                         right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(right_newMessageLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
+                                .addComponent(log_message)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(right_newMessageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(newMessage_send, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1640,7 +1656,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addContainerGap())
                 );
 
-                message_box.add(right_newMessage, java.awt.BorderLayout.SOUTH);
+                message_box.add(right_newMessage, java.awt.BorderLayout.PAGE_END);
 
                 view2.add(message_box, "message");
 
@@ -1718,41 +1734,27 @@ public class InterfaceClient extends javax.swing.JFrame {
                 ));
                 group_sother.setViewportView(group_other);
 
-                group_back.setText("back");
-                group_back.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                group_backActionPerformed(evt);
-                        }
-                });
-
                 javax.swing.GroupLayout view_groupLayout = new javax.swing.GroupLayout(view_group);
                 view_group.setLayout(view_groupLayout);
                 view_groupLayout.setHorizontalGroup(
                         view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_groupLayout.createSequentialGroup()
-                                .addContainerGap(242, Short.MAX_VALUE)
+                                .addContainerGap(262, Short.MAX_VALUE)
                                 .addComponent(group_sown, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(group_swap, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(group_sother, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(99, 99, 99)
-                                .addComponent(group_back)
-                                .addContainerGap(242, Short.MAX_VALUE))
+                                .addContainerGap(416, Short.MAX_VALUE))
                 );
                 view_groupLayout.setVerticalGroup(
                         view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_groupLayout.createSequentialGroup()
-                                .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(view_groupLayout.createSequentialGroup()
-                                                .addContainerGap()
-                                                .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(group_sown)
-                                                        .addComponent(group_sother)
-                                                        .addComponent(group_swap, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(view_groupLayout.createSequentialGroup()
-                                                .addGap(271, 271, 271)
-                                                .addComponent(group_back)))
+                                .addContainerGap()
+                                .addGroup(view_groupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(group_sown)
+                                        .addComponent(group_sother)
+                                        .addComponent(group_swap, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(396, Short.MAX_VALUE))
                 );
 
@@ -1760,23 +1762,13 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 view_newTicket.setBackground(new java.awt.Color(255, 255, 255));
 
-                new_ticketBody.setColumns(20);
-                new_ticketBody.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                new_ticketBody.setLineWrap(true);
-                new_ticketBody.setRows(5);
-                jScrollPane4.setViewportView(new_ticketBody);
-
-                newTicket_back.setText("back");
-                newTicket_back.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                newTicket_backActionPerformed(evt);
-                        }
-                });
+                jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
                 newTicket_send.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 newTicket_send.setForeground(new java.awt.Color(188, 7, 46));
                 newTicket_send.setText("send");
                 newTicket_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                newTicket_send.setContentAreaFilled(false);
                 newTicket_send.setOpaque(false);
                 newTicket_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1784,74 +1776,98 @@ public class InterfaceClient extends javax.swing.JFrame {
                         }
                 });
 
+                jScrollPane4.setBorder(null);
+
+                new_ticketBody.setBackground(new java.awt.Color(255, 255, 255));
+                new_ticketBody.setColumns(20);
+                new_ticketBody.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                new_ticketBody.setForeground(new java.awt.Color(51, 51, 51));
+                new_ticketBody.setLineWrap(true);
+                new_ticketBody.setRows(5);
+                new_ticketBody.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                new_ticketBody.setMargin(new java.awt.Insets(10, 10, 10, 10));
+                jScrollPane4.setViewportView(new_ticketBody);
+
+                jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel13.setForeground(new java.awt.Color(188, 7, 46));
+                jLabel13.setText("message");
+
+                jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel14.setForeground(new java.awt.Color(188, 7, 46));
+                jLabel14.setText("group");
+
+                newTicket_group.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                newTicket_group.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
                 newTicket_title.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
                 jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 jLabel11.setForeground(new java.awt.Color(188, 7, 46));
                 jLabel11.setText("title");
 
-                jLabel13.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel13.setForeground(new java.awt.Color(188, 7, 46));
-                jLabel13.setText("message");
-
-                newTicket_group.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                newTicket_group.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-                jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel14.setForeground(new java.awt.Color(188, 7, 46));
-                jLabel14.setText("group");
+                javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+                jPanel2.setLayout(jPanel2Layout);
+                jPanel2Layout.setHorizontalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(newTicket_send, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addComponent(jLabel11)
+                                                                        .addComponent(jLabel13))
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                .addComponent(newTicket_title, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(180, 180, 180))
+                                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGap(32, 32, 32)
+                                                .addComponent(jLabel14)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(newTicket_group, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(29, Short.MAX_VALUE))
+                );
+                jPanel2Layout.setVerticalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(newTicket_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel11))
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(newTicket_group, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14))
+                                .addGap(32, 32, 32)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel13)
+                                                .addGap(168, 168, 168)
+                                                .addComponent(newTicket_send, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(26, Short.MAX_VALUE))
+                );
 
                 javax.swing.GroupLayout view_newTicketLayout = new javax.swing.GroupLayout(view_newTicket);
                 view_newTicket.setLayout(view_newTicketLayout);
                 view_newTicketLayout.setHorizontalGroup(
                         view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_newTicketLayout.createSequentialGroup()
-                                .addContainerGap(265, Short.MAX_VALUE)
-                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(view_newTicketLayout.createSequentialGroup()
-                                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addGroup(view_newTicketLayout.createSequentialGroup()
-                                                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(jLabel11)
-                                                                        .addComponent(jLabel13))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                                        .addGroup(view_newTicketLayout.createSequentialGroup()
-                                                                .addComponent(jLabel14)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(newTicket_group, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(48, 48, 48)))
-                                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(newTicket_title, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, view_newTicketLayout.createSequentialGroup()
-                                                .addGap(0, 346, Short.MAX_VALUE)
-                                                .addComponent(newTicket_back)
-                                                .addGap(152, 152, 152)
-                                                .addComponent(newTicket_send, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(337, 337, 337))))
+                                .addGap(302, 302, 302)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(447, Short.MAX_VALUE))
                 );
                 view_newTicketLayout.setVerticalGroup(
                         view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_newTicketLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(newTicket_title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel11))
-                                .addGap(18, 18, 18)
-                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(view_newTicketLayout.createSequentialGroup()
-                                                .addComponent(jLabel13)
-                                                .addGap(52, 52, 52)
-                                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(newTicket_group, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel14)))
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(51, 51, 51)
-                                .addGroup(view_newTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(newTicket_send, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(newTicket_back))
-                                .addGap(0, 0, 0))
+                                .addGap(119, 119, 119)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(328, Short.MAX_VALUE))
                 );
 
                 view2.add(view_newTicket, "newTicket");
@@ -2191,11 +2207,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 
         }//GEN-LAST:event_group_swapActionPerformed
 
-        private void group_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_group_backActionPerformed
-		majTree();
-		show2("message");
-        }//GEN-LAST:event_group_backActionPerformed
-
         private void home_leaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_leaveActionPerformed
 		show3("empty");
 		show("identification");
@@ -2205,12 +2216,25 @@ public class InterfaceClient extends javax.swing.JFrame {
         private void newMessage_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMessage_sendActionPerformed
 		newMessage_input_sendMessage();
         }//GEN-LAST:event_newMessage_sendActionPerformed
-
+        
+        
         private void newMessage_inputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newMessage_inputKeyPressed
 		// send message with tab input
-		if (evt.getKeyCode() == 9) {
+		
+                if(evt.getKeyCode()==KeyEvent.VK_ENTER && evt.getModifiers()==KeyEvent.SHIFT_MASK){
+                        System.out.println("retour a la ligne demandé");
+                        newMessage_input.append("\n");
+                }
+                
+                
+                
+                if (evt.getKeyCode() == KeyEvent.VK_ENTER && evt.getModifiers()!=KeyEvent.SHIFT_MASK) {
 			newMessage_input_sendMessage();
 		}
+                //int nbChar=newMessage_input.getText().length();
+                log_message.setText(newMessage_input.getText().length()+" /1000.");
+                
+                
         }//GEN-LAST:event_newMessage_inputKeyPressed
 
         private void messages_box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messages_box1MouseClicked
@@ -2227,10 +2251,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 		client.sendRequest(ClientRequest.ALL_GROUP_FOR_TICKET);
 
         }//GEN-LAST:event_home_newTicketActionPerformed
-
-        private void newTicket_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTicket_backActionPerformed
-		show2("message");
-        }//GEN-LAST:event_newTicket_backActionPerformed
 
         private void newTicket_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newTicket_sendActionPerformed
 		String title = newTicket_title.getText();
@@ -2361,6 +2381,14 @@ public class InterfaceClient extends javax.swing.JFrame {
                 // TODO add your handling code here:
         }//GEN-LAST:event_not_registered2MouseClicked
 
+        private void newMessage_inputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newMessage_inputFocusGained
+                if(first_clic_newMessage_input){
+                        newMessage_input.setText("");
+                        first_clic_newMessage_input=false;
+                        
+                }
+        }//GEN-LAST:event_newMessage_inputFocusGained
+
 	public void newTicketPrint(String[] ls) {
 		show("newTicket");
 		newTicket_group.setModel(new javax.swing.DefaultComboBoxModel<>(ls));
@@ -2368,34 +2396,45 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 	public void newMessage_input_sendMessage() {
 
-		int id = -1;
+		
 		String body = newMessage_input.getText();
-		Timestamp create = new Timestamp(System.currentTimeMillis());
-		String author = identification_login.getText();
-//		String ticket =(String)tree.getLastSelectedPathComponent().toString();
-		String ticket = actualTicket();
-		String group = "";
-		String firstname = "";
-		String name = "";
+                if(body.length()<1000 && body.length()!=0){
+                        int id = -1;
+                        Timestamp create = new Timestamp(System.currentTimeMillis());
+                        String author = identification_login.getText();
+                        //String ticket =(String)tree.getLastSelectedPathComponent().toString();
+                        String ticket = actualTicket();
+                        String group = "";
+                        String firstname = "";
+                        String name = "";
 
-		Message m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
+                        Message m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
 
-		client.addMessage(m);
-		buildMessagesPane(ticket);
-		client.delMessage(m);
+                        client.addMessage(m);
+                        buildMessagesPane(ticket);
+                        client.delMessage(m);
 
-		new Thread() {
-			@Override
-			public void run() {
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException ex) {
-					Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
-				}
-				client.sendRequest(ClientRequest.NEW_MESSAGE, m);
-				newMessage_input.setText("");
-			}
-		}.start();
+                        new Thread() {
+                                @Override
+                                public void run() {
+                                        try {
+                                                Thread.sleep(1000);
+                                        } catch (InterruptedException ex) {
+                                                Logger.getLogger(InterfaceClient.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        client.sendRequest(ClientRequest.NEW_MESSAGE, m);
+                                        newMessage_input.setText("");
+                                }
+                        }.start();
+                }
+                else{
+                        if(body.length()==0){
+                                log_message.setText(newMessage_input.getText().length()+" /1000. (your message is empty)");
+                        }
+                        else{
+                                log_message.setText(newMessage_input.getText().length()+" /1000. (your message is too long : 1000 characters max.)");
+                        }
+                }
 	}
 
 	/**
@@ -2456,7 +2495,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JPanel footer_left;
         private javax.swing.JPanel footer_loading;
         private javax.swing.JPanel footer_newUser;
-        private javax.swing.JButton group_back;
         private javax.swing.JTable group_other;
         private javax.swing.JTable group_own;
         private javax.swing.JScrollPane group_sother;
@@ -2485,7 +2523,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JLabel identification_logo1;
         private javax.swing.JButton jButton1;
         private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel10;
         private javax.swing.JLabel jLabel11;
         private javax.swing.JLabel jLabel13;
         private javax.swing.JLabel jLabel14;
@@ -2494,6 +2531,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
         private javax.swing.JPanel jPanel1;
+        private javax.swing.JPanel jPanel2;
         private javax.swing.JScrollPane jScrollPane2;
         private javax.swing.JScrollPane jScrollPane4;
         private javax.swing.JSeparator jSeparator1;
@@ -2501,6 +2539,7 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JSeparator jSeparator3;
         private javax.swing.JSeparator jSeparator4;
         private javax.swing.JLabel loading;
+        private javax.swing.JLabel log_message;
         private javax.swing.JLabel logo_client;
         private javax.swing.JLabel logo_opacity6;
         private javax.swing.JPanel message_box;
@@ -2508,7 +2547,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         private javax.swing.JLabel need_help;
         private javax.swing.JTextArea newMessage_input;
         private javax.swing.JButton newMessage_send;
-        private javax.swing.JButton newTicket_back;
         private javax.swing.JComboBox<String> newTicket_group;
         private javax.swing.JButton newTicket_send;
         private javax.swing.JTextField newTicket_title;
@@ -2710,7 +2748,6 @@ public class InterfaceClient extends javax.swing.JFrame {
 //		ImageIcon leafIcon =  createImageIcon("picture/blue.png");
 //		renderer.setClosedIcon(closedIcon);
 //		renderer.setOpenIcon(openIcon);
-		renderer.setLeafIcon(leafIcon);
 
 		right_messages.removeAll();
 		right_messagesScroll.setViewportView(right_messages);
@@ -2997,7 +3034,5 @@ public class InterfaceClient extends javax.swing.JFrame {
 	public JPanel getError_login_passwd() {
 		return identification_errorLogin;
 	}
-
-
-
+        
 }

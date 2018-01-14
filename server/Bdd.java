@@ -610,6 +610,10 @@ public class Bdd {
 	public String getNbGroups() {
 		return select("select count(*) from groups")[0][0];
 	}
+        
+        public String getNbTickets() {
+		return select("select count(*) from tickets")[0][0];
+	}
 
 	String[][] usersTable() {
 		return select("select * from users");
