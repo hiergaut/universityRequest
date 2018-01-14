@@ -10,7 +10,7 @@
 
 rm *.jar
 
-javac */*.java
+javac -cp lib/mysql-connector-java-5.1.45-bin.jar */*.java
 # rm */*.class
 jar cfm InterfaceServer.jar Manifest_server.txt */*
 jar cfm InterfaceClient.jar Manifest_client.txt */*
