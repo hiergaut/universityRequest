@@ -184,7 +184,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 title_server = new javax.swing.JPanel();
                 server_title = new javax.swing.JLabel();
                 server_icon = new javax.swing.JLabel();
+                jPanel10 = new javax.swing.JPanel();
                 jPanel2 = new javax.swing.JPanel();
+                jPanel11 = new javax.swing.JPanel();
                 jLabel19 = new javax.swing.JLabel();
                 jLabel20 = new javax.swing.JLabel();
                 server_port = new javax.swing.JTextField();
@@ -192,7 +194,10 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_connect = new javax.swing.JButton();
                 jSeparator3 = new javax.swing.JSeparator();
                 jSeparator4 = new javax.swing.JSeparator();
+                console_server = new javax.swing.JPanel();
                 server_console = new javax.swing.JTextPane();
+                jSeparator7 = new javax.swing.JSeparator();
+                jLabel3 = new javax.swing.JLabel();
                 view_group = new javax.swing.JPanel();
                 header_groups = new javax.swing.JPanel();
                 groups_server1 = new javax.swing.JPanel();
@@ -856,7 +861,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(65, Short.MAX_VALUE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -919,41 +924,33 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 view_server.add(header_server, java.awt.BorderLayout.PAGE_START);
 
+                jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+
                 jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-                jPanel2.setLayout(null);
+
+                jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
                 jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
                 jLabel19.setForeground(new java.awt.Color(188, 7, 46));
                 jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
                 jLabel19.setText("port");
-                jPanel2.add(jLabel19);
-                jLabel19.setBounds(430, 140, 90, 19);
 
                 jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
                 jLabel20.setForeground(new java.awt.Color(188, 7, 46));
                 jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
                 jLabel20.setText("max_users");
-                jPanel2.add(jLabel20);
-                jLabel20.setBounds(420, 190, 100, 19);
 
                 server_port.setBackground(new java.awt.Color(255, 255, 255));
                 server_port.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 server_port.setForeground(new java.awt.Color(51, 51, 51));
                 server_port.setText("5000");
                 server_port.setBorder(null);
-                jPanel2.add(server_port);
-                server_port.setBounds(530, 140, 190, 19);
-                server_port.setText("5000");
-                //server_port.setText("5432");
 
                 server_maxLog.setBackground(new java.awt.Color(255, 255, 255));
                 server_maxLog.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 server_maxLog.setForeground(new java.awt.Color(51, 51, 51));
                 server_maxLog.setText("100");
                 server_maxLog.setBorder(null);
-                jPanel2.add(server_maxLog);
-                server_maxLog.setBounds(530, 190, 190, 19);
-                server_maxLog.setText("100");
 
                 server_connect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 server_connect.setForeground(new java.awt.Color(188, 7, 46));
@@ -966,17 +963,127 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 server_connectActionPerformed(evt);
                         }
                 });
-                jPanel2.add(server_connect);
-                server_connect.setBounds(530, 250, 190, 40);
-                jPanel2.add(jSeparator3);
-                jSeparator3.setBounds(530, 210, 191, 10);
-                jPanel2.add(jSeparator4);
-                jSeparator4.setBounds(530, 160, 191, 10);
 
-                view_server.add(jPanel2, java.awt.BorderLayout.CENTER);
+                javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+                jPanel11.setLayout(jPanel11Layout);
+                jPanel11Layout.setHorizontalGroup(
+                        jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(server_port, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(server_connect, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                );
+                jPanel11Layout.setVerticalGroup(
+                        jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel19)
+                                        .addComponent(server_port, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel20)
+                                        .addComponent(server_maxLog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(1, 1, 1)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(server_connect, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                );
 
+                server_port.setText("5000");
+                //server_port.setText("5432");
+                server_maxLog.setText("100");
+
+                javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+                jPanel2.setLayout(jPanel2Layout);
+                jPanel2Layout.setHorizontalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                );
+                jPanel2Layout.setVerticalGroup(
+                        jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addContainerGap(409, Short.MAX_VALUE)
+                                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(120, 120, 120))
+                );
+
+                console_server.setBackground(new java.awt.Color(255, 255, 255));
+
+                server_console.setEditable(false);
+                server_console.setBackground(new java.awt.Color(255, 255, 255));
+                server_console.setForeground(new java.awt.Color(51, 51, 51));
                 server_console.setPreferredSize(new java.awt.Dimension(0, 300));
-                view_server.add(server_console, java.awt.BorderLayout.SOUTH);
+
+                jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/console-icon.png"))); // NOI18N
+
+                javax.swing.GroupLayout console_serverLayout = new javax.swing.GroupLayout(console_server);
+                console_server.setLayout(console_serverLayout);
+                console_serverLayout.setHorizontalGroup(
+                        console_serverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(console_serverLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(console_serverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(console_serverLayout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jSeparator7, javax.swing.GroupLayout.DEFAULT_SIZE, 1112, Short.MAX_VALUE))
+                                        .addComponent(server_console, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
+                );
+                console_serverLayout.setVerticalGroup(
+                        console_serverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(console_serverLayout.createSequentialGroup()
+                                .addGroup(console_serverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(console_serverLayout.createSequentialGroup()
+                                                .addGap(13, 13, 13)
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(console_serverLayout.createSequentialGroup()
+                                                .addGap(29, 29, 29)
+                                                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(server_console, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                );
+
+                javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+                jPanel10.setLayout(jPanel10Layout);
+                jPanel10Layout.setHorizontalGroup(
+                        jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 1252, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addComponent(console_server, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 50, Short.MAX_VALUE)))
+                );
+                jPanel10Layout.setVerticalGroup(
+                        jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 916, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(console_server, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addContainerGap()))
+                );
+
+                view_server.add(jPanel10, java.awt.BorderLayout.CENTER);
 
                 home_view.add(view_server, "server");
 
@@ -1256,13 +1363,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel17Layout.setHorizontalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addContainerGap(250, Short.MAX_VALUE)
+                                .addContainerGap(229, Short.MAX_VALUE)
                                 .addComponent(jButton6)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 578, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(249, Short.MAX_VALUE))
+                                .addContainerGap(229, Short.MAX_VALUE))
                 );
                 jPanel17Layout.setVerticalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1621,11 +1728,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel18Layout.setHorizontalGroup(
                         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addContainerGap(187, Short.MAX_VALUE)
+                                .addContainerGap(166, Short.MAX_VALUE)
                                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(187, Short.MAX_VALUE))
+                                .addContainerGap(167, Short.MAX_VALUE))
                 );
                 jPanel18Layout.setVerticalGroup(
                         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1647,6 +1754,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 universityRequest.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
                 universityRequest.setForeground(new java.awt.Color(188, 7, 46));
+                universityRequest.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 universityRequest.setText("UniversityRequest");
                 universityRequest.setMaximumSize(new java.awt.Dimension(319, 47));
                 universityRequest.setMinimumSize(new java.awt.Dimension(319, 47));
@@ -1654,6 +1762,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 
                 version.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
                 version.setForeground(new java.awt.Color(188, 7, 46));
+                version.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 version.setText("version 1.0");
 
                 staff_dev.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -1715,21 +1824,21 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel6Layout.setHorizontalGroup(
                         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(staff_dev2)
-                                .addGap(25, 25, 25)
+                                .addGap(67, 67, 67)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(180, 180, 180)
-                                                .addComponent(version))
+                                                .addGap(4, 4, 4)
+                                                .addComponent(universityRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(version, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(190, 190, 190)
-                                                .addComponent(staff_design2))
-                                        .addComponent(icon_logo_server, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(70, 70, 70)
-                                                .addComponent(universityRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(40, 40, 40)
+                                                .addGap(103, 103, 103)
+                                                .addComponent(icon_logo_server, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(staff_dev2)
+                                .addGap(215, 215, 215)
+                                .addComponent(staff_design2)
+                                .addGap(205, 205, 205)
                                 .addComponent(staff_network3))
                         .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGap(8, 8, 8)
@@ -1754,23 +1863,20 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel6Layout.setVerticalGroup(
                         jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(360, 360, 360)
-                                                .addComponent(staff_dev2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(280, 280, 280)
-                                                .addComponent(version, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(360, 360, 360)
-                                                .addComponent(staff_design2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(icon_logo_server, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(230, 230, 230)
+                                                .addGap(150, 150, 150)
                                                 .addComponent(universityRequest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGap(360, 360, 360)
-                                                .addComponent(staff_network3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(200, 200, 200)
+                                                .addComponent(version, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(icon_logo_server))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(staff_dev2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(staff_design2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(staff_network3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(10, 10, 10)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(staff_dev)
@@ -1784,8 +1890,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGap(101, 101, 101)
                                 .addComponent(about_contactUs)
                                 .addGap(5, 5, 5)
-                                .addComponent(about_email)
-                                .addGap(0, 20, Short.MAX_VALUE))
+                                .addComponent(about_email))
                 );
 
                 javax.swing.GroupLayout view_aboutLayout = new javax.swing.GroupLayout(view_about);
@@ -1793,9 +1898,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 view_aboutLayout.setHorizontalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_aboutLayout.createSequentialGroup()
-                                .addContainerGap(239, Short.MAX_VALUE)
+                                .addContainerGap(213, Short.MAX_VALUE)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(239, Short.MAX_VALUE))
+                                .addContainerGap(224, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1885,9 +1990,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 view_welcomeLayout.setHorizontalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, view_welcomeLayout.createSequentialGroup()
-                                .addContainerGap(278, Short.MAX_VALUE)
+                                .addContainerGap(257, Short.MAX_VALUE)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(278, Short.MAX_VALUE))
+                                .addContainerGap(258, Short.MAX_VALUE))
                 );
                 view_welcomeLayout.setVerticalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2394,6 +2499,7 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JTextField bdd_user;
         private javax.swing.JPanel body_groups;
         private javax.swing.JPanel console_panel;
+        private javax.swing.JPanel console_server;
         private javax.swing.JPanel footer_left;
         private javax.swing.JTable group_otherUserTable;
         private javax.swing.JTable group_usersTable;
@@ -2433,8 +2539,11 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JLabel jLabel23;
         private javax.swing.JLabel jLabel24;
         private javax.swing.JLabel jLabel25;
+        private javax.swing.JLabel jLabel3;
         private javax.swing.JLabel jLabel7;
         private javax.swing.JPanel jPanel1;
+        private javax.swing.JPanel jPanel10;
+        private javax.swing.JPanel jPanel11;
         private javax.swing.JPanel jPanel12;
         private javax.swing.JPanel jPanel14;
         private javax.swing.JPanel jPanel16;
@@ -2459,6 +2568,7 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JSeparator jSeparator3;
         private javax.swing.JSeparator jSeparator4;
         private javax.swing.JSeparator jSeparator5;
+        private javax.swing.JSeparator jSeparator7;
         private javax.swing.JLabel loading_server;
         private javax.swing.JLabel logo_server;
         private javax.swing.JLabel need_help;
