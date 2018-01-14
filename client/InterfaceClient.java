@@ -9,41 +9,24 @@ import function.Function;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Rectangle;
-import java.awt.Window;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.file.Path;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -52,15 +35,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTree;
-import javax.swing.border.Border;
-import javax.swing.plaf.metal.MetalScrollBarUI;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeCellRenderer;
-import javax.swing.tree.TreePath;
-import network.Request;
 import network.ClientRequest;
+import server.MyScrollBar;
 import userData.Message;
 import userData.StatusMessage;
 
@@ -1591,6 +1569,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 right_messagesScroll.setViewportView(right_messages);
 
                 message_box.add(right_messagesScroll, java.awt.BorderLayout.CENTER);
+                //right_messagesScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
                 right_newMessage.setBackground(new java.awt.Color(255, 255, 255));
                 right_newMessage.setPreferredSize(new java.awt.Dimension(0, 200));
@@ -1769,7 +1748,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newTicket_send.setText("send");
                 newTicket_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 newTicket_send.setContentAreaFilled(false);
-                newTicket_send.setOpaque(false);
                 newTicket_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newTicket_sendActionPerformed(evt);
@@ -1778,10 +1756,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 
                 jScrollPane4.setBorder(null);
 
-                new_ticketBody.setBackground(new java.awt.Color(255, 255, 255));
                 new_ticketBody.setColumns(20);
                 new_ticketBody.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                new_ticketBody.setForeground(new java.awt.Color(51, 51, 51));
                 new_ticketBody.setLineWrap(true);
                 new_ticketBody.setRows(5);
                 new_ticketBody.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
@@ -2641,6 +2617,10 @@ public class InterfaceClient extends javax.swing.JFrame {
 	}
 
 	void majTree() {
+//		right_messagesScroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+//		right_messagesScroll.getVerticalScrollBar().setUI(new MetalScrollBarUI());
+//		right_messagesScroll.getVerticalScrollBar().setUI(new MyScrollBar());
+
 		InterfaceClient ihm =this;
 		// already click
 		String ticketAlreadyClicked = actualTicket();

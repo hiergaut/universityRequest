@@ -52,6 +52,7 @@ public class ThreadClient implements Runnable {
 					case INIT_HOME:
 						client.setMessages(params);
 						ihm.majTree();
+						ihm.show("home");
 						break;
 
 					case IDENTIFICATION_OK:
@@ -59,7 +60,6 @@ public class ThreadClient implements Runnable {
 						ihm.getHome_userName().setText(name);
 						ihm.setActualUser(name);
 //						ihm.show3("empty");
-						ihm.show("home");
                                                 
 
 //						ihm.display(ihm.getHome());
