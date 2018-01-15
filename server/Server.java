@@ -60,6 +60,7 @@ public class Server {
 	}
 
 	public void openingCommunication() throws IOException {
+		// maxLog don't work if you put 2 in textField, and 3 connect user, it's work good despite this maxLog
 		serverSocket = new ServerSocket(listenPort, maxLog);
 		System.out.println("[Server]" + tag + serverSocket);
 	}

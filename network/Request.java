@@ -65,7 +65,6 @@ public class Request<Enum> implements Serializable {
 //		socket = new Socket(ipServer, portServer);
 //		Request request = new Request(requestName, params);
 		System.out.println("[Request]" +tag +"send : "+ this);
-//		String request = "fuck";
 		send(s, this);
 	}
 
@@ -73,7 +72,6 @@ public class Request<Enum> implements Serializable {
 ////		socket = new Socket(ipServer, portServer);
 //		Request request = new Request(requestName, params);
 //		System.out.println("[Request]" +tag +"send : "+ request);
-////		String request = "fuck";
 //		send(s, request);
 //	}
 

@@ -22,6 +22,20 @@ before run project, you must have mysql program in your computer to run server a
 create user and database
 
 
+    user root passwd root
+
+	$ mysql_secure_installation
+	    add user root
+	    passwd root
+	
+
+    create database universityRequest
+
+	$ mysql -p -u root
+
+	> create database universityRequest;
+
+
 
 
 to run project
