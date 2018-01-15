@@ -11,9 +11,13 @@ import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.Set;
 import java.util.logging.Level;
@@ -2129,17 +2133,15 @@ public class InterfaceServer extends javax.swing.JFrame {
 			@Override
 			public void run() {
 				// netbeans fucking conf
-				if (new File("src").exists()) {
-					bdd.executeSqlScript(new File("src/bdd/build.sql"));
-					bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
-				}
-				else {
-					bdd.executeSqlScript(new File("bdd/build.sql"));
-					bdd.executeSqlScript(new File("bdd/insertData.sql"));
-				}
+//				if (new File("src").exists()) {
+//					bdd.executeSqlScript(new File("src/bdd/build.sql"));
+//					bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
+//				}
+//				else {
+//				}
 
-//				bdd.executeSqlScript(new File(getClass().getResource("bdd/build.sql").getFile()));
-//				bdd.executeSqlScript(new File(getClass().getResource("bdd/insertData.sql").getFile()));
+				bdd.executeSqlScript(getClass().getResourceAsStream("/bdd/build.sql"));
+				bdd.executeSqlScript(getClass().getResourceAsStream("/bdd/insertData.sql"));
 //				bdd.executeSqlScript(new File(getClass().getResource("/bdd/build.sql").toURI()));
 
 //		bdd.checkIntegrity(bdd_console2);

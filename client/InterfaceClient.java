@@ -2758,14 +2758,18 @@ public class InterfaceClient extends javax.swing.JFrame {
 		ImageIcon node;
 		ImageIcon leafIcon;
 		// netbeans conf
-		if (new File("src").exists()) {
-			node = new ImageIcon("src/picture/group-icon-jtree.png");
-			leafIcon = new ImageIcon("src/picture/message-icon-jtree.png");
-		}
-		else {
-			node = new ImageIcon("picture/group-icon-jtree.png");
-			leafIcon = new ImageIcon("picture/message-icon-jtree.png");
-		}
+//		if (new File("src").exists()) {
+//			node = new ImageIcon("src/picture/group-icon-jtree.png");
+//			leafIcon = new ImageIcon("src/picture/message-icon-jtree.png");
+//		}
+//		else {
+//			node = new ImageIcon("picture/group-icon-jtree.png");
+			node = new ImageIcon(getClass().getResource("/picture/group-icon-jtree.png"));
+			leafIcon = new ImageIcon(getClass().getResource("/picture/message-icon-jtree.png"));
+//			leafIcon = new ImageIcon("picture/message-icon-jtree.png");
+
+//			node.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/logo_opacity10.png"))); // NOI18N
+//		}
 
 //		ImageIcon leafIcon = new ImageIcon("picture/leaf.png");
 //		ImageIcon closedIcon = new ImageIcon("picture/blue.png");

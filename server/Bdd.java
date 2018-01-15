@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -80,18 +81,39 @@ public class Bdd {
 		System.out.println("[Bdd]" + tag + "Connexion effective !");
 	}
 
-	public void executeSqlScript(File inputFile) {
+	public void executeSqlScript(InputStream inputFile) {
+		System.out.println("inputFile =" +inputFile);
+//		InputStream input = getClass().getResourceAsStream("/bdd/build.sql");
+//		System.out.println("input =" +input);
+//		BufferedReader reader =new BufferedReader(new InputStreamReader(input));
+//		try {
+//			String line =reader.readLine();
+//			while (line != null) {
+//				line =reader.readLine();
+//				System.out.println("line =" +line);
+//			}
+////					System.out.println("ressource =" +getClass().getResource("/picture/server-menu-ok.png"));
+////					File f =new File(getClass().getResource("/bdd/build.sql").getPath());
+////					System.out.println(f.toString());
+////					System.out.println("f =" +f);
+////					bdd.executeSqlScript(f);
+////					bdd.executeSqlScript(new File("bdd/build.sql"));
+////					bdd.executeSqlScript(new File("bdd/insertData.sql"));
+//		} catch (IOException ex) {
+//			Logger.getLogger(InterfaceServer.class.getName()).log(Level.SEVERE, null, ex);
+//		}
+
 		// Delimiter
 		String delimiter = ";";
 
 		// Create scanner
 		Scanner scanner;
-		try {
-			scanner = new Scanner(inputFile).useDelimiter(delimiter);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-			return;
-		}
+//		try {
+		scanner = new Scanner(inputFile).useDelimiter(delimiter);
+//		} catch (FileNotFoundException e1) {
+//			e1.printStackTrace();
+//			return;
+//		}
 		System.out.println("[Bdd] execute sql file " + inputFile);
 
 		// Loop through the SQL file statements
@@ -699,19 +721,41 @@ public class Bdd {
 	String export() {
 		String str;
 		// netbeans conf
-		if (new File("src").exists()) {
-			str =readFile(new File("src/bdd/build.sql"));
-			str +=readFile(new File("src/bdd/insertData.sql"));
+//		if (new File("src").exists()) {
+		str =readFile(getClass().getResourceAsStream("/bdd/build.sql"));
+//		str +=readFile(getClass().getResourceAsStream("/bdd/insertData.sql"));
+
+		String[][] tables =select("show tables");
+		for (String[] ls : tables) {
+			String[][] m =select("select * from " +ls[0]);
+			if (m != null) {
+				for (String[] ls2 : m) {
+		//			System.out.println(ls[0] +" " +ls[1]);
+					str +="insert into " +ls[0] +" values ('";
+					boolean first =true;
+					for (String c : ls2) {
+						if (first) {
+							str +=c;
+							first =false;
+						}
+						else {
+							str +="', '" +c;
+						}
+					}
+					str +="');\n";
+				}
+			}
 		}
-		else {
-			str =readFile(new File("bdd/build.sql"));
-			str +=readFile(new File("bdd/insertData.sql"));
-		}
+//		}
+//		else {
+//			str =readFile(new File("bdd/build.sql"));
+//			str +=readFile(new File("bdd/insertData.sql"));
+//		}
 
 		return str;
 	}
 
-	String readFile(File inputFile) {
+	String readFile(InputStream inputFile) {
 		String str ="";
 
 		// Delimiter
@@ -719,12 +763,8 @@ public class Bdd {
 
 		// Create scanner
 		Scanner scanner;
-		try {
-			scanner = new Scanner(inputFile).useDelimiter(delimiter);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-			return "";
-		}
+		scanner = new Scanner(inputFile).useDelimiter(delimiter);
+
 		System.out.println("[Bdd] export file " + inputFile);
 
 		// Loop through the SQL file statements
