@@ -57,7 +57,7 @@ public class ThreadClient implements Runnable {
 
 					case IDENTIFICATION_OK:
 						String name = (String) params.get(0);
-						ihm.getHome_userName().setText(name);
+						ihm.getHome_userName().setText("Hello "+name+" !");
 						ihm.setActualUser(name);
 //						ihm.show3("empty");
                                                 
