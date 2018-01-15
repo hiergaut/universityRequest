@@ -1309,7 +1309,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_newTicket.setActionCommand("   new ticket       ");
                 home_newTicket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_newTicket.setContentAreaFilled(false);
-                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 home_newTicket.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_newTicketActionPerformed(evt);
@@ -1323,7 +1323,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_group.setText("   add/remove  group");
                 home_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_group.setContentAreaFilled(false);
-                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 home_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_groupActionPerformed(evt);
@@ -1352,6 +1352,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 expand_all.setBorder(null);
                 expand_all.setBorderPainted(false);
                 expand_all.setContentAreaFilled(false);
+                expand_all.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 expand_all.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 expand_allActionPerformed(evt);
@@ -1364,6 +1365,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 fold_all.setBorder(null);
                 fold_all.setBorderPainted(false);
                 fold_all.setContentAreaFilled(false);
+                fold_all.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 fold_all.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 fold_allActionPerformed(evt);
@@ -1555,7 +1557,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
                 box1_allName.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                box1_allName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/blue.png"))); // NOI18N
+                box1_allName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/unknown-status.png"))); // NOI18N
                 box1_allName.setText("NAME Firstname");
                 jPanel3.add(box1_allName);
 
