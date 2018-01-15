@@ -1000,6 +1000,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_maxLog.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 server_maxLog.setText("100");
                 server_maxLog.setBorder(null);
+                server_maxLog.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                server_maxLogActionPerformed(evt);
+                        }
+                });
 
                 server_connect.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 server_connect.setForeground(new java.awt.Color(188, 7, 46));
@@ -2166,12 +2171,12 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_server_connectActionPerformed
 
         private void bdd_initActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_initActionPerformed
-		//		String output = executeShellCommand("sh", "-c", "./src/bdd/initBase.sh ip gauthier universityrequest fuck");
+		//		String output = executeShellCommand("sh", "-c", "./src/bdd/initBase.sh ip gauthier universityrequest");
 		//		bdd_console2.setText(output);
 		new Thread() {
 			@Override
 			public void run() {
-				// netbeans fucking conf
+				// netbeans conf
 //				if (new File("src").exists()) {
 //					bdd.executeSqlScript(new File("src/bdd/build.sql"));
 //					bdd.executeSqlScript(new File("src/bdd/insertData.sql"));
@@ -2378,6 +2383,10 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_console2.setText("");
         }//GEN-LAST:event_clear_consoleActionPerformed
 
+        private void server_maxLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_maxLogActionPerformed
+                // TODO add your handling code here:
+        }//GEN-LAST:event_server_maxLogActionPerformed
+
 	public void user_majSaveTable() {
 		String title[] = {"save"};
 		int len =user_table.getRowCount();
@@ -2417,7 +2426,6 @@ public class InterfaceServer extends javax.swing.JFrame {
 
 
 		jScrollPane6.setViewportView(user_save);
-		System.out.println("fuck");
 	}
 
 	public void user_majTable() {

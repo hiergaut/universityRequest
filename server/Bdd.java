@@ -363,7 +363,6 @@ public class Bdd {
 
 		List<Message> l = new ArrayList<>();
 		StatusMessage sm;
-//		l.add(new Message(1, "fuckGroup", "ticketBitch", "name", "suck", new Date(1993, 6, 12)));
 //		String[][] m =select("select distinct m_idmessage, m_data, m_created, m_fk_users, t_title, g_name from messages,tickets,groups,belong where b_fk_users='" +name +"' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket or t_fk_users='"+ name +"' and t_idticket=m_fk_tickets and t_fk_groups=g_name");
 		String[][] m = select("select distinct m_idmessage, m_data, m_created, m_fk_users, u_status, u_firstname, u_name, t_title, g_name from messages,tickets,groups,belong,users where b_fk_users='" + name + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + name + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
 
@@ -738,6 +737,7 @@ public class Bdd {
 					str +="insert into " +ls[0] +" values ('";
 					boolean first =true;
 					for (String c : ls2) {
+						c =c.replace("'", "''");
 						if (first) {
 							str +=c;
 							first =false;

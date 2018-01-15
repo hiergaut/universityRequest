@@ -2276,7 +2276,6 @@ public class InterfaceClient extends javax.swing.JFrame {
         }//GEN-LAST:event_newMessage_inputKeyPressed
 
         private void messages_box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messages_box1MouseClicked
-		System.out.println("fuck");
         }//GEN-LAST:event_messages_box1MouseClicked
 
         private void home_newTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_home_newTicketActionPerformed
@@ -2806,6 +2805,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 //			node = new ImageIcon("picture/group-icon-jtree.png");
 			node = new ImageIcon(getClass().getResource("/picture/group-icon-jtree.png"));
 			leafIcon = new ImageIcon(getClass().getResource("/picture/message-icon-jtree.png"));
+			ImageIcon closedIcon = new ImageIcon(getClass().getResource("/picture/group-icon-jtree.png"));
 //			leafIcon = new ImageIcon("picture/message-icon-jtree.png");
 
 //			node.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/logo_opacity10.png"))); // NOI18N
@@ -2816,7 +2816,7 @@ public class InterfaceClient extends javax.swing.JFrame {
 //		ImageIcon openIcon = new ImageIcon("picture/blue.png");
 //		ImageIcon leafIcon = new ImageIcon("src/picture/blue.png");
 //		ImageIcon leafIcon =  createImageIcon("picture/blue.png");
-//		renderer.setClosedIcon(closedIcon);
+		renderer.setClosedIcon(closedIcon);
 //		renderer.setOpenIcon(openIcon);
 		renderer.setLeafIcon(leafIcon);
 		renderer.setOpenIcon(node);
