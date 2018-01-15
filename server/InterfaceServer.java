@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package server;
 
 import function.Function;
@@ -12,31 +7,17 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
 
-/**
- *
- * @author gauthier
- */
 public class InterfaceServer extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -183,9 +164,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_show = new javax.swing.JButton();
                 bdd_clearBase = new javax.swing.JButton();
                 bdd_init = new javax.swing.JButton();
-                bdd_export1 = new javax.swing.JButton();
                 bdd_export = new javax.swing.JButton();
-                bdd_export2 = new javax.swing.JButton();
+                copyToClipboard = new javax.swing.JButton();
+                clear_console = new javax.swing.JButton();
                 console_panel = new javax.swing.JPanel();
                 bdd_console = new javax.swing.JTextPane();
                 jSeparator5 = new javax.swing.JSeparator();
@@ -318,7 +299,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_bdd.setText("    Database");
                 init_bdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_bdd.setContentAreaFilled(false);
-                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 init_bdd.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setMinimumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -334,7 +315,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_server.setText("    Server    ");
                 init_server.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_server.setContentAreaFilled(false);
-                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 init_server.setEnabled(false);
                 init_server.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_server.setMinimumSize(new java.awt.Dimension(60, 20));
@@ -382,7 +363,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_group.setText("    Groups    ");
                 service_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_group.setContentAreaFilled(false);
-                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_group.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_group.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_group.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -398,7 +379,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_user.setText("    Users      ");
                 service_user.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_user.setContentAreaFilled(false);
-                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_user.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_user.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_user.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -414,7 +395,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_statistic.setText("    Stats       ");
                 service_statistic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_statistic.setContentAreaFilled(false);
-                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 service_statistic.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -464,7 +445,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 about.setForeground(new java.awt.Color(188, 7, 46));
                 about.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 about.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 aboutMouseClicked(evt);
@@ -563,7 +544,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase.setText("remote database");
                 remoteDatabase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase.setContentAreaFilled(false);
-                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 remoteDatabase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabaseActionPerformed(evt);
@@ -576,7 +557,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase1.setText("local database");
                 remoteDatabase1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase1.setContentAreaFilled(false);
-                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 remoteDatabase1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabase1ActionPerformed(evt);
@@ -639,7 +620,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_connect.setText("connect");
                 bdd_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_connect.setContentAreaFilled(false);
-                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 bdd_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_connectActionPerformed(evt);
@@ -745,7 +726,8 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_show.setToolTipText("");
                 bdd_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_show.setContentAreaFilled(false);
-                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_show.setEnabled(false);
                 bdd_show.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_showActionPerformed(evt);
@@ -760,7 +742,8 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_clearBase.setToolTipText("");
                 bdd_clearBase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_clearBase.setContentAreaFilled(false);
-                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_clearBase.setEnabled(false);
                 bdd_clearBase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_clearBaseActionPerformed(evt);
@@ -775,45 +758,51 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_init.setToolTipText("");
                 bdd_init.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_init.setContentAreaFilled(false);
-                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_init.setEnabled(false);
                 bdd_init.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_initActionPerformed(evt);
                         }
                 });
 
-                bdd_export1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_export1.setForeground(new java.awt.Color(188, 7, 46));
-                bdd_export1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/export_database.png"))); // NOI18N
-                bdd_export1.setText("   export database");
-                bdd_export1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
-                bdd_export1.setContentAreaFilled(false);
-                bdd_export1.addActionListener(new java.awt.event.ActionListener() {
+                bdd_export.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                bdd_export.setForeground(new java.awt.Color(188, 7, 46));
+                bdd_export.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/export_database.png"))); // NOI18N
+                bdd_export.setText("   export database");
+                bdd_export.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                bdd_export.setContentAreaFilled(false);
+                bdd_export.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_export.setEnabled(false);
+                bdd_export.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                bdd_export1ActionPerformed(evt);
+                                bdd_exportActionPerformed(evt);
                         }
                 });
 
-                bdd_export.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_export.setForeground(new java.awt.Color(188, 7, 46));
-                bdd_export.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/copy_clipboard.png"))); // NOI18N
-                bdd_export.setText("   copy to clipboard");
-                bdd_export.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
-                bdd_export.setContentAreaFilled(false);
-                bdd_export.setOpaque(false);
-                bdd_export.addActionListener(new java.awt.event.ActionListener() {
+                copyToClipboard.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                copyToClipboard.setForeground(new java.awt.Color(188, 7, 46));
+                copyToClipboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/copy_clipboard.png"))); // NOI18N
+                copyToClipboard.setText("   copy to clipboard");
+                copyToClipboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                copyToClipboard.setContentAreaFilled(false);
+                copyToClipboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                copyToClipboard.setEnabled(false);
+                copyToClipboard.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 copyToClipboardActionPerformed(evt);
                         }
                 });
 
-                bdd_export2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                bdd_export2.setForeground(new java.awt.Color(188, 7, 46));
-                bdd_export2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_console.png"))); // NOI18N
-                bdd_export2.setText("   clear console");
-                bdd_export2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
-                bdd_export2.setContentAreaFilled(false);
-                bdd_export2.addActionListener(new java.awt.event.ActionListener() {
+                clear_console.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                clear_console.setForeground(new java.awt.Color(188, 7, 46));
+                clear_console.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_console.png"))); // NOI18N
+                clear_console.setText("   clear console");
+                clear_console.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                clear_console.setContentAreaFilled(false);
+                clear_console.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                clear_console.setEnabled(false);
+                clear_console.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 clear_consoleActionPerformed(evt);
                         }
@@ -834,11 +823,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(bdd_init, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                                .addComponent(bdd_export1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(bdd_export, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(bdd_export, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(copyToClipboard, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(bdd_export2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(clear_console, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap())
                 );
                 jPanel9Layout.setVerticalGroup(
@@ -853,9 +842,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                                        .addComponent(bdd_export1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bdd_export2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(bdd_export, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(bdd_export, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(clear_console, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(copyToClipboard, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(58, 58, 58))
                 );
 
@@ -1011,7 +1000,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_connect.setText("connect");
                 server_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 server_connect.setContentAreaFilled(false);
-                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 server_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 server_connectActionPerformed(evt);
@@ -1202,6 +1191,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 add_group.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/check-ok.png"))); // NOI18N
                 add_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 add_group.setContentAreaFilled(false);
+                add_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 add_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 add_groupActionPerformed(evt);
@@ -1235,6 +1225,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 rm_group_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/group-remove-icon.png"))); // NOI18N
                 rm_group_btn.setToolTipText("remove group");
                 rm_group_btn.setBorder(null);
+                rm_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 rm_group_btn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 rm_group_btnActionPerformed(evt);
@@ -1290,6 +1281,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 swap_group_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/swap-users.png"))); // NOI18N
                 swap_group_btn.setToolTipText("swap user");
                 swap_group_btn.setBorder(null);
+                swap_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 swap_group_btn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 swap_group_btnActionPerformed(evt);
@@ -1448,6 +1440,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jButton6.setForeground(new java.awt.Color(188, 7, 46));
                 jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user-remove-icon.png"))); // NOI18N
                 jButton6.setToolTipText("remove user selected");
+                jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 jButton6.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jButton6ActionPerformed(evt);
@@ -1559,16 +1552,18 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbUsers.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+                statistic_nbUsers.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsers.setText("123");
 
                 jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel7.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel7.setText("users registered");
 
                 statistic_nbUsers_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user-stats.png"))); // NOI18N
                 statistic_nbUsers_icon.setToolTipText("click to refresh");
-                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 statistic_nbUsers_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsers_iconMouseClicked(evt);
@@ -1618,16 +1613,18 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
                 jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel22.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel22.setText("users online");
 
                 statistic_nbUsersOnline.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+                statistic_nbUsersOnline.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsersOnline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsersOnline.setText("12");
 
                 statistic_nbUsersOnline_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/usersonline-stats.png"))); // NOI18N
                 statistic_nbUsersOnline_icon.setToolTipText("click to refresh");
-                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 statistic_nbUsersOnline_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsersOnline_iconMouseClicked(evt);
@@ -1677,16 +1674,18 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_tickets.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+                statistic_tickets.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_tickets.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_tickets.setText("63");
 
                 jLabel25.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel25.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel25.setText("tickets");
 
                 statistic_tickets_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tickets-stats.png"))); // NOI18N
                 statistic_tickets_icon.setToolTipText("click to refresh");
-                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 statistic_tickets_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_tickets_iconMouseClicked(evt);
@@ -1736,16 +1735,18 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbGroups.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+                statistic_nbGroups.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbGroups.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbGroups.setText("12");
 
                 jLabel21.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel21.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel21.setText("groups");
 
                 statistic_nbGroups_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/groups-stats.png"))); // NOI18N
                 statistic_nbGroups_icon.setToolTipText("click to refresh");
-                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 statistic_nbGroups_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbGroups_iconMouseClicked(evt);
@@ -1791,16 +1792,18 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_uptime.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+                statistic_uptime.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_uptime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_uptime.setText("date");
 
                 jLabel23.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                jLabel23.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("uptime");
 
                 statistic_uptime_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/uptime-stats.png"))); // NOI18N
                 statistic_uptime_icon.setToolTipText("click to refresh");
-                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 statistic_uptime_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_uptime_iconMouseClicked(evt);
@@ -2166,7 +2169,6 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_init_serverActionPerformed
 
         private void server_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_connectActionPerformed
-		// TODO add your handling code here:
 		serverConnect();
         }//GEN-LAST:event_server_connectActionPerformed
 
@@ -2197,13 +2199,11 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_bdd_initActionPerformed
 
         private void bdd_clearBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_clearBaseActionPerformed
-		// TODO add your handling code here:
 		bdd.clearTables();
 		bdd.showTable(bdd_console2);
         }//GEN-LAST:event_bdd_clearBaseActionPerformed
 
         private void bdd_showActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_showActionPerformed
-		// TODO add your handling code here:
 		bdd.showTable(bdd_console2);
         }//GEN-LAST:event_bdd_showActionPerformed
 
@@ -2216,7 +2216,6 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_remoteDatabaseActionPerformed
 
         private void home_view_group_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_home_view_group_tableMouseClicked
-		// TODO add your handling code here:
 		String nameGroup;
 		if (home_view_group_table.getSelectedRow() != -1) {
 			nameGroup = (String) home_view_group_table.getValueAt(home_view_group_table.getSelectedRow(), 0);
@@ -2231,7 +2230,6 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_home_view_group_tableMouseClicked
 
         private void rm_group_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rm_group_btnActionPerformed
-		// TODO add your handling code here:
 //		String user =(String)group_usersTable.getValueAt(group_usersTable.getSelectedRow(), 0);
 //		String group =(String)home_view_group_table.getValueAt(home_view_group_table.getSelectedRow(), 0);
 //		System.out.println("del " +user +" in " +group);
@@ -2253,7 +2251,6 @@ public class InterfaceServer extends javax.swing.JFrame {
 	}
 
         private void swap_group_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_swap_group_btnActionPerformed
-		// TODO add your handling code here:
 		String userInGroup = getSelectedValueInTable(group_usersTable);
 		String otherUsers = getSelectedValueInTable(group_otherUserTable);
 		String group = getSelectedValueInTable(home_view_group_table);
@@ -2307,7 +2304,6 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_service_userActionPerformed
 
         private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-                // TODO add your handling code here:
 		int row =user_table.getSelectedRow();
 		if (row != -1) {
 			String login =(String)user_table.getValueAt(row, 0);
@@ -2375,9 +2371,9 @@ public class InterfaceServer extends javax.swing.JFrame {
 		clipboard.setContents(strSel, null);
         }//GEN-LAST:event_copyToClipboardActionPerformed
 
-        private void bdd_export1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_export1ActionPerformed
+        private void bdd_exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_exportActionPerformed
                 bdd_console2.setText(bdd.export());
-        }//GEN-LAST:event_bdd_export1ActionPerformed
+        }//GEN-LAST:event_bdd_exportActionPerformed
 
         private void clear_consoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_consoleActionPerformed
                 bdd_console2.setText("");
@@ -2574,6 +2570,12 @@ public class InterfaceServer extends javax.swing.JFrame {
                                         init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
                                         
                                         init_bdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/database-menu-ok.png")));
+                                        bdd_show.setEnabled(true);
+                                        bdd_clearBase.setEnabled(true);
+                                        bdd_init.setEnabled(true);
+                                        bdd_export.setEnabled(true);
+                                        copyToClipboard.setEnabled(true);
+                                        clear_console.setEnabled(true);
                                         show("server");
 
 
@@ -2646,8 +2648,6 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JTextPane bdd_console;
         private javax.swing.JTextArea bdd_console2;
         private javax.swing.JButton bdd_export;
-        private javax.swing.JButton bdd_export1;
-        private javax.swing.JButton bdd_export2;
         private javax.swing.JLabel bdd_icon;
         private javax.swing.JButton bdd_init;
         private javax.swing.JTextField bdd_ip;
@@ -2657,8 +2657,10 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JLabel bdd_title;
         private javax.swing.JTextField bdd_user;
         private javax.swing.JPanel body_groups;
+        private javax.swing.JButton clear_console;
         private javax.swing.JPanel console_panel;
         private javax.swing.JPanel console_server;
+        private javax.swing.JButton copyToClipboard;
         private javax.swing.JPanel footer_left;
         private javax.swing.JTable group_otherUserTable;
         private javax.swing.JTable group_usersTable;

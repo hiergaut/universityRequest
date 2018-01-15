@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package client;
 
 import function.Function;
@@ -13,13 +8,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,10 +36,6 @@ import network.ClientRequest;
 import userData.Message;
 import userData.StatusMessage;
 
-/**
- *
- * @author gauthier
- */
 public class InterfaceClient extends javax.swing.JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -542,11 +530,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 passwdInput.addFocusListener(new java.awt.event.FocusAdapter() {
                         public void focusGained(java.awt.event.FocusEvent evt) {
                                 passwdInputFocusGained(evt);
-                        }
-                });
-                passwdInput.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                passwdInputActionPerformed(evt);
                         }
                 });
 
@@ -1281,7 +1264,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 tree.setBackground(new java.awt.Color(188, 7, 46));
                 tree.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 tree.setForeground(new java.awt.Color(255, 255, 255));
-                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 tree.setMaximumSize(new java.awt.Dimension(10000, 10000));
                 tree.setMinimumSize(new java.awt.Dimension(300, 0));
                 tree.setOpaque(false);
@@ -1430,7 +1413,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_leave.setBorder(null);
                 home_leave.setBorderPainted(false);
                 home_leave.setContentAreaFilled(false);
-                home_leave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+                home_leave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 home_leave.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_leaveActionPerformed(evt);
@@ -1620,6 +1603,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newMessage_send.setToolTipText("send !");
                 newMessage_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 newMessage_send.setContentAreaFilled(false);
+                newMessage_send.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 newMessage_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newMessage_sendActionPerformed(evt);
@@ -1694,6 +1678,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 group_swap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/group-swap-icon.png"))); // NOI18N
                 group_swap.setText("swap");
                 group_swap.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                group_swap.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
                 group_swap.setOpaque(false);
                 group_swap.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1789,6 +1774,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newTicket_send.setText("send");
                 newTicket_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 newTicket_send.setContentAreaFilled(false);
+                newTicket_send.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
                 newTicket_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newTicket_sendActionPerformed(evt);
@@ -2071,10 +2057,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 pack();
         }// </editor-fold>//GEN-END:initComponents
 
-        private void passwdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwdInputActionPerformed
-		// TODO add your handling code here:
-        }//GEN-LAST:event_passwdInputActionPerformed
-
         private void identification_connectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identification_connectionActionPerformed
 		show3("loading");
 //		identification_loadingInterface.setVisible(true);
@@ -2270,9 +2252,6 @@ public class InterfaceClient extends javax.swing.JFrame {
                 if (evt.getKeyCode() == KeyEvent.VK_ENTER && evt.getModifiers()!=KeyEvent.SHIFT_MASK) {
 			newMessage_input_sendMessage();
 		}
-                
-                
-                
         }//GEN-LAST:event_newMessage_inputKeyPressed
 
         private void messages_box1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_messages_box1MouseClicked
@@ -2958,7 +2937,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 
                 }
 
-		messages_box1.setPreferredSize(new java.awt.Dimension(0, 100));
+		messages_box1.setPreferredSize(new java.awt.Dimension(0, 115));
 		messages_box1.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				System.out.println(m.getId());

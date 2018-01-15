@@ -559,7 +559,6 @@
                       </Properties>
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="passwdInputFocusGained"/>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="passwdInputActionPerformed"/>
                       </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="passwdInput.setText(&quot;passwd&quot;);"/>
@@ -1886,7 +1885,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur par d&#xe9;faut"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[10000, 10000]"/>
@@ -2143,7 +2142,7 @@
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Curseur par d&#xe9;faut"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2553,6 +2552,9 @@
                                   </Border>
                                 </Property>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Curseur en forme de main"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newMessage_sendActionPerformed"/>
@@ -2688,6 +2690,9 @@
                                       <Color PropertyName="color" blue="2e" green="7" red="bc" type="rgb"/>
                                     </LineBorder>
                                   </Border>
+                                </Property>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Curseur de redimensionnement est"/>
                                 </Property>
                                 <Property name="opaque" type="boolean" value="false"/>
                               </Properties>
@@ -2851,6 +2856,9 @@
                                   </Border>
                                 </Property>
                                 <Property name="contentAreaFilled" type="boolean" value="false"/>
+                                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                                  <Color id="Curseur en forme de main"/>
+                                </Property>
                               </Properties>
                               <Events>
                                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newTicket_sendActionPerformed"/>
