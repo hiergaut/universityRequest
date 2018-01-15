@@ -2413,7 +2413,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                         String firstname = "";
                         String name = "";
 
-                        Message m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
+                        Message m = new Message(id, body, create, author, "", firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
 
                         client.addMessage(m);
                         buildMessagesPane(ticket);
@@ -2833,8 +2833,8 @@ public class InterfaceClient extends javax.swing.JFrame {
 
 	public void buildMessagesPane(String ticket) {
 		int nbTickets = client.getTicketMessages(ticket).size();
-		if (nbTickets < 5) {
-			nbTickets = 5;
+		if (nbTickets < 4) {
+			nbTickets = 4;
 		}
 		right_messages.setLayout(new java.awt.GridLayout(nbTickets, 1, 0, 20));
 
@@ -2897,7 +2897,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 box1_body.setToolTipText(m.allUserStatusTipText());
                 
                 // A initialiser avec la valeur du statut de l'expéditeur
-                String statusSender="";
+                String statusSender=m.getAuthorStatus();
                 
                 switch (statusSender){
                         case "student" :

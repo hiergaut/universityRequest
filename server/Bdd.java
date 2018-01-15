@@ -365,7 +365,7 @@ public class Bdd {
 		StatusMessage sm;
 //		l.add(new Message(1, "fuckGroup", "ticketBitch", "name", "suck", new Date(1993, 6, 12)));
 //		String[][] m =select("select distinct m_idmessage, m_data, m_created, m_fk_users, t_title, g_name from messages,tickets,groups,belong where b_fk_users='" +name +"' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket or t_fk_users='"+ name +"' and t_idticket=m_fk_tickets and t_fk_groups=g_name");
-		String[][] m = select("select distinct m_idmessage, m_data, m_created, m_fk_users, u_firstname, u_name, t_title, g_name from messages,tickets,groups,belong,users where b_fk_users='" + name + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + name + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
+		String[][] m = select("select distinct m_idmessage, m_data, m_created, m_fk_users, u_status, u_firstname, u_name, t_title, g_name from messages,tickets,groups,belong,users where b_fk_users='" + name + "' and g_name=b_fk_groups and g_name=t_fk_groups and m_fk_tickets=t_idticket and m_fk_users=u_login or t_fk_users='" + name + "' and t_idticket=m_fk_tickets and t_fk_groups=g_name and m_fk_users=u_login");
 
 		if (m != null) {
 			for (int i = 0; i < m.length; i++) {
@@ -373,7 +373,7 @@ public class Bdd {
 				String[][] userStatus = allUserStatus(idMessage);
 				sm = checkStatusMessage(userStatus);
 
-				l.add(new Message(idMessage, m[i][1], Timestamp.valueOf(m[i][2]), m[i][3], m[i][4], m[i][5], m[i][6], m[i][7], sm, userStatus));
+				l.add(new Message(idMessage, m[i][1], Timestamp.valueOf(m[i][2]), m[i][3], m[i][4], m[i][5], m[i][6], m[i][7], m[i][8], sm, userStatus));
 			}
 		}
 		return l.toArray();
@@ -457,10 +457,13 @@ public class Bdd {
 
 		userReadMessage(author, idMessage);
 
+		String authorStatus =select("select u_status from users where u_login='" +author +"'")[0][0];
+
 		body = body.replace("''", "'");
 		author = author.replace("''", "'");
 
-		return new Message(idMessage, body, m.getCreate(), author, firstname, name, ticket, group, StatusMessage.GROUP_NOT_RECEIVE, allUserStatus(idMessage));
+
+		return new Message(idMessage, body, m.getCreate(), author, authorStatus, firstname, name, ticket, group, StatusMessage.GROUP_NOT_RECEIVE, allUserStatus(idMessage));
 	}
 
 	private String[][] allUserStatus(int idMessage) {
@@ -533,8 +536,9 @@ public class Bdd {
 		StatusMessage statusMessage = checkStatusMessage(userStatus);
 
 		String ticket = select("select t_title from messages,tickets where m_idmessage=" + idMessage + " and m_fk_tickets=t_idticket")[0][0];
+		String authorStatus =select("select u_status from users where u_login='" +author +"'")[0][0];
 
-		return new Message(idMessage, body, date, author, firstname, name, ticket, group, statusMessage, allUserStatus(idMessage));
+		return new Message(idMessage, body, date, author, authorStatus, firstname, name, ticket, group, statusMessage, allUserStatus(idMessage));
 	}
 
 	void addUserInGroup(String actualConnectUser, String group) {

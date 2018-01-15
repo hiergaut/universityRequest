@@ -158,7 +158,7 @@ public class ThreadServer implements Runnable {
 						String firstname = "";
 						name = "";
 
-						m = new Message(id, body, create, author, firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
+						m = new Message(id, body, create, author, "", firstname, name, ticket, group, StatusMessage.SERVER_NOT_RECEIVE, null);
 						m = bdd.newMessage(m);
 						server.connectUserReceiveConcernedMessage(m);
 //						server.broadcast(m);

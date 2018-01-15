@@ -22,6 +22,7 @@ public class Message implements Serializable, Comparable<Message> {
 	private String group;
 	private String ticket;
 	private String author;
+	private String authorStatus;
 	private String firstName;
 	private String lastName;
 	private String body;
@@ -29,11 +30,12 @@ public class Message implements Serializable, Comparable<Message> {
 	private StatusMessage status;
 	private String[][] usersStatus;
 
-	public Message(Integer id, String body, Timestamp create, String author, String firstName, String lastName, String ticket, String group, StatusMessage status, String[][] userStatus) {
+	public Message(Integer id, String body, Timestamp create, String author, String authorStatus, String firstName, String lastName, String ticket, String group, StatusMessage status, String[][] userStatus) {
 		this.id = id;
 		this.group = group;
 		this.ticket = ticket;
 		this.author =author;
+		this.authorStatus =authorStatus;
 		this.firstName =firstName;
 		this.lastName =lastName;
 		this.body = body;
@@ -153,6 +155,11 @@ public class Message implements Serializable, Comparable<Message> {
 		}
                 return "<html> En attente : " +enAttente +"<br>Reçu : " +recu + "<br>Lu : " +lu + "</html>";
 	}
+
+	public String getAuthorStatus() {
+		return authorStatus;
+	}
+	
 	
 	
 }
