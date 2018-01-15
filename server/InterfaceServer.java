@@ -8,6 +8,9 @@ package server;
 import function.Function;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -180,11 +183,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_show = new javax.swing.JButton();
                 bdd_clearBase = new javax.swing.JButton();
                 bdd_init = new javax.swing.JButton();
+                bdd_export1 = new javax.swing.JButton();
+                bdd_export = new javax.swing.JButton();
+                bdd_export2 = new javax.swing.JButton();
                 console_panel = new javax.swing.JPanel();
                 bdd_console = new javax.swing.JTextPane();
                 jSeparator5 = new javax.swing.JSeparator();
                 jLabel1 = new javax.swing.JLabel();
-                bdd_export = new javax.swing.JButton();
                 view_server = new javax.swing.JPanel();
                 header_server = new javax.swing.JPanel();
                 title_server = new javax.swing.JPanel();
@@ -777,11 +782,48 @@ public class InterfaceServer extends javax.swing.JFrame {
                         }
                 });
 
+                bdd_export1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                bdd_export1.setForeground(new java.awt.Color(188, 7, 46));
+                bdd_export1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/export_database.png"))); // NOI18N
+                bdd_export1.setText("   export database");
+                bdd_export1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                bdd_export1.setContentAreaFilled(false);
+                bdd_export1.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                bdd_export1ActionPerformed(evt);
+                        }
+                });
+
+                bdd_export.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                bdd_export.setForeground(new java.awt.Color(188, 7, 46));
+                bdd_export.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/copy_clipboard.png"))); // NOI18N
+                bdd_export.setText("   copy to clipboard");
+                bdd_export.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                bdd_export.setContentAreaFilled(false);
+                bdd_export.setOpaque(false);
+                bdd_export.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                copyToClipboardActionPerformed(evt);
+                        }
+                });
+
+                bdd_export2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+                bdd_export2.setForeground(new java.awt.Color(188, 7, 46));
+                bdd_export2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/clear_console.png"))); // NOI18N
+                bdd_export2.setText("   clear console");
+                bdd_export2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
+                bdd_export2.setContentAreaFilled(false);
+                bdd_export2.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                clear_consoleActionPerformed(evt);
+                        }
+                });
+
                 javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
                 jPanel9.setLayout(jPanel9Layout);
                 jPanel9Layout.setHorizontalGroup(
                         jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addGroup(jPanel9Layout.createSequentialGroup()
@@ -790,19 +832,31 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addComponent(bdd_clearBase, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(bdd_init, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                                .addComponent(bdd_export1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(bdd_export, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(bdd_export2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap())
                 );
                 jPanel9Layout.setVerticalGroup(
                         jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(bdd_clearBase, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(bdd_init, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(bdd_show, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
+                                        .addComponent(bdd_export1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bdd_export2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bdd_export, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(58, 58, 58))
                 );
 
                 console_panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -844,13 +898,6 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addContainerGap())
                 );
 
-                bdd_export.setText("export database");
-                bdd_export.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                bdd_exportActionPerformed(evt);
-                        }
-                });
-
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
                 jPanel3Layout.setHorizontalGroup(
@@ -861,18 +908,13 @@ public class InterfaceServer extends javax.swing.JFrame {
                                                 .addGap(46, 46, 46)
                                                 .addComponent(console_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addContainerGap(65, Short.MAX_VALUE)
                                                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(24, 24, 24)
                                                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                                .addGap(55, 55, 55)
-                                                                .addComponent(bdd_export)))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(14, Short.MAX_VALUE))
                 );
                 jPanel3Layout.setVerticalGroup(
                         jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,13 +923,10 @@ public class InterfaceServer extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(bdd_export)))
-                                .addGap(39, 39, 39)
+                                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(52, 52, 52)
                                 .addComponent(console_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(65, Short.MAX_VALUE))
                 );
 
                 view_bdd.add(jPanel3, java.awt.BorderLayout.CENTER);
@@ -1072,12 +1111,12 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel10.setLayout(jPanel10Layout);
                 jPanel10Layout.setHorizontalGroup(
                         jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1202, Short.MAX_VALUE)
+                        .addGap(0, 1220, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel10Layout.createSequentialGroup()
                                         .addComponent(console_server, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                        .addGap(0, 18, Short.MAX_VALUE)))
                 );
                 jPanel10Layout.setVerticalGroup(
                         jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1301,11 +1340,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 body_groupsLayout.setHorizontalGroup(
                         body_groupsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(body_groupsLayout.createSequentialGroup()
-                                .addContainerGap(39, Short.MAX_VALUE)
+                                .addContainerGap(103, Short.MAX_VALUE)
                                 .addGroup(body_groupsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(38, Short.MAX_VALUE))
+                                .addContainerGap(103, Short.MAX_VALUE))
                 );
                 body_groupsLayout.setVerticalGroup(
                         body_groupsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1443,9 +1482,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel17Layout.setHorizontalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                                .addContainerGap(40, Short.MAX_VALUE)
+                                .addContainerGap(104, Short.MAX_VALUE)
                                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(39, Short.MAX_VALUE))
+                                .addContainerGap(104, Short.MAX_VALUE))
                 );
                 jPanel17Layout.setVerticalGroup(
                         jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1791,11 +1830,11 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel18Layout.setHorizontalGroup(
                         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel18Layout.createSequentialGroup()
-                                .addContainerGap(104, Short.MAX_VALUE)
+                                .addContainerGap(168, Short.MAX_VALUE)
                                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addContainerGap(103, Short.MAX_VALUE))
+                                .addContainerGap(168, Short.MAX_VALUE))
                 );
                 jPanel18Layout.setVerticalGroup(
                         jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1962,9 +2001,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 view_aboutLayout.setHorizontalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(view_aboutLayout.createSequentialGroup()
-                                .addContainerGap(152, Short.MAX_VALUE)
+                                .addContainerGap(217, Short.MAX_VALUE)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(159, Short.MAX_VALUE))
+                                .addContainerGap(223, Short.MAX_VALUE))
                 );
                 view_aboutLayout.setVerticalGroup(
                         view_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2054,9 +2093,9 @@ public class InterfaceServer extends javax.swing.JFrame {
                 view_welcomeLayout.setHorizontalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, view_welcomeLayout.createSequentialGroup()
-                                .addContainerGap(195, Short.MAX_VALUE)
+                                .addContainerGap(259, Short.MAX_VALUE)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(194, Short.MAX_VALUE))
+                                .addContainerGap(259, Short.MAX_VALUE))
                 );
                 view_welcomeLayout.setVerticalGroup(
                         view_welcomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2322,10 +2361,22 @@ public class InterfaceServer extends javax.swing.JFrame {
                 statistic_uptime.setText(rb.getUptime()/1000 + " sec");
         }//GEN-LAST:event_statistic_uptime_iconMouseClicked
 
-        private void bdd_exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_exportActionPerformed
-                // TODO add your handling code here:
-		bdd_console2.setText(bdd.export());
-        }//GEN-LAST:event_bdd_exportActionPerformed
+        private void copyToClipboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyToClipboardActionPerformed
+                String str = bdd_console2.getText();
+
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		Clipboard clipboard = toolkit.getSystemClipboard();
+		StringSelection strSel = new StringSelection(str);
+		clipboard.setContents(strSel, null);
+        }//GEN-LAST:event_copyToClipboardActionPerformed
+
+        private void bdd_export1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_export1ActionPerformed
+                bdd_console2.setText(bdd.export());
+        }//GEN-LAST:event_bdd_export1ActionPerformed
+
+        private void clear_consoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_consoleActionPerformed
+                bdd_console2.setText("");
+        }//GEN-LAST:event_clear_consoleActionPerformed
 
 	public void user_majSaveTable() {
 		String title[] = {"save"};
@@ -2587,6 +2638,8 @@ public class InterfaceServer extends javax.swing.JFrame {
         private javax.swing.JTextPane bdd_console;
         private javax.swing.JTextArea bdd_console2;
         private javax.swing.JButton bdd_export;
+        private javax.swing.JButton bdd_export1;
+        private javax.swing.JButton bdd_export2;
         private javax.swing.JLabel bdd_icon;
         private javax.swing.JButton bdd_init;
         private javax.swing.JTextField bdd_ip;

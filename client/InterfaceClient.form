@@ -18,7 +18,7 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
-    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-124,0,0,5,115"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,3,-124,0,0,6,34"/>
   </AuxValues>
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
@@ -51,9 +51,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="666" max="32767" attributes="0"/>
+                      <EmptySpace pref="753" max="32767" attributes="0"/>
                       <Component id="loading" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="665" max="32767" attributes="0"/>
+                      <EmptySpace pref="753" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -140,9 +140,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="295" max="32767" attributes="0"/>
+                              <EmptySpace pref="383" max="32767" attributes="0"/>
                               <Component id="_retry" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="590" max="32767" attributes="0"/>
+                              <EmptySpace pref="677" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -260,7 +260,7 @@
                             </Property>
                             <Property name="contentAreaFilled" type="boolean" value="false"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur en forme de main"/>
                             </Property>
                             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                               <Dimension value="[0, 0]"/>
@@ -371,14 +371,6 @@
                           <Color blue="2e" green="7" red="bc" type="rgb"/>
                         </Property>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="serverNotFound_localhost">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="remote server"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serverNotFound_localhostActionPerformed"/>
-                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -594,7 +586,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -628,7 +620,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Not registered ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -692,7 +684,7 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1395" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1570" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -724,9 +716,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="568" max="32767" attributes="0"/>
+                              <EmptySpace pref="655" max="32767" attributes="0"/>
                               <Component id="identification_errorLogin" min="-2" pref="259" max="-2" attributes="0"/>
-                              <EmptySpace pref="568" max="32767" attributes="0"/>
+                              <EmptySpace pref="656" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -795,7 +787,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Login/password incorrect !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -835,9 +827,9 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="607" max="32767" attributes="0"/>
+                              <EmptySpace pref="694" max="32767" attributes="0"/>
                               <Component id="identification_loadingInterface" min="-2" pref="182" max="-2" attributes="0"/>
-                              <EmptySpace pref="606" max="32767" attributes="0"/>
+                              <EmptySpace pref="694" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -904,7 +896,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Interface loading..."/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1237,7 +1229,7 @@
                         </Property>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                         <Property name="doubleBuffered" type="boolean" value="true"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
@@ -1306,7 +1298,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1326,7 +1318,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Go back ?"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1377,33 +1369,33 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="1395" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="1570" max="32767" attributes="0"/>
                           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="511" max="32767" attributes="0"/>
+                                  <EmptySpace pref="598" max="32767" attributes="0"/>
                                   <Component id="newUser_error" min="-2" pref="374" max="-2" attributes="0"/>
-                                  <EmptySpace pref="510" max="32767" attributes="0"/>
+                                  <EmptySpace pref="598" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="595" max="32767" attributes="0"/>
+                                  <EmptySpace pref="682" max="32767" attributes="0"/>
                                   <Component id="newUser_okEmail" min="-2" pref="205" max="-2" attributes="0"/>
-                                  <EmptySpace pref="595" max="32767" attributes="0"/>
+                                  <EmptySpace pref="683" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="577" max="32767" attributes="0"/>
+                                  <EmptySpace pref="664" max="32767" attributes="0"/>
                                   <Component id="newUser_errorFields" min="-2" pref="241" max="-2" attributes="0"/>
-                                  <EmptySpace pref="577" max="32767" attributes="0"/>
+                                  <EmptySpace pref="665" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="471" max="32767" attributes="0"/>
+                                  <EmptySpace pref="558" max="32767" attributes="0"/>
                                   <Component id="newUser_errorDomain" min="-2" pref="454" max="-2" attributes="0"/>
-                                  <EmptySpace pref="470" max="32767" attributes="0"/>
+                                  <EmptySpace pref="558" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1497,7 +1489,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Error ! Contact us (admin@university-request.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1566,7 +1558,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please complete all fields ! "/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1635,7 +1627,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Check your emails !"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1705,7 +1697,7 @@
                             </Property>
                             <Property name="text" type="java.lang.String" value="Please use your professional email (@univ-tlse3.fr or @irit.fr)"/>
                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
+                              <Color id="Curseur par d&#xe9;faut"/>
                             </Property>
                           </Properties>
                           <Events>
@@ -1767,6 +1759,12 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="expand_all" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fold_all" min="-2" pref="132" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="home_userName" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
@@ -1792,10 +1790,15 @@
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                          <Component id="home_tickets" min="-2" pref="374" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <Component id="home_tickets" min="-2" pref="334" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="expand_all" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fold_all" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Component id="footer_left" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1847,7 +1850,7 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;font style=&quot;background-color : white&quot;&gt;&amp;nbsp;&amp;nbsp;about the project ?&amp;nbsp;&amp;nbsp;&lt;/font&gt;&lt;/html&gt;"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur en forme de main"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -1883,7 +1886,7 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur par d&#xe9;faut"/>
                         </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[10000, 10000]"/>
@@ -1973,7 +1976,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur par d&#xe9;faut"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2004,7 +2007,7 @@
                         </Property>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur par d&#xe9;faut"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2013,6 +2016,44 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JButton" name="expand_all">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="12" style="2"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="expand"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="expand_allActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="fold_all">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="12" style="2"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="collapse"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="null"/>
+                    </Property>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="contentAreaFilled" type="boolean" value="false"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fold_allActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="home_right">
@@ -2049,7 +2090,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="home_ticket" pref="895" max="32767" attributes="0"/>
+                              <Component id="home_ticket" pref="1070" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="home_leave" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -2096,7 +2137,7 @@
                         <Property name="borderPainted" type="boolean" value="false"/>
                         <Property name="contentAreaFilled" type="boolean" value="false"/>
                         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                          <Color id="Default Cursor"/>
+                          <Color id="Curseur par d&#xe9;faut"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -2151,7 +2192,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="185" max="32767" attributes="0"/>
+                                  <EmptySpace pref="273" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="icon_logo_opacity10" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -2171,7 +2212,7 @@
                                           <Component id="help_email" min="-2" pref="196" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="360" max="32767" attributes="0"/>
+                                  <EmptySpace pref="447" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2298,8 +2339,8 @@
 
                               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                                 <Property name="columns" type="int" value="1"/>
-                                <Property name="rows" type="int" value="4"/>
                                 <Property name="verticalGap" type="int" value="5"/>
+                                <Property name="rows" type="int" value="4"/>
                               </Layout>
                               <SubComponents>
                                 <Container class="javax.swing.JPanel" name="messages_box1">
@@ -2389,7 +2430,7 @@
                                             <Property name="text" type="java.lang.String" value="Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum.  Haec dum oriens diu perferret, caeli reserato tepore Constantius consulatu suo septies et Caesaris ter egressus Arelate Valentiam petit, in Gundomadum et Vadomarium fratres Alamannorum reges arma moturus, quorum crebris excursibus vastabantur confines limitibus terrae Gallorum."/>
                                             <Property name="toolTipText" type="java.lang.String" value=""/>
                                             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                                              <Color id="Default Cursor"/>
+                                              <Color id="Curseur par d&#xe9;faut"/>
                                             </Property>
                                             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
                                               <Insets value="[10, 10, 10, 10]"/>
@@ -2424,7 +2465,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" pref="957" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane2" pref="1132" max="32767" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="newMessage_send" min="-2" pref="76" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -2531,9 +2572,9 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="107" max="32767" attributes="0"/>
+                                  <EmptySpace pref="194" max="32767" attributes="0"/>
                                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="106" max="32767" attributes="0"/>
+                                  <EmptySpace pref="194" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2701,18 +2742,18 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="151" max="32767" attributes="0"/>
+                                  <EmptySpace pref="239" max="32767" attributes="0"/>
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="308" max="32767" attributes="0"/>
+                                  <EmptySpace pref="395" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="173" max="32767" attributes="0"/>
+                                  <EmptySpace pref="174" max="32767" attributes="0"/>
                                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="302" max="32767" attributes="0"/>
+                                  <EmptySpace pref="301" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2934,9 +2975,9 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                                  <EmptySpace pref="235" max="32767" attributes="0"/>
                                   <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="147" max="32767" attributes="0"/>
+                                  <EmptySpace pref="235" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
