@@ -376,7 +376,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 jButton1.setText("retry");
                 jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 jButton1.setContentAreaFilled(false);
-                jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 jButton1.setMinimumSize(new java.awt.Dimension(0, 0));
                 jButton1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,7 +539,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 identification_connection.setText("Sign in");
                 identification_connection.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 identification_connection.setContentAreaFilled(false);
-                identification_connection.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                identification_connection.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 identification_connection.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 identification_connectionActionPerformed(evt);
@@ -554,7 +554,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 not_registered.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 not_registered.setForeground(new java.awt.Color(255, 255, 255));
                 not_registered.setText("Not registered ?");
-                not_registered.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                not_registered.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 not_registered.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 not_registeredMouseClicked(evt);
@@ -631,7 +631,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                                 .addComponent(connexion_logoOpacity5, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 );
 
-                identification_login.setText("gauthier");
+                identification_login.setText("login");
                 passwdInput.setText("passwd");
 
                 _identification.add(body_connexion);
@@ -871,7 +871,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newUser_status.setForeground(new java.awt.Color(255, 255, 255));
                 newUser_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "student", "professor", "service" }));
                 newUser_status.setToolTipText("");
-                newUser_status.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newUser_status.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newUser_status.setDoubleBuffered(true);
                 newUser_status.setName(""); // NOI18N
                 newUser_status.setNextFocusableComponent(newUser_join);
@@ -893,7 +893,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newUser_join.setText("Join");
                 newUser_join.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
                 newUser_join.setContentAreaFilled(false);
-                newUser_join.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newUser_join.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newUser_join.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newUser_joinActionPerformed(evt);
@@ -904,7 +904,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 back.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 back.setForeground(new java.awt.Color(255, 255, 255));
                 back.setText("Go back ?");
-                back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                back.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 back.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 backMouseClicked(evt);
@@ -1234,7 +1234,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 about.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
                 about.setForeground(new java.awt.Color(188, 7, 46));
                 about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 about.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 aboutMouseClicked(evt);
@@ -1264,7 +1264,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 tree.setBackground(new java.awt.Color(188, 7, 46));
                 tree.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
                 tree.setForeground(new java.awt.Color(255, 255, 255));
-                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                tree.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 tree.setMaximumSize(new java.awt.Dimension(10000, 10000));
                 tree.setMinimumSize(new java.awt.Dimension(300, 0));
                 tree.setOpaque(false);
@@ -1292,7 +1292,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_newTicket.setActionCommand("   new ticket       ");
                 home_newTicket.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_newTicket.setContentAreaFilled(false);
-                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                home_newTicket.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 home_newTicket.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_newTicketActionPerformed(evt);
@@ -1306,7 +1306,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_group.setText("   add/remove  group");
                 home_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 home_group.setContentAreaFilled(false);
-                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                home_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 home_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_groupActionPerformed(evt);
@@ -1335,7 +1335,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 expand_all.setBorder(null);
                 expand_all.setBorderPainted(false);
                 expand_all.setContentAreaFilled(false);
-                expand_all.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                expand_all.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 expand_all.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 expand_allActionPerformed(evt);
@@ -1348,7 +1348,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 fold_all.setBorder(null);
                 fold_all.setBorderPainted(false);
                 fold_all.setContentAreaFilled(false);
-                fold_all.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                fold_all.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 fold_all.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 fold_allActionPerformed(evt);
@@ -1413,7 +1413,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 home_leave.setBorder(null);
                 home_leave.setBorderPainted(false);
                 home_leave.setContentAreaFilled(false);
-                home_leave.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                home_leave.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 home_leave.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 home_leaveActionPerformed(evt);
@@ -1603,7 +1603,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newMessage_send.setToolTipText("send !");
                 newMessage_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 newMessage_send.setContentAreaFilled(false);
-                newMessage_send.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newMessage_send.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newMessage_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newMessage_sendActionPerformed(evt);
@@ -1678,7 +1678,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 group_swap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/group-swap-icon.png"))); // NOI18N
                 group_swap.setText("swap");
                 group_swap.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
-                group_swap.setCursor(new java.awt.Cursor(java.awt.Cursor.E_RESIZE_CURSOR));
+                group_swap.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 group_swap.setOpaque(false);
                 group_swap.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1774,7 +1774,7 @@ public class InterfaceClient extends javax.swing.JFrame {
                 newTicket_send.setText("send");
                 newTicket_send.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 newTicket_send.setContentAreaFilled(false);
-                newTicket_send.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                newTicket_send.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 newTicket_send.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 newTicket_sendActionPerformed(evt);
