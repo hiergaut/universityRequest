@@ -26,11 +26,10 @@ public class InterfaceServer extends javax.swing.JFrame {
 	private CardLayout view;
 
 	private String tag = Function.color(this);
-        
-        private boolean clic_home_group_inputNewGroup = true;
+
+	private boolean clic_home_group_inputNewGroup = true;
 	private String actualSelectedGroup;
-        
-        
+
 	/**
 	 * Creates new form Interface
 	 */
@@ -299,7 +298,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_bdd.setText("    Database");
                 init_bdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_bdd.setContentAreaFilled(false);
-                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                init_bdd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 init_bdd.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setMinimumSize(new java.awt.Dimension(60, 20));
                 init_bdd.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -315,7 +314,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 init_server.setText("    Server    ");
                 init_server.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 init_server.setContentAreaFilled(false);
-                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                init_server.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 init_server.setEnabled(false);
                 init_server.setMaximumSize(new java.awt.Dimension(60, 20));
                 init_server.setMinimumSize(new java.awt.Dimension(60, 20));
@@ -363,7 +362,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_group.setText("    Groups    ");
                 service_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_group.setContentAreaFilled(false);
-                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_group.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_group.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_group.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -379,7 +378,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_user.setText("    Users      ");
                 service_user.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_user.setContentAreaFilled(false);
-                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_user.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_user.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_user.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_user.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -395,7 +394,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 service_statistic.setText("    Stats       ");
                 service_statistic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(151, 8, 39)));
                 service_statistic.setContentAreaFilled(false);
-                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                service_statistic.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 service_statistic.setMaximumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setMinimumSize(new java.awt.Dimension(60, 20));
                 service_statistic.setPreferredSize(new java.awt.Dimension(60, 20));
@@ -445,7 +444,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 about.setForeground(new java.awt.Color(188, 7, 46));
                 about.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 about.setText("<html><font style=\"background-color : white\">&nbsp;&nbsp;about the project ?&nbsp;&nbsp;</font></html>");
-                about.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                about.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 about.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 aboutMouseClicked(evt);
@@ -544,7 +543,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase.setText("remote database");
                 remoteDatabase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase.setContentAreaFilled(false);
-                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                remoteDatabase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 remoteDatabase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabaseActionPerformed(evt);
@@ -557,7 +556,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 remoteDatabase1.setText("local database");
                 remoteDatabase1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 remoteDatabase1.setContentAreaFilled(false);
-                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                remoteDatabase1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 remoteDatabase1.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 remoteDatabase1ActionPerformed(evt);
@@ -620,7 +619,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_connect.setText("connect");
                 bdd_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_connect.setContentAreaFilled(false);
-                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                bdd_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_connectActionPerformed(evt);
@@ -726,8 +725,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_show.setToolTipText("");
                 bdd_show.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_show.setContentAreaFilled(false);
-                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                bdd_show.setEnabled(false);
+                bdd_show.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_show.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_showActionPerformed(evt);
@@ -742,8 +740,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_clearBase.setToolTipText("");
                 bdd_clearBase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_clearBase.setContentAreaFilled(false);
-                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                bdd_clearBase.setEnabled(false);
+                bdd_clearBase.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_clearBase.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_clearBaseActionPerformed(evt);
@@ -758,8 +755,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_init.setToolTipText("");
                 bdd_init.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_init.setContentAreaFilled(false);
-                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                bdd_init.setEnabled(false);
+                bdd_init.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_init.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_initActionPerformed(evt);
@@ -772,8 +768,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 bdd_export.setText("   export database");
                 bdd_export.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 bdd_export.setContentAreaFilled(false);
-                bdd_export.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                bdd_export.setEnabled(false);
+                bdd_export.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 bdd_export.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 bdd_exportActionPerformed(evt);
@@ -786,8 +781,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 copyToClipboard.setText("   copy to clipboard");
                 copyToClipboard.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 copyToClipboard.setContentAreaFilled(false);
-                copyToClipboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                copyToClipboard.setEnabled(false);
+                copyToClipboard.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 copyToClipboard.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 copyToClipboardActionPerformed(evt);
@@ -800,8 +794,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 clear_console.setText("   clear console");
                 clear_console.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 clear_console.setContentAreaFilled(false);
-                clear_console.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-                clear_console.setEnabled(false);
+                clear_console.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 clear_console.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 clear_consoleActionPerformed(evt);
@@ -1000,7 +993,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 server_connect.setText("connect");
                 server_connect.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 server_connect.setContentAreaFilled(false);
-                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                server_connect.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 server_connect.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 server_connectActionPerformed(evt);
@@ -1191,7 +1184,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 add_group.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/check-ok.png"))); // NOI18N
                 add_group.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(188, 7, 46)));
                 add_group.setContentAreaFilled(false);
-                add_group.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                add_group.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 add_group.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 add_groupActionPerformed(evt);
@@ -1225,7 +1218,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 rm_group_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/group-remove-icon.png"))); // NOI18N
                 rm_group_btn.setToolTipText("remove group");
                 rm_group_btn.setBorder(null);
-                rm_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                rm_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 rm_group_btn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 rm_group_btnActionPerformed(evt);
@@ -1281,7 +1274,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 swap_group_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/swap-users.png"))); // NOI18N
                 swap_group_btn.setToolTipText("swap user");
                 swap_group_btn.setBorder(null);
-                swap_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                swap_group_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 swap_group_btn.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 swap_group_btnActionPerformed(evt);
@@ -1440,7 +1433,7 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jButton6.setForeground(new java.awt.Color(188, 7, 46));
                 jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user-remove-icon.png"))); // NOI18N
                 jButton6.setToolTipText("remove user selected");
-                jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 jButton6.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 jButton6ActionPerformed(evt);
@@ -1552,18 +1545,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbUsers.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbUsers.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsers.setText("123");
 
                 jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel7.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel7.setText("users registered");
 
                 statistic_nbUsers_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/user-stats.png"))); // NOI18N
                 statistic_nbUsers_icon.setToolTipText("click to refresh");
-                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbUsers_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbUsers_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsers_iconMouseClicked(evt);
@@ -1613,18 +1604,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
                 jLabel22.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel22.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel22.setText("users online");
 
                 statistic_nbUsersOnline.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbUsersOnline.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbUsersOnline.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbUsersOnline.setText("12");
 
                 statistic_nbUsersOnline_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/usersonline-stats.png"))); // NOI18N
                 statistic_nbUsersOnline_icon.setToolTipText("click to refresh");
-                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbUsersOnline_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbUsersOnline_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbUsersOnline_iconMouseClicked(evt);
@@ -1674,18 +1663,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel16.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_tickets.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_tickets.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_tickets.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_tickets.setText("63");
 
                 jLabel25.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel25.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel25.setText("tickets");
 
                 statistic_tickets_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/tickets-stats.png"))); // NOI18N
                 statistic_tickets_icon.setToolTipText("click to refresh");
-                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_tickets_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_tickets_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_tickets_iconMouseClicked(evt);
@@ -1735,18 +1722,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_nbGroups.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_nbGroups.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_nbGroups.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_nbGroups.setText("12");
 
                 jLabel21.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel21.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel21.setText("groups");
 
                 statistic_nbGroups_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/groups-stats.png"))); // NOI18N
                 statistic_nbGroups_icon.setToolTipText("click to refresh");
-                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_nbGroups_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_nbGroups_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_nbGroups_iconMouseClicked(evt);
@@ -1792,18 +1777,16 @@ public class InterfaceServer extends javax.swing.JFrame {
                 jPanel14.setBackground(new java.awt.Color(255, 255, 255));
 
                 statistic_uptime.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-                statistic_uptime.setForeground(new java.awt.Color(51, 51, 51));
                 statistic_uptime.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 statistic_uptime.setText("date");
 
                 jLabel23.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-                jLabel23.setForeground(new java.awt.Color(51, 51, 51));
                 jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
                 jLabel23.setText("uptime");
 
                 statistic_uptime_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/uptime-stats.png"))); // NOI18N
                 statistic_uptime_icon.setToolTipText("click to refresh");
-                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+                statistic_uptime_icon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
                 statistic_uptime_icon.addMouseListener(new java.awt.event.MouseAdapter() {
                         public void mouseClicked(java.awt.event.MouseEvent evt) {
                                 statistic_uptime_iconMouseClicked(evt);
@@ -2124,31 +2107,31 @@ public class InterfaceServer extends javax.swing.JFrame {
         }// </editor-fold>//GEN-END:initComponents
 
         private void service_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_groupActionPerformed
-                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 1, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 1, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
 		show("group");
 		majGroupTable();
-                clic_home_group_inputNewGroup=true;
-                home_group_inputNewGroup.setText("create new group..");
+		clic_home_group_inputNewGroup = true;
+		home_group_inputNewGroup.setText("create new group..");
         }//GEN-LAST:event_service_groupActionPerformed
 
         private void add_groupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_groupActionPerformed
 		bdd.addGroup(home_group_inputNewGroup.getText());
 		majGroupTable();
-                clic_home_group_inputNewGroup=true;
-                home_group_inputNewGroup.setText("create new group..");
+		clic_home_group_inputNewGroup = true;
+		home_group_inputNewGroup.setText("create new group..");
         }//GEN-LAST:event_add_groupActionPerformed
 
         private void init_bddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_bddActionPerformed
 		show("bdd");
-                init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_init_bddActionPerformed
 
         private void bdd_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_connectActionPerformed
@@ -2161,11 +2144,11 @@ public class InterfaceServer extends javax.swing.JFrame {
 
         private void init_serverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_init_serverActionPerformed
 		show("server");
-                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 1, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 1, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_init_serverActionPerformed
 
         private void server_connectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_connectActionPerformed
@@ -2219,14 +2202,13 @@ public class InterfaceServer extends javax.swing.JFrame {
 		String nameGroup;
 		if (home_view_group_table.getSelectedRow() != -1) {
 			nameGroup = (String) home_view_group_table.getValueAt(home_view_group_table.getSelectedRow(), 0);
+		} else {
+			nameGroup = actualSelectedGroup;
 		}
-		else {
-			nameGroup =actualSelectedGroup;
-		}
-		System.out.println("nameGroup =" +nameGroup);
+		System.out.println("nameGroup =" + nameGroup);
 		majUsersTable(nameGroup);
 
-		actualSelectedGroup =nameGroup;
+		actualSelectedGroup = nameGroup;
         }//GEN-LAST:event_home_view_group_tableMouseClicked
 
         private void rm_group_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rm_group_btnActionPerformed
@@ -2256,10 +2238,9 @@ public class InterfaceServer extends javax.swing.JFrame {
 		String group = getSelectedValueInTable(home_view_group_table);
 
 		if (group == "") {
-			group =actualSelectedGroup;
-		}
-		else {
-			actualSelectedGroup =group;
+			group = actualSelectedGroup;
+		} else {
+			actualSelectedGroup = group;
 		}
 
 		System.out.println("userInGroup(" + userInGroup + ") otherUsers(" + otherUsers + ") group(" + group + ")");
@@ -2267,7 +2248,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 		if (!userInGroup.equals("")) {
 			System.out.println("del " + userInGroup + " in " + group);
 			bdd.delUserInGroup(userInGroup, group);
-		} else if (! otherUsers.equals("")) {
+		} else if (!otherUsers.equals("")) {
 			System.out.println("add " + otherUsers + " in " + group);
 			bdd.addUserInGroup(otherUsers, group);
 		}
@@ -2277,18 +2258,17 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_swap_group_btnActionPerformed
 
         private void service_statisticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_statisticActionPerformed
-                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 1, 14));
-                
-                
+		init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 1, 14));
+
 		statistic_nbUsers.setText(bdd.getNbUsers());
 		statistic_nbGroups.setText(bdd.getNbGroups());
 		statistic_nbUsersOnline.setText(server.nbUserOnline());
 		RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
-		statistic_uptime.setText(rb.getUptime()/1000 + " sec");
+		statistic_uptime.setText(rb.getUptime() / 1000 + " sec");
 		statistic_tickets.setText(bdd.getNbTickets());
 		show("statistic");
         }//GEN-LAST:event_service_statisticActionPerformed
@@ -2296,30 +2276,30 @@ public class InterfaceServer extends javax.swing.JFrame {
         private void service_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_service_userActionPerformed
 		show("user");
 		user_majTable();
-                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 1, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 1, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_service_userActionPerformed
 
         private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-		int row =user_table.getSelectedRow();
+		int row = user_table.getSelectedRow();
 		if (row != -1) {
-			String login =(String)user_table.getValueAt(row, 0);
-			System.out.println("del " +login +" in table");
+			String login = (String) user_table.getValueAt(row, 0);
+			System.out.println("del " + login + " in table");
 			bdd.delUserInGroup(login);
 			user_majTable();
 		}
         }//GEN-LAST:event_jButton6ActionPerformed
 
         private void aboutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aboutMouseClicked
-                show("about");
-                init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_group.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_user.setFont(new java.awt.Font("Dialog", 0, 14));
-                service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
+		show("about");
+		init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+		init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_group.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_user.setFont(new java.awt.Font("Dialog", 0, 14));
+		service_statistic.setFont(new java.awt.Font("Dialog", 0, 14));
         }//GEN-LAST:event_aboutMouseClicked
 
         private void remoteDatabase1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remoteDatabase1ActionPerformed
@@ -2331,39 +2311,39 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_remoteDatabase1ActionPerformed
 
         private void bdd_ipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_ipActionPerformed
-                // TODO add your handling code here:
+		// TODO add your handling code here:
         }//GEN-LAST:event_bdd_ipActionPerformed
 
         private void home_group_inputNewGroupFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_home_group_inputNewGroupFocusGained
-                if(clic_home_group_inputNewGroup){
-                        home_group_inputNewGroup.setText("");
-                        clic_home_group_inputNewGroup=false;
-                }
+		if (clic_home_group_inputNewGroup) {
+			home_group_inputNewGroup.setText("");
+			clic_home_group_inputNewGroup = false;
+		}
         }//GEN-LAST:event_home_group_inputNewGroupFocusGained
 
         private void statistic_nbUsers_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statistic_nbUsers_iconMouseClicked
-                statistic_nbUsers.setText(bdd.getNbUsers());
+		statistic_nbUsers.setText(bdd.getNbUsers());
         }//GEN-LAST:event_statistic_nbUsers_iconMouseClicked
 
         private void statistic_nbUsersOnline_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statistic_nbUsersOnline_iconMouseClicked
-                statistic_nbUsersOnline.setText(server.getNbThreads().toString());
+		statistic_nbUsersOnline.setText(server.getNbThreads().toString());
         }//GEN-LAST:event_statistic_nbUsersOnline_iconMouseClicked
 
         private void statistic_nbGroups_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statistic_nbGroups_iconMouseClicked
-                statistic_nbGroups.setText(bdd.getNbGroups());
+		statistic_nbGroups.setText(bdd.getNbGroups());
         }//GEN-LAST:event_statistic_nbGroups_iconMouseClicked
 
         private void statistic_tickets_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statistic_tickets_iconMouseClicked
-                statistic_tickets.setText(bdd.getNbTickets());
+		statistic_tickets.setText(bdd.getNbTickets());
         }//GEN-LAST:event_statistic_tickets_iconMouseClicked
 
         private void statistic_uptime_iconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_statistic_uptime_iconMouseClicked
-                RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
-                statistic_uptime.setText(rb.getUptime()/1000 + " sec");
+		RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+		statistic_uptime.setText(rb.getUptime() / 1000 + " sec");
         }//GEN-LAST:event_statistic_uptime_iconMouseClicked
 
         private void copyToClipboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyToClipboardActionPerformed
-                String str = bdd_console2.getText();
+		String str = bdd_console2.getText();
 
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Clipboard clipboard = toolkit.getSystemClipboard();
@@ -2372,38 +2352,38 @@ public class InterfaceServer extends javax.swing.JFrame {
         }//GEN-LAST:event_copyToClipboardActionPerformed
 
         private void bdd_exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bdd_exportActionPerformed
-                bdd_console2.setText(bdd.export());
+		bdd_console2.setText(bdd.export());
         }//GEN-LAST:event_bdd_exportActionPerformed
 
         private void clear_consoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clear_consoleActionPerformed
-                bdd_console2.setText("");
+		bdd_console2.setText("");
         }//GEN-LAST:event_clear_consoleActionPerformed
 
         private void server_maxLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_server_maxLogActionPerformed
-                // TODO add your handling code here:
+		// TODO add your handling code here:
         }//GEN-LAST:event_server_maxLogActionPerformed
 
 	public void user_majSaveTable() {
 		String title[] = {"save"};
-		int len =user_table.getRowCount();
-		System.out.println("len =" +len);
-		Object[][] data =new String[len][1];
-		for (int i =0; i <len; i++) {
+		int len = user_table.getRowCount();
+		System.out.println("len =" + len);
+		Object[][] data = new String[len][1];
+		for (int i = 0; i < len; i++) {
 //			data[i][0] =new JButton("ok");
-			data[i][0] ="ok";
+			data[i][0] = "ok";
 		}
 		user_save = new JTable(data, title);
 
 		user_save.addMouseListener(new java.awt.event.MouseAdapter() {
 			public void mouseClicked(java.awt.event.MouseEvent evt) {
 				int line = user_save.getSelectedRow();
-				System.out.println("saveLine =" +line);
-				String[] userRow =new String[5];
+				System.out.println("saveLine =" + line);
+				String[] userRow = new String[5];
 
 				System.out.print("modify table ");
-				for (int i =0; i <5; i++) {
-					userRow[i] =(String)user_table.getValueAt(line, i);
-					System.out.print(userRow[i] +" ");
+				for (int i = 0; i < 5; i++) {
+					userRow[i] = (String) user_table.getValueAt(line, i);
+					System.out.print(userRow[i] + " ");
 					if (userRow[i].isEmpty()) {
 						user_table.setValueAt("not empty !", line, i);
 						return;
@@ -2411,15 +2391,15 @@ public class InterfaceServer extends javax.swing.JFrame {
 				}
 				System.out.println("");
 
-				if (line <user_save.getRowCount() -1)
+				if (line < user_save.getRowCount() - 1) {
 					bdd.changeUserRow(userRow);
-				else
+				} else {
 					bdd.newUser(userRow[0], userRow[1], userRow[2], userRow[3], userRow[4]);
+				}
 
 				user_majTable();
 			}
 		});
-
 
 		jScrollPane6.setViewportView(user_save);
 	}
@@ -2428,17 +2408,17 @@ public class InterfaceServer extends javax.swing.JFrame {
 		String title[] = {"login", "password", "firstname", "name", "status"};
 		String m[][] = bdd.usersTable();
 
-		String data[][] =new String[m.length +1][5];
-		for (int i =0; i <m.length +1; i++) {
-			for (int j =0; j <5; j++) {
-				if (i <m.length)
-					data[i][j] =m[i][j];
-				else
-					data[i][j] ="";
+		String data[][] = new String[m.length + 1][5];
+		for (int i = 0; i < m.length + 1; i++) {
+			for (int j = 0; j < 5; j++) {
+				if (i < m.length) {
+					data[i][j] = m[i][j];
+				} else {
+					data[i][j] = "";
+				}
 			}
 		}
 		user_table = new JTable(data, title);
-
 
 		jScrollPane5.setViewportView(user_table);
 
@@ -2511,8 +2491,8 @@ public class InterfaceServer extends javax.swing.JFrame {
 						server.waitClient();
 
 						init_server.setBackground(Color.green);
-                                                init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                                                init_server.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/server-menu-ok.png")));
+						init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+						init_server.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/server-menu-ok.png")));
 
 						show("welcome");
 
@@ -2520,19 +2500,19 @@ public class InterfaceServer extends javax.swing.JFrame {
 						Logger.getLogger(InterfaceServer.class.getName()).log(Level.SEVERE, null, ex);
 						init_server.setBackground(Color.red);
 						server_console.setText(ex.getMessage());
-                                                init_server.setFont(new java.awt.Font("Dialog", 1, 14));
-                                                
+						init_server.setFont(new java.awt.Font("Dialog", 1, 14));
+
 						show("server");
 					}
 
 				}
 			}.start();
 		} else {
-                        init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                        init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
-                        
-                        show("bdd");
-                        
+			init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+			init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
+
+			show("bdd");
+
 //                        bdd_console.setText("Before turning on the server, you must connect the database.");
 		}
 	}
@@ -2553,7 +2533,7 @@ public class InterfaceServer extends javax.swing.JFrame {
 					String passwd = bdd_password.getText();
 					//String sgbd = bdd_sgbd.getSelectedItem().toString();
 					//bdd = new Bdd("universityRequest", "127.0.0.1", "5432", "postgres", "postgres");
-                                        String sgbd = "mysql";
+					String sgbd = "mysql";
 
 					bdd = new Bdd(baseName, ip, port, user, passwd, sgbd, server);
 
@@ -2562,36 +2542,32 @@ public class InterfaceServer extends javax.swing.JFrame {
 					bdd.showTable(bdd_console2);
 
 					init_bdd.setBackground(Color.green);
-                                        
-                                        init_server.setEnabled(true);
-                                        
 
-                                        init_server.setFont(new java.awt.Font("Dialog", 1, 14));
-                                        init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
-                                        
-                                        init_bdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/database-menu-ok.png")));
-                                        bdd_show.setEnabled(true);
-                                        bdd_clearBase.setEnabled(true);
-                                        bdd_init.setEnabled(true);
-                                        bdd_export.setEnabled(true);
-                                        copyToClipboard.setEnabled(true);
-                                        clear_console.setEnabled(true);
-                                        show("server");
+					init_server.setEnabled(true);
 
+					init_server.setFont(new java.awt.Font("Dialog", 1, 14));
+					init_bdd.setFont(new java.awt.Font("Dialog", 0, 14));
+
+					init_bdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/database-menu-ok.png")));
+//                                        bdd_show.setEnabled(true);
+//                                        bdd_clearBase.setEnabled(true);
+//                                        bdd_init.setEnabled(true);
+//                                        bdd_export.setEnabled(true);
+//                                        copyToClipboard.setEnabled(true);
+//                                        clear_console.setEnabled(true);
+					show("server");
 
 				} catch (ClassNotFoundException | SQLException ex) {
 					Logger.getLogger(InterfaceServer.class.getName()).log(Level.SEVERE, null, ex);
 					init_bdd.setBackground(Color.red);
 					bdd_console.setText(ex.getMessage());
-                                        
-                                        
-                                        init_server.setFont(new java.awt.Font("Dialog", 0, 14));
-                                        init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));                                        
-                                        
-                                        show("bdd");
+
+					init_server.setFont(new java.awt.Font("Dialog", 0, 14));
+					init_bdd.setFont(new java.awt.Font("Dialog", 1, 14));
+
+					show("bdd");
 
 				}
-				
 
 			}
 		}.start();
