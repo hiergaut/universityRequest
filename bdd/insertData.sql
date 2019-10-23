@@ -11,8 +11,8 @@ insert into groups values ('slack');
 insert into users values ('gauthier', 'passwd', 'gauthier', 'bouyjou', 'student');
 insert into users values ('anonymous', 'passwd', 'anonymous', 'anonymous', 'student');
 insert into users values ('rastaman', 'passwd', 'Bob', 'Marley', 'student');
-insert into users values ('migeon', 'passwd', 'Migeon', 'Frederic', 'professor');
-insert into users values ('nadege', 'passwd', 'Nadege', 'Lamarque', 'service');
+insert into users values ('migeon', 'passwd', 'Migeon', 'Fre', 'professor');
+insert into users values ('nadege', 'passwd', 'Nadege', 'Lam', 'service');
 insert into users values ('maintenance', 'passwd', 'Blanc', 'Michel', 'service');
 insert into users values ('amine', 'passwd', 'Amine', 'Benz', 'student');
 
