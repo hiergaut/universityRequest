@@ -30,3 +30,7 @@ client
 java -jar InterfaceClient.jar
 ```
 ![client](client.png)
+
+
+### Demo with 2 clients
+[![](https://img.youtube.com/vi/IYOInxo0JOg/0.jpg)](https://youtu.be/IYOInxo0JOg "view on youtube")
